@@ -96,11 +96,14 @@ The decomposition uses z_obs as input, so this demonstrates **model consistency*
 ```bash
 streamlit run app.py --server.port 5000
 ```
-Features:
-- Target Explorer: Select calibrated targets, see decomposition
-- Custom Decomposer: Enter any z value for real-time analysis
-- CEERS Statistics: Interactive charts of 10,000 galaxy results
-- About: Methodology explanation with honest limitations
+
+#### Dashboard Pages:
+- **Home**: Landing page with layman-friendly explanation of TSM2.1 vs standard cosmology, v1.1 results, and navigation
+- **Target Explorer**: Select calibrated targets (Bullet Cluster, El Gordo, GN-z11, JADES-z14), see decomposition
+- **Custom Decomposer**: Enter any z value for real-time analysis
+- **Object Lookup**: Query SIMBAD for real astronomical objects
+- **CEERS Statistics**: Interactive charts of 10,000 galaxy results with explainers
+- **Ask Grok**: AI assistant (xAI) to explain TSM2.1 concepts
 
 ### Command Line
 ```bash
@@ -109,9 +112,17 @@ python statistical_analysis.py   # CEERS catalog analysis
 ```
 
 ## Recent Changes
+- 2025-12-05: **Phase 1 Dashboard Redesign** - Home page now landing page with layman-friendly content, v1.1 kill-shot results, navigation prompts, and balanced caveats
+- 2025-12-05: Moved Ask Grok to dedicated tab with sample questions
+- 2025-12-05: Added explainer boxes to Target Explorer and CEERS pages
 - 2025-12-04: Enhanced dashboard with Object Lookup (SIMBAD integration), Ask Grok AI assistant, plot assets gallery
 - 2025-12-04: Added Streamlit interactive dashboard (app.py)
 - 2025-11-30: Added CEERS statistical decomposition with sensitivity analysis
 - 2025-11-30: Created methodology limitations documentation
 - 2025-11-29: Calibrated all four targets (Bullet, El Gordo, GN-z11, JADES-z14)
 - 2025-11-29: Initial implementation of pipeline skeleton
+
+## User Preferences
+- Layman-friendly explanations throughout dashboard
+- Balanced caveats on predictive claims (acknowledge assumptions)
+- Avoid overclaiming; use "may not be needed" rather than "not needed"
