@@ -1,0 +1,62 @@
+======================================================================
+TSM2.1 MODEL DECOMPOSITION ANALYSIS - CEERS CATALOG
+======================================================================
+
+METHODOLOGY
+--------------------------------------------------
+This analysis demonstrates that observed redshifts can be
+decomposed into physically plausible TSM2.1 components:
+
+  z_obs = (1 + z_refrac)(1 + z_doppler) - 1
+
+Where:
+  - z_refrac = k_TSM × (N_HI_galactic + N_cosmic(z))
+  - z_doppler = sqrt((1+β)/(1-β)) - 1 (relativistic)
+  - k_TSM = 5.10e-23 cm²
+
+Given z_obs and galactic N_HI, we SOLVE FOR the required
+bulk velocity. This is NOT a prediction - it's a decomposition.
+
+SUMMARY STATISTICS
+--------------------------------------------------
+Total Galaxies Analyzed: 10,000
+Valid Decompositions: 10,000 (100.0%)
+Mean Reconstruction Error: 1.16e-16
+Mean β (v/c): 0.7261
+Max β (v/c): 0.8447
+Mean Bulk Velocity: 218 × 10³ km/s
+
+COMPONENT CONTRIBUTIONS
+--------------------------------------------------
+Mean Doppler Contribution: 84.0%
+Mean Refraction Contribution: 16.0%
+
+REDSHIFT BIN DECOMPOSITION
+--------------------------------------------------
+z =   0-1: n=  939, β=0.438, v=131k km/s, Doppler=88%, Refrac=12%
+z =   1-2: n= 2483, β=0.649, v=194k km/s, Doppler=89%, Refrac=11%
+z =   2-4: n= 4593, β=0.779, v=234k km/s, Doppler=85%, Refrac=15%
+z =   4-6: n= 1692, β=0.836, v=251k km/s, Doppler=77%, Refrac=23%
+z =   6-8: n=  260, β=0.844, v=253k km/s, Doppler=66%, Refrac=34%
+z =  8-10: n=   33, β=0.834, v=250k km/s, Doppler=55%, Refrac=45%
+
+======================================================================
+PHYSICAL INTERPRETATION
+======================================================================
+The TSM2.1 model proposes that observed cosmological redshifts
+arise from two distinct physical mechanisms:
+
+1. REFRACTIVE SCATTERING (z_refrac)
+   - Galactic HI screen: from HI4PI survey data
+   - Cosmic HI baseline: scales as (1+z)^1.9
+   - Photons scattered by neutral hydrogen undergo
+     frequency shifts proportional to N_HI × k_TSM
+
+2. RELATIVISTIC DOPPLER (z_doppler)
+   - Bulk recession velocity of matter
+   - Follows relativistic formula
+   - β increases with z, approaching ~0.85 at z~10
+
+The decomposition shows both components contribute
+significantly, with Doppler dominating at higher z.
+======================================================================

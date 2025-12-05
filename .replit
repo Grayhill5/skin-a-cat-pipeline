@@ -1,0 +1,48 @@
+entrypoint = "main.py"
+modules = ["python-3.11"]
+
+[nix]
+channel = "stable-24_05"
+packages = ["bazel", "cairo", "curl", "double-conversion", "ffmpeg-full", "freetype", "ghostscript", "giflib", "gitFull", "glibcLocales", "gobject-introspection", "grpc", "gtk3", "jsoncpp", "libjpeg_turbo", "libxcrypt", "nsync", "openssl", "pkg-config", "qhull", "snappy", "tcl", "tk", "which", "xsimd", "zlib"]
+
+[unitTest]
+language = "python3"
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix"]
+
+[deployment]
+run = ["python3", "main.py"]
+deploymentTarget = "cloudrun"
+
+[agent]
+expertMode = true
+integrations = ["python_xai:1.0.0"]
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "TSM2.1 Dashboard"
+
+[[workflows.workflow]]
+name = "TSM2.1 Dashboard"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "streamlit run app.py --server.port 5000 --server.address 0.0.0.0 --server.headless true"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[ports]]
+localPort = 5000
+externalPort = 80

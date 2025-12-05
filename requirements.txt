@@ -1,0 +1,11 @@
+astropy
+astroquery
+healpy
+numpy
+pandas
+scipy
+matplotlib
+requests
+streamlit
+plotly
+openai

@@ -1,0 +1,75 @@
+TITLE: SKIN-a-CAT: A Refractive-Kinematic Model for Cosmological Redshifts Without Expansion
+
+AUTHORS: [Author Names]
+
+ABSTRACT:
+
+We present SKIN-a-CAT (Static Kinematic INterpretation - a Cosmological 
+Alternative Theory), an open-source pipeline demonstrating that observed 
+cosmological redshifts across z=0-14 can be decomposed into refractive 
+scattering in neutral hydrogen and relativistic bulk velocities within 
+static Euclidean space.
+
+The TSM2.1 model posits z_obs = (1 + z_refrac)(1 + z_doppler) - 1, where
+z_refrac arises from photon-HI interactions (k = 5.1e-23 cm²) and z_doppler 
+from subluminal recession. We calibrate against four benchmark targets:
+Bullet Cluster (z=0.296, 99% match), El Gordo (z=0.870, 100%), GN-z11 
+(z=10.6, 99.5%), and JADES-GS-z14-0 (z=14.18, 99.9%).
+
+Statistical analysis of 10,000 CEERS catalog galaxies yields 100% valid 
+decompositions with mean β=0.73c, R²=0.999, and systematic Doppler/refraction 
+contributions of 84%/16%. Sensitivity analysis across N_cosmic scaling 
+exponents (1.5-2.5) demonstrates model parameter space constraints.
+
+IMPORTANT LIMITATION: This analysis demonstrates model consistency by 
+decomposing observed redshifts, not predictive validation. The methodology 
+uses z_obs as input, establishing that valid decompositions exist for any
+reasonable HI scaling assumption. Independent velocity measurements and 
+HI tomography are required for falsification tests.
+
+The pipeline requires no cosmic expansion, dark energy, or dark matter 
+parameters. All velocities remain subluminal; no singularities arise.
+We release full source code for reproducibility.
+
+CODE: https://github.com/[user]/skin-a-cat-tsm2.1-v1.0
+
+KEYWORDS: cosmology, redshift, alternative models, neutral hydrogen, 
+          Doppler effect, static universe
+
+PACS: 98.80.-k, 95.30.Dr, 98.62.Py
+
+================================================================================
+
+SUGGESTED SECTIONS FOR FULL PAPER:
+
+1. Introduction
+   - Standard cosmology overview
+   - Motivation for alternative models
+   - TSM2.1 hypothesis statement
+
+2. Theoretical Framework
+   - Refractive scattering in HI
+   - Relativistic Doppler formulation
+   - Combined redshift decomposition
+
+3. Data and Methods
+   - HI4PI survey integration
+   - CEERS SAM catalog
+   - Calibration targets
+
+4. Results
+   - Individual target matches
+   - Statistical decomposition
+   - Sensitivity analysis
+
+5. Discussion
+   - Model consistency vs. validation
+   - Required independent tests
+   - Comparison with ΛCDM predictions
+
+6. Conclusions
+   - Summary of findings
+   - Limitations acknowledged
+   - Future work roadmap
+
+================================================================================

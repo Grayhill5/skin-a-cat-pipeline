@@ -1,0 +1,44 @@
+======================================================================
+TSM2.1 METHODOLOGY NOTE - LIMITATIONS AND SCOPE
+======================================================================
+
+WHAT THIS ANALYSIS DOES:
+------------------------
+1. Demonstrates that the TSM2.1 decomposition EXISTS for all galaxies
+2. Shows the required β values are subluminal (< c)
+3. Maps the parameter space as a function of assumed N_cosmic scaling
+
+WHAT THIS ANALYSIS CANNOT DO:
+-----------------------------
+1. Validate or falsify the TSM2.1 model independently
+2. Distinguish between different N_cosmic scalings
+3. Predict redshifts from independent observables
+
+THE FUNDAMENTAL LIMITATION:
+---------------------------
+The decomposition uses z_obs as input to derive parameters. This is
+inherently circular - we're solving for what bulk velocity would be
+REQUIRED to explain z_obs, not testing if the model PREDICTS z_obs.
+
+To properly test TSM2.1 would require:
+- Independent velocity measurements (spectroscopy, peculiar velocities)
+- HI tomography to measure actual cosmic N_HI along each sightline
+- Environmental metrics that correlate with bulk flow velocities
+
+HONEST INTERPRETATION:
+---------------------
+The analysis shows that TSM2.1 provides a MATHEMATICALLY CONSISTENT
+framework - any observed redshift CAN be decomposed into refraction +
+Doppler components with physically plausible parameters.
+
+This is NECESSARY but NOT SUFFICIENT to validate the model.
+It demonstrates internal consistency, not external validity.
+
+FUTURE WORK NEEDED:
+-------------------
+1. Independent velocity constraints from large-scale structure surveys
+2. HI absorption measurements along high-z sightlines
+3. Cross-correlation with peculiar velocity catalogs
+4. Comparison with standard cosmological predictions
+
+======================================================================

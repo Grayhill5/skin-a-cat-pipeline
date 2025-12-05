@@ -1,0 +1,39 @@
+============================================================
+TSM2.1 Model Validation Report - CEERS Catalog
+============================================================
+
+SUMMARY STATISTICS
+----------------------------------------
+Total Galaxies Analyzed: 10,000
+R² Score: 0.999172
+Pearson r: 0.999587
+RMS Residual: 0.042798
+σ_NMAD: 0.045147
+Outlier Fraction: 0.2700%
+Reduced χ²: 0.3304
+
+LINEAR FIT
+----------------------------------------
+z_pred = 0.997823 * z_obs + 0.006170
+(Ideal: slope=1.0, intercept=0.0)
+
+MATCH QUALITY
+----------------------------------------
+Mean Match: 97.76%
+Median Match: 98.93%
+
+REDSHIFT BIN STATISTICS
+----------------------------------------
+z =   0-1: n=  939, mean_res=-0.0599 ± 0.0537, match=87.1%
+z =   1-2: n= 2483, mean_res=+0.0329 ± 0.0113, match=97.9%
+z =   2-4: n= 4593, mean_res=-0.0140 ± 0.0233, match=99.2%
+z =   4-6: n= 1692, mean_res=+0.0209 ± 0.0296, match=99.4%
+z =   6-8: n=  260, mean_res=+0.0423 ± 0.0368, match=99.2%
+z =  8-10: n=   33, mean_res=-0.2646 ± 0.1213, match=97.0%
+
+============================================================
+TSM2.1 Model: z_total = (1 + z_refrac)(1 + z_doppler) - 1
+  z_refrac = k_TSM × (N_HI_galactic + N_cosmic(z))
+  z_doppler = sqrt((1+β)/(1-β)) - 1
+  k_TSM = 5.1e-23 cm²
+============================================================
