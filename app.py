@@ -208,28 +208,74 @@ def ask_grok_about_tsm(question, context=None):
     if not client:
         return "X.ai API key not configured. Add Thwaites_TSM_2_1 to secrets to enable Grok assistance."
     
-    system_prompt = """You are an expert astrophysicist explaining the TSM2.1 (Thwaites Standard Model) redshift decomposition model.
+    system_prompt = """You are an expert astrophysicist explaining the TSM2.1 (Thwaites Standard Model) redshift decomposition model developed by Ian Thwaites.
 
-TSM2.1 proposes that observed cosmological redshifts can be decomposed into two physical components:
+## CORE FRAMEWORK
+
+TSM2.1 proposes that observed cosmological redshifts can be decomposed into two physical components in a static Euclidean universe:
 - z_refrac: Refractive scattering in neutral hydrogen (HI) along the line of sight
 - z_doppler: Relativistic Doppler effect from bulk recession velocity
 
 The key equation is: z_obs = (1 + z_refrac)(1 + z_doppler) - 1
 
-Where:
-- z_refrac = k_TSM × (N_HI_galactic + N_cosmic), with k_TSM = 5.1×10⁻²³ cm²
-- z_doppler = sqrt((1+β)/(1-β)) - 1, where β = v/c
+## LOCKED CALIBRATION PARAMETERS (do not change these)
+- k_TSM = 5.1×10⁻²³ cm² (universal scattering coefficient)
+- CST_PERIOD = 290 Gyr (cosmic scattering time)
+- N_COSMIC_BASELINE = 2.5×10²⁰ cm⁻² (cosmic HI column at high-z)
+- COSMIC_EXPONENT = 2.3 (scaling factor)
 
-The model has been validated with a PREDICTIVE (non-circular) test on 100 high-z galaxies achieving R²=0.994.
-This means the model can PREDICT redshifts from physical parameters, not just decompose them after the fact.
+## FORMULAS
+- z_refrac = k_TSM × (N_HI_galactic + N_cosmic(z))
+- z_doppler = sqrt((1+β)/(1-β)) - 1, where β = v/c (relativistic)
+- N_cosmic(z) = N_COSMIC_BASELINE × (z / 10)^COSMIC_EXPONENT for z > 1
 
-Calibrated targets:
-- Bullet Cluster (z=0.296, 99% match)
-- El Gordo (z=0.870, 100% match)
-- GN-z11 (z=10.6, 99.5% match)
-- JADES-GS-z14-0 (z=14.18, 99.9% match)
+## VALIDATED CALIBRATION TARGETS (99-100% match)
+| Target | z_obs | β (bulk velocity) | Match |
+|--------|-------|-------------------|-------|
+| Bullet Cluster | 0.296 | 0.26c | 99% |
+| El Gordo | 0.870 | 0.55c | 100% |
+| GN-z11 | 10.6 | 0.84c | 99.5% |
+| JADES-GS-z14-0 | 14.18 | 0.87c | 99.9% |
 
-Be concise, scientifically accurate, and explain concepts clearly for researchers and laypeople alike."""
+## PREDICTIVE TEST RESULTS (R² = 0.994)
+The model was validated with a NON-CIRCULAR predictive test:
+1. Calibrated k_TSM on 4 targets ONLY
+2. Applied fixed parameters to 100 NEW high-z galaxies (z=8-14)
+3. Predicted z_obs from physical parameters (HI column, velocity)
+4. Achieved R² = 0.994 correlation with actual observations
+This proves the model can PREDICT redshifts, not just decompose them after the fact.
+
+## CEERS CATALOG ANALYSIS (10,000 galaxies)
+- 100% valid decompositions (all yield subluminal β < 1)
+- Mean β = 0.73c across all redshift bins
+- Doppler contribution: 84% average
+- Refraction contribution: 16% average
+- Higher-z galaxies show more refraction (longer HI path length)
+
+## HOW TSM2.1 DIFFERS FROM STANDARD COSMOLOGY
+| Aspect | Standard Model (ΛCDM) | TSM2.1 |
+|--------|----------------------|--------|
+| Space | Expanding metric | Static Euclidean |
+| Redshift cause | Metric expansion | HI refraction + Doppler |
+| Dark energy | Required (68%) | Not needed |
+| Dark matter | Required | Under investigation |
+| Galaxy velocities | Recessional only | Bulk motion β < c |
+| CMB | Relic radiation | Alternative TBD |
+
+## KEY PHYSICS
+- Neutral hydrogen (HI) fills intergalactic space at ~1 atom per cm³
+- Photons scatter through coherent forward scattering in HI
+- This "tired light" effect is wavelength-dependent, producing redshift
+- Galactic HI measured via HI4PI survey (21cm emission)
+- Cosmic HI increases with distance (more atoms in path)
+
+## IMPORTANT CAVEATS (be honest about these)
+- TSM2.1 is calibrated, not independently derived from first principles
+- The N_cosmic scaling assumes HI density increases with redshift
+- CMB and nucleosynthesis require alternative explanations
+- Peer review and independent validation are still needed
+
+Be concise, scientifically accurate, and explain concepts clearly for researchers and laypeople alike. If asked about limitations, be honest. If asked about predictions or implications, be thoughtful but not overclaiming."""
     
     user_message = question
     if context:
@@ -1011,10 +1057,9 @@ with tab5:
     if "grok_history" not in st.session_state:
         st.session_state.grok_history = []
     
-    if "selected_question" not in st.session_state:
-        st.session_state.selected_question = ""
+    if "pending_question" not in st.session_state:
+        st.session_state.pending_question = None
     
-    st.markdown("#### Try a sample question:")
     sample_questions = [
         "Why does refraction increase at high redshift?",
         "How is TSM2.1 different from Big Bang cosmology?",
@@ -1024,17 +1069,18 @@ with tab5:
         "Could TSM2.1 be wrong? What would disprove it?"
     ]
     
+    st.markdown("#### Quick Questions:")
     sample_cols = st.columns(3)
     for i, q in enumerate(sample_questions[:3]):
         with sample_cols[i]:
             if st.button(q, key=f"sample_{i}", use_container_width=True):
-                st.session_state.selected_question = q
+                st.session_state.pending_question = q
     
     sample_cols2 = st.columns(3)
     for i, q in enumerate(sample_questions[3:]):
         with sample_cols2[i]:
             if st.button(q, key=f"sample_{i+3}", use_container_width=True):
-                st.session_state.selected_question = q
+                st.session_state.pending_question = q
     
     st.markdown("---")
     
@@ -1054,21 +1100,54 @@ with tab5:
     
     st.markdown("---")
     
-    col_input, col_btn = st.columns([4, 1])
+    st.markdown("""
+    <style>
+    .fixed-bottom-bar {
+        position: sticky;
+        bottom: 0;
+        background: linear-gradient(180deg, transparent 0%, #0e1117 20%);
+        padding: 1rem 0;
+        margin-top: 1rem;
+    }
+    </style>
+    """, unsafe_allow_html=True)
     
-    with col_input:
-        grok_question = st.text_input(
-            "Your question:",
-            value=st.session_state.selected_question,
-            placeholder="Ask anything about TSM2.1, cosmology, or the results...",
-            key="grok_input",
-            label_visibility="collapsed"
-        )
+    with st.container():
+        st.markdown('<div class="fixed-bottom-bar">', unsafe_allow_html=True)
+        
+        with st.form(key="grok_form", clear_on_submit=True):
+            col_input, col_btn = st.columns([4, 1])
+            
+            with col_input:
+                grok_question = st.text_input(
+                    "Your question:",
+                    placeholder="Ask anything about TSM2.1, cosmology, or the results...",
+                    key="grok_input",
+                    label_visibility="collapsed"
+                )
+            
+            with col_btn:
+                ask_button = st.form_submit_button("Ask Grok", type="primary", use_container_width=True)
+        
+        st.markdown('</div>', unsafe_allow_html=True)
     
-    with col_btn:
-        ask_button = st.button("Ask Grok", type="primary", use_container_width=True)
+    if st.session_state.pending_question:
+        question_to_ask = st.session_state.pending_question
+        st.session_state.pending_question = None
+        
+        if not os.environ.get("Thwaites_TSM_2_1"):
+            st.error("Grok is not available. API key not configured.")
+        else:
+            with st.spinner("Grok is thinking..."):
+                answer = ask_grok_about_tsm(question_to_ask)
+            
+            st.session_state.grok_history.append({
+                "question": question_to_ask,
+                "answer": answer
+            })
+            st.rerun()
     
-    if ask_button:
+    elif ask_button:
         if grok_question.strip():
             if not os.environ.get("Thwaites_TSM_2_1"):
                 st.error("Grok is not available. API key not configured.")
@@ -1080,7 +1159,6 @@ with tab5:
                     "question": grok_question,
                     "answer": answer
                 })
-                st.session_state.selected_question = ""
                 st.rerun()
         else:
             st.warning("Please enter a question.")
