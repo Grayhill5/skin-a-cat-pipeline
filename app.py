@@ -1098,39 +1098,6 @@ with tab5:
             st.session_state.grok_history = []
             st.rerun()
     
-    st.markdown("---")
-    
-    st.markdown("""
-    <style>
-    .fixed-bottom-bar {
-        position: sticky;
-        bottom: 0;
-        background: linear-gradient(180deg, transparent 0%, #0e1117 20%);
-        padding: 1rem 0;
-        margin-top: 1rem;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-    
-    with st.container():
-        st.markdown('<div class="fixed-bottom-bar">', unsafe_allow_html=True)
-        
-        with st.form(key="grok_form", clear_on_submit=True):
-            col_input, col_btn = st.columns([4, 1])
-            
-            with col_input:
-                grok_question = st.text_input(
-                    "Your question:",
-                    placeholder="Ask anything about TSM2.1, cosmology, or the results...",
-                    key="grok_input",
-                    label_visibility="collapsed"
-                )
-            
-            with col_btn:
-                ask_button = st.form_submit_button("Ask Grok", type="primary", use_container_width=True)
-        
-        st.markdown('</div>', unsafe_allow_html=True)
-    
     if st.session_state.pending_question:
         question_to_ask = st.session_state.pending_question
         st.session_state.pending_question = None
@@ -1147,21 +1114,20 @@ with tab5:
             })
             st.rerun()
     
-    elif ask_button:
-        if grok_question.strip():
-            if not os.environ.get("Thwaites_TSM_2_1"):
-                st.error("Grok is not available. API key not configured.")
-            else:
-                with st.spinner("Grok is thinking..."):
-                    answer = ask_grok_about_tsm(grok_question)
-                
-                st.session_state.grok_history.append({
-                    "question": grok_question,
-                    "answer": answer
-                })
-                st.rerun()
+    grok_question = st.chat_input("Ask anything about TSM2.1, cosmology, or the results...")
+    
+    if grok_question:
+        if not os.environ.get("Thwaites_TSM_2_1"):
+            st.error("Grok is not available. API key not configured.")
         else:
-            st.warning("Please enter a question.")
+            with st.spinner("Grok is thinking..."):
+                answer = ask_grok_about_tsm(grok_question)
+            
+            st.session_state.grok_history.append({
+                "question": grok_question,
+                "answer": answer
+            })
+            st.rerun()
     
     st.markdown("""
     <p style="text-align: center; color: #666; font-size: 0.8rem; margin-top: 2rem;">
