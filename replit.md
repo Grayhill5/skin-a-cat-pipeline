@@ -112,6 +112,7 @@ python statistical_analysis.py   # CEERS catalog analysis
 ```
 
 ## Recent Changes
+- 2025-12-05: **Phase 2 Ask Grok Enhancement** - Cosmic background styling, chat-style interface with conversation history, 6 sample questions, XSS-protected rendering using st.text()/st.write()
 - 2025-12-05: **Phase 1 Dashboard Redesign** - Home page now landing page with layman-friendly content, v1.1 kill-shot results, navigation prompts, and balanced caveats
 - 2025-12-05: Moved Ask Grok to dedicated tab with sample questions
 - 2025-12-05: Added explainer boxes to Target Explorer and CEERS pages
