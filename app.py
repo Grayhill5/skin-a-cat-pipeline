@@ -381,6 +381,28 @@ st.markdown("""
         margin: 1rem 0;
         border-radius: 0 8px 8px 0;
     }
+    .grok-container {
+        background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+        border-radius: 16px;
+        padding: 2rem;
+        margin-bottom: 1rem;
+    }
+    .grok-header {
+        text-align: center;
+        color: #fff;
+    }
+    .grok-header h2 {
+        font-size: 1.8rem;
+        margin: 0;
+        background: linear-gradient(90deg, #00d4ff, #7b2cbf, #ff6b6b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .grok-header p {
+        color: #a0a0c0;
+        margin-top: 0.5rem;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -977,51 +999,97 @@ with tab4:
     """)
 
 with tab5:
-    st.subheader("Ask Grok About TSM2.1")
-    
     st.markdown("""
-    <div class="explainer-box">
-    <strong>What is this?</strong> Grok is an AI assistant (powered by xAI) that has been trained to understand TSM2.1. 
-    Ask it anything about the model, cosmology, or what the results mean. It can explain complex concepts in simple terms.
+    <div class="grok-container">
+        <div class="grok-header">
+            <h2>Ask Grok About TSM2.1</h2>
+            <p>Your AI guide to understanding redshift decomposition and static cosmology</p>
+        </div>
     </div>
     """, unsafe_allow_html=True)
     
-    st.markdown("### Sample Questions")
-    sample_cols = st.columns(3)
+    if "grok_history" not in st.session_state:
+        st.session_state.grok_history = []
     
+    if "selected_question" not in st.session_state:
+        st.session_state.selected_question = ""
+    
+    st.markdown("#### Try a sample question:")
     sample_questions = [
         "Why does refraction increase at high redshift?",
         "How is TSM2.1 different from Big Bang cosmology?",
-        "What does β = 0.84c mean in plain English?"
+        "What does β = 0.84c mean in plain English?",
+        "Explain the R² = 0.994 result to a non-scientist",
+        "What is neutral hydrogen and why does it matter?",
+        "Could TSM2.1 be wrong? What would disprove it?"
     ]
     
-    selected_sample = None
-    for i, q in enumerate(sample_questions):
+    sample_cols = st.columns(3)
+    for i, q in enumerate(sample_questions[:3]):
         with sample_cols[i]:
             if st.button(q, key=f"sample_{i}", use_container_width=True):
-                selected_sample = q
+                st.session_state.selected_question = q
+    
+    sample_cols2 = st.columns(3)
+    for i, q in enumerate(sample_questions[3:]):
+        with sample_cols2[i]:
+            if st.button(q, key=f"sample_{i+3}", use_container_width=True):
+                st.session_state.selected_question = q
     
     st.markdown("---")
     
-    grok_question = st.text_area(
-        "Your Question:",
-        value=selected_sample if selected_sample else "",
-        placeholder="e.g., Why does refraction increase at high z?",
-        height=100,
-        key="grok_question_main"
-    )
+    if st.session_state.grok_history:
+        st.markdown("#### Conversation")
+        for entry in st.session_state.grok_history[-5:]:
+            with st.container():
+                st.markdown("**You:**")
+                st.text(entry['question'])
+            with st.container():
+                st.markdown("**Grok:**")
+                st.write(entry['answer'])
+        
+        if st.button("Clear conversation", key="clear_history"):
+            st.session_state.grok_history = []
+            st.rerun()
     
-    if st.button("Ask Grok", type="primary", use_container_width=True):
+    st.markdown("---")
+    
+    col_input, col_btn = st.columns([4, 1])
+    
+    with col_input:
+        grok_question = st.text_input(
+            "Your question:",
+            value=st.session_state.selected_question,
+            placeholder="Ask anything about TSM2.1, cosmology, or the results...",
+            key="grok_input",
+            label_visibility="collapsed"
+        )
+    
+    with col_btn:
+        ask_button = st.button("Ask Grok", type="primary", use_container_width=True)
+    
+    if ask_button:
         if grok_question.strip():
-            with st.spinner("Grok is thinking..."):
-                answer = ask_grok_about_tsm(grok_question)
-            st.markdown("### Grok's Response:")
-            st.markdown(answer)
+            if not os.environ.get("Thwaites_TSM_2_1"):
+                st.error("Grok is not available. API key not configured.")
+            else:
+                with st.spinner("Grok is thinking..."):
+                    answer = ask_grok_about_tsm(grok_question)
+                
+                st.session_state.grok_history.append({
+                    "question": grok_question,
+                    "answer": answer
+                })
+                st.session_state.selected_question = ""
+                st.rerun()
         else:
             st.warning("Please enter a question.")
     
-    if not os.environ.get("Thwaites_TSM_2_1"):
-        st.warning("Grok is not available. API key not configured.")
+    st.markdown("""
+    <p style="text-align: center; color: #666; font-size: 0.8rem; margin-top: 2rem;">
+    Powered by xAI Grok | Responses are AI-generated and should be verified
+    </p>
+    """, unsafe_allow_html=True)
 
 with st.sidebar:
     st.markdown("**Quick Stats:**")
