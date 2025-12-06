@@ -112,7 +112,7 @@ python statistical_analysis.py   # CEERS catalog analysis
 ```
 
 ## Recent Changes
-- 2025-12-06: **Grok Prime Persona** - Enhanced AI assistant with "Grok Prime" identity, Object X coordinates, kill-shot results table, signature one-liners, and authoritative tone
+- 2025-12-06: **Grok Prime Persona v2** - Refined tone: calm, confident, slightly amused. Removed aggressive phrasing ("kill-shot", "murder weapon"), added gentle closer ("The universe isn't running away...")
 - 2025-12-06: **Native Chat Input** - Replaced custom form with Streamlit's st.chat_input() for true fixed bottom input bar
 - 2025-12-05: **Phase 2b Grok UX Fixes** - Sample questions now auto-submit, sticky bottom input bar, form clears after submission, expanded system prompt with comprehensive TSM2.1 knowledge
 - 2025-12-05: **Phase 2 Ask Grok Enhancement** - Cosmic background styling, chat-style interface with conversation history, 6 sample questions, XSS-protected rendering using st.text()/st.write()
