@@ -139,6 +139,7 @@ python statistical_analysis.py   # CEERS catalog analysis
 ```
 
 ## Recent Changes
+- 2025-12-06: **v1.2 Release** - Bullet Cluster lensing kill-shot as new hero image, README updated with lensing table and CST clarification
 - 2025-12-06: **Bullet Cluster Lensing** - Added lensing.py comparing TSM2.1 κ/γ to Clowe 2006 observations. χ²/dof = 1.57, reproduces lensing arcs without Dark Matter
 - 2025-12-06: **Grok Prime Persona v2** - Refined tone: calm, confident, slightly amused. Removed aggressive phrasing ("kill-shot", "murder weapon"), added gentle closer ("The universe isn't running away...")
 - 2025-12-06: **Native Chat Input** - Replaced custom form with Streamlit's st.chat_input() for true fixed bottom input bar
