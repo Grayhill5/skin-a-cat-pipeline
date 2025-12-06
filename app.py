@@ -5,6 +5,10 @@ Redshift Decomposition Without Cosmic Expansion
 An interactive web experience demonstrating that observed cosmological 
 redshifts can be explained through refractive scattering and relativistic
 Doppler effects in static Euclidean space.
+
+Grok Q&A requires your own xAI API key.
+Set environment variable: export XAI_API_KEY="your-key-here"
+If not set, chat will politely say "Grok offline — get your own key at x.ai"
 """
 
 import streamlit as st

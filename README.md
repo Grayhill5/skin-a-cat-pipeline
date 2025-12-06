@@ -114,6 +114,7 @@ Where:
 
 ```bash
 # Interactive Dashboard (recommended)
+pip install -r requirements.txt
 streamlit run app.py --server.port 5000
 
 # Command-line analysis
@@ -121,6 +122,8 @@ python main.py                    # Individual targets
 python statistical_analysis.py   # CEERS catalog
 python predictive_test.py        # Non-circular validation
 ```
+
+**Note:** The live Grok Q&A feature requires your own xAI API key (set as `XAI_API_KEY` environment variable). Without it the dashboard still works perfectly for plots, tables, and all pipeline functions — only the chat box is disabled.
 
 ---
 
