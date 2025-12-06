@@ -809,7 +809,14 @@ with tab2:
 
 with tab3:
     st.subheader("Object Lookup")
-    st.markdown("Query the SIMBAD astronomical database and apply TSM2.1 decomposition to real observed redshifts.")
+    
+    st.markdown("""
+    <div class="explainer-box">
+    <strong>What this tool does:</strong> Enter any real astronomical object and we'll fetch its observed redshift from 
+    the SIMBAD database (maintained by astronomers worldwide), then apply TSM2.1 decomposition in real-time. 
+    This lets you test the model against any galaxy, quasar, or distant object you're curious about.
+    </div>
+    """, unsafe_allow_html=True)
     
     lookup_col1, lookup_col2 = st.columns([1, 2])
     
@@ -911,6 +918,30 @@ with tab3:
                         st.warning("Required velocity approaches c")
                     else:
                         st.success(f"Valid TSM2.1 decomposition: subluminal bulk velocity ({result['beta']:.4f}c)")
+                    
+                    if z_obs >= 0.05:
+                        with st.expander("Understanding these results"):
+                            st.markdown(f"""
+                            **What TSM2.1 found for {simbad_result['name']}:**
+                            
+                            The observed redshift (z = {z_obs:.4f}) has been decomposed into two components:
+                            
+                            | Component | Contribution | What it means |
+                            |-----------|--------------|---------------|
+                            | **Doppler (motion)** | {result['doppler_pct']:.1f}% | The galaxy is moving at {result['beta']:.3f}c ({result['beta']*C_KM_S:,.0f} km/s) |
+                            | **Refraction (scattering)** | {result['refrac_pct']:.1f}% | Light scattered through {result['n_cosmic']:.2e} cm⁻² of hydrogen |
+                            
+                            **The velocity gauge** shows how fast the galaxy needs to move to explain its redshift 
+                            after accounting for hydrogen scattering. Anything below 1.0 (100%) means subluminal — 
+                            the galaxy is moving slower than light.
+                            
+                            **The component bar** shows the split between Doppler (blue) and refraction (red). 
+                            For this object, {result['doppler_pct']:.0f}% of the redshift comes from actual motion 
+                            and {result['refrac_pct']:.0f}% comes from light interacting with intergalactic hydrogen.
+                            
+                            **Model match: {result['match_pct']:.2f}%** — This shows how well TSM2.1 reconstructs the 
+                            observed redshift. Values near 100% indicate the model successfully explains the observation.
+                            """)
                 else:
                     st.warning("No redshift data available for this object in SIMBAD. Try a different galaxy or quasar with known redshift.")
                     if simbad_result.get('velocity_km_s'):
@@ -935,6 +966,33 @@ with tab3:
             | PKS 2155-304 | BL Lac | 0.116 | Excellent |
             | Messier 87 | Giant Elliptical | 0.004 | Too nearby |
             """)
+            
+            with st.expander("Learn about these objects"):
+                st.markdown("""
+                **3C 273** — The first quasar ever identified (1963). Located 2.4 billion light-years away in Virgo, 
+                it's bright enough to see with an amateur telescope despite its distance. Its z=0.158 makes it 
+                ideal for TSM2.1: far enough for cosmological effects to dominate, close enough for precise measurements.
+                
+                **Cygnus A** — One of the most powerful radio sources in the sky. This galaxy hosts a supermassive 
+                black hole actively feeding on surrounding gas, producing jets visible in radio wavelengths across 
+                500,000 light-years. At z=0.056, it's on the edge of TSM2.1's optimal range.
+                
+                **NGC 1275 (Perseus A)** — The central galaxy of the Perseus Cluster, surrounded by 
+                spectacular filaments of gas. At z=0.018, it's borderline for TSM2.1 because local cluster 
+                dynamics affect its motion. Still interesting to analyze.
+                
+                **PKS 2155-304** — A BL Lacertae object (blazar) with a relativistic jet pointed almost directly 
+                at Earth. Its z=0.116 and stable brightness make it excellent for TSM2.1 testing.
+                
+                **Messier 87 (Virgo A)** — Famous for the first black hole image (2019). At only z=0.004, it's 
+                far too close for TSM2.1 — its motion is dominated by dynamics within the Virgo Cluster, not 
+                cosmological recession.
+                
+                ---
+                **Why does distance matter?** TSM2.1 separates two effects: motion through space (Doppler) and 
+                light scattering through hydrogen (refraction). For nearby galaxies, local gravitational effects 
+                muddy the picture. Objects beyond z > 0.05 are far enough that cosmological effects dominate.
+                """)
 
 with tab4:
     st.subheader("CEERS Catalog Decomposition Statistics")
