@@ -642,11 +642,58 @@ with tab1:
     
     st.markdown("""
     <div class="explainer-box">
-    <strong>What you're seeing:</strong> Four astronomical objects at different distances, each with a known redshift. 
-    TSM2.1 decomposes each redshift into two parts: how much comes from light scattering through hydrogen gas (red), 
-    and how much comes from the object's actual motion through space (blue). All velocities are below the speed of light.
+    <strong>The Kill-Shot Targets:</strong> These four objects span the entire observable universe — from a nearby 
+    galaxy cluster to the most distant galaxy ever confirmed. If TSM2.1 can explain all of them with subluminal 
+    velocities, it demonstrates the model works across the full range of cosmic distances. Result: <strong>99-100% match 
+    on all four targets.</strong>
     </div>
     """, unsafe_allow_html=True)
+    
+    TARGET_DESCRIPTIONS = {
+        "Bullet Cluster": {
+            "short": "Two colliding galaxy clusters, 3.7 billion light-years away",
+            "long": """**The Bullet Cluster (1E 0657-56)** is actually two galaxy clusters caught in the act of 
+            colliding at tremendous speed. It's famous in cosmology because the collision separated the visible 
+            matter (hot gas, glowing in X-rays) from the invisible mass (detected through gravitational lensing). 
+            This is often cited as evidence for dark matter.
+            
+            **Why it matters for TSM2.1:** At z=0.296, it's our "nearby" calibration point. The model achieves a 
+            99% match, decomposing the redshift into 91% Doppler (motion) and 9% refraction (hydrogen scattering). 
+            The required velocity is 0.254c — about 76,000 km/s."""
+        },
+        "El Gordo": {
+            "short": "The largest known galaxy cluster, 7 billion light-years away",
+            "long": """**El Gordo (ACT-CL J0102-4915)** — Spanish for "The Fat One" — is the most massive galaxy 
+            cluster ever discovered at such a distance. It weighs about 3 quadrillion (3×10¹⁵) times our Sun 
+            and contains hundreds of galaxies. Like the Bullet Cluster, it's actually two clusters merging.
+            
+            **Why it matters for TSM2.1:** At z=0.870, El Gordo tests the model at intermediate distances. 
+            TSM2.1 achieves a perfect 100% match. The decomposition shows 85% Doppler and 15% refraction, 
+            requiring a velocity of 0.533c — just over half the speed of light."""
+        },
+        "GN-z11": {
+            "short": "One of the most distant galaxies ever observed",
+            "long": """**GN-z11** was the most distant galaxy known from 2016-2022 (now surpassed by JADES discoveries). 
+            Located in Ursa Major, its light has traveled over 13 billion years to reach us. The galaxy existed 
+            when the universe was only ~400 million years old in standard cosmology.
+            
+            **Why it matters for TSM2.1:** At z=10.6, this is an extreme test case. Standard cosmology says 
+            this galaxy is receding faster than light due to space expansion. TSM2.1 achieves a 99.5% match 
+            with a subluminal velocity of 0.844c and 32% refraction contribution — no superluminal motion needed."""
+        },
+        "JADES-GS-z14-0": {
+            "short": "The most distant confirmed galaxy in the universe",
+            "long": """**JADES-GS-z14-0** currently holds the record as the most distant spectroscopically confirmed 
+            galaxy. Discovered by the James Webb Space Telescope in 2024, its light comes from when the universe 
+            was only ~290 million years old in standard cosmology. The galaxy is surprisingly bright and large 
+            for such an early epoch.
+            
+            **Why it matters for TSM2.1:** At z=14.18, this is the ultimate stress test. Standard cosmology 
+            requires this galaxy to be receding at over 2c (twice light speed). TSM2.1 achieves a 99.9% match 
+            with a subluminal velocity of 0.856c and 40% refraction contribution. This is the "kill-shot" result — 
+            proof that even the most distant known object requires no faster-than-light recession."""
+        }
+    }
     
     col1, col2 = st.columns([1, 2])
     
@@ -658,6 +705,9 @@ with tab1:
         )
         
         target = TARGETS[target_name]
+        target_info = TARGET_DESCRIPTIONS.get(target_name, {})
+        
+        st.caption(target_info.get("short", ""))
         
         st.markdown("---")
         st.markdown(f"**Coordinates:**")
@@ -665,9 +715,14 @@ with tab1:
         st.markdown(f"Dec: `{target['dec']}`")
         st.markdown(f"**Observed Redshift:** z = {target['z_obs']}")
         st.markdown(f"**Match:** {target['match']}%")
+        
+        with st.expander("About this object"):
+            st.markdown(target_info.get("long", "No description available."))
     
     with col2:
         result = decompose_redshift(target["z_obs"])
+        
+        st.markdown("#### TSM2.1 Decomposition Results")
         
         m1, m2, m3, m4 = st.columns(4)
         m1.metric("z_observed", f"{result['z_obs']:.4f}")
@@ -675,26 +730,48 @@ with tab1:
         m3.metric("Velocity", f"{result['beta']:.3f}c")
         m4.metric("Match", f"{result['match_pct']:.1f}%")
         
+        with st.expander("What do these numbers mean?"):
+            st.markdown(f"""
+            | Metric | Value | Plain English |
+            |--------|-------|---------------|
+            | **z_observed** | {result['z_obs']:.4f} | The measured redshift from telescopes |
+            | **z_model** | {result['z_model']:.4f} | What TSM2.1 calculates (should match z_observed) |
+            | **Velocity** | {result['beta']:.3f}c | How fast the object is moving ({result['velocity_km_s']:,.0f} km/s) |
+            | **Match** | {result['match_pct']:.1f}% | How well the model fits the observation |
+            """)
+        
         c1, c2 = st.columns(2)
         with c1:
+            st.markdown("**Velocity Gauge**")
             st.plotly_chart(create_decomposition_gauge(result), use_container_width=True)
+            st.caption(f"The needle shows {result['beta']:.1%} of light speed — well under the 100% limit.")
         with c2:
+            st.markdown("**Component Breakdown**")
             st.plotly_chart(create_component_bar(result), use_container_width=True)
+            st.caption(f"Blue = motion ({result['doppler_pct']:.0f}%), Red = scattering ({result['refrac_pct']:.0f}%)")
         
+        st.markdown("**Velocity Scale**")
         st.plotly_chart(create_velocity_diagram(result["beta"]), use_container_width=True)
+        st.caption("Visual comparison: where does this object's velocity fall on the scale from stationary to light speed?")
         
-        with st.expander("View Detailed Parameters"):
+        with st.expander("View All Technical Parameters"):
             st.markdown(f"""
-            | Parameter | Value | What it means |
-            |-----------|-------|---------------|
-            | z_refrac | {result['z_refrac']:.6f} | Redshift from HI scattering |
-            | z_doppler | {result['z_doppler']:.6f} | Redshift from motion |
+            **Decomposition Details for {target_name}:**
+            
+            | Parameter | Value | Description |
+            |-----------|-------|-------------|
+            | z_refrac | {result['z_refrac']:.6f} | Redshift component from hydrogen scattering |
+            | z_doppler | {result['z_doppler']:.6f} | Redshift component from bulk motion |
             | β (v/c) | {result['beta']:.6f} | Velocity as fraction of light speed |
-            | Velocity | {result['velocity_km_s']:,.0f} km/s | Actual speed |
-            | N_HI (galactic) | {result['n_hi_galactic']:.2e} cm⁻² | Hydrogen in our galaxy |
-            | N_HI (cosmic) | {result['n_cosmic']:.2e} cm⁻² | Hydrogen in deep space |
-            | Doppler fraction | {result['doppler_pct']:.1f}% | Motion contribution |
-            | Refraction fraction | {result['refrac_pct']:.1f}% | Scattering contribution |
+            | Velocity | {result['velocity_km_s']:,.0f} km/s | Actual recession velocity |
+            | N_HI (galactic) | {result['n_hi_galactic']:.2e} cm⁻² | Hydrogen column in Milky Way along this sightline |
+            | N_HI (cosmic) | {result['n_cosmic']:.2e} cm⁻² | Integrated hydrogen in intergalactic space |
+            | Doppler fraction | {result['doppler_pct']:.1f}% | Percentage of redshift from motion |
+            | Refraction fraction | {result['refrac_pct']:.1f}% | Percentage of redshift from scattering |
+            
+            **Key insight:** The {result['refrac_pct']:.0f}% refraction contribution means that {result['refrac_pct']:.0f}% of 
+            this object's apparent recession is actually light being scattered, not physical motion. This is what 
+            allows TSM2.1 to explain high-z objects without superluminal velocities.
             """)
     
     assets = PLOT_ASSETS.get(target_name, {})
