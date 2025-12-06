@@ -380,7 +380,7 @@ def create_velocity_diagram(beta):
 st.markdown("""
 <style>
     .metric-card {
-        background: #1e1e1e;
+        background: rgba(128, 128, 128, 0.1);
         padding: 1rem;
         border-radius: 8px;
         border-left: 4px solid #3498db;
@@ -391,9 +391,9 @@ st.markdown("""
     .hero-stat {
         text-align: center;
         padding: 1.5rem;
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        background: rgba(100, 100, 140, 0.15);
         border-radius: 12px;
-        border: 1px solid #0f3460;
+        border: 1px solid rgba(100, 100, 140, 0.3);
     }
     .hero-stat h2 {
         color: #e94560;
@@ -401,25 +401,29 @@ st.markdown("""
         font-size: 2.5rem;
     }
     .hero-stat p {
-        color: #a0a0a0;
+        color: inherit;
+        opacity: 0.7;
         margin: 0.5rem 0 0 0;
     }
     .explainer-box {
-        background: #0d1117;
+        background: rgba(88, 166, 255, 0.1);
         border-left: 4px solid #58a6ff;
         padding: 1rem;
         margin: 1rem 0;
         border-radius: 0 8px 8px 0;
     }
+    .explainer-box h4, .explainer-box p {
+        color: inherit;
+    }
     .grok-container {
-        background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+        background: linear-gradient(135deg, rgba(100, 80, 160, 0.15) 0%, rgba(120, 80, 180, 0.2) 50%, rgba(100, 80, 140, 0.15) 100%);
         border-radius: 16px;
         padding: 2rem;
         margin-bottom: 1rem;
+        border: 1px solid rgba(100, 100, 140, 0.3);
     }
     .grok-header {
         text-align: center;
-        color: #fff;
     }
     .grok-header h2 {
         font-size: 1.8rem;
@@ -430,7 +434,8 @@ st.markdown("""
         background-clip: text;
     }
     .grok-header p {
-        color: #a0a0c0;
+        color: inherit;
+        opacity: 0.7;
         margin-top: 0.5rem;
     }
 </style>
