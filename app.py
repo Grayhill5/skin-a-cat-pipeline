@@ -722,17 +722,30 @@ with tab1:
 
 with tab2:
     st.subheader("Custom Redshift Decomposition")
-    st.markdown("Enter any observed redshift to see the TSM2.1 decomposition in real-time:")
+    
+    st.markdown("""
+    <div class="explainer-box">
+    <strong>What this tool does:</strong> Enter any observed redshift value (z) and watch TSM2.1 break it down 
+    into its two components: how much comes from light scattering through hydrogen gas, and how much from 
+    the object's actual motion through space. This lets you explore "what if" scenarios and understand 
+    how the model works at different distances.
+    </div>
+    """, unsafe_allow_html=True)
     
     col1, col2 = st.columns([1, 2])
     
     with col1:
+        st.markdown("#### Adjust Parameters")
+        
+        st.markdown("**Observed Redshift (z)**")
+        st.caption("The measured redshift of a galaxy. Higher z = more distant. z=1 means the light has been stretched to double its original wavelength.")
         z_input = st.slider(
             "Observed Redshift (z)",
             min_value=0.01,
             max_value=15.0,
             value=5.0,
-            step=0.01
+            step=0.01,
+            label_visibility="collapsed"
         )
         
         z_input_precise = st.number_input(
@@ -743,15 +756,23 @@ with tab2:
             step=0.001
         )
         
+        st.markdown("---")
+        
+        st.markdown("**Galactic Hydrogen Column (N_HI)**")
+        st.caption("Amount of hydrogen gas in our own Milky Way along this line of sight. Higher values = more local fog to look through. Typical range: 1-5 × 10²⁰ cm⁻².")
         n_hi_gal = st.slider(
             "Galactic N_HI (×10²⁰ cm⁻²)",
             min_value=0.5,
             max_value=10.0,
             value=2.5,
-            step=0.1
+            step=0.1,
+            label_visibility="collapsed"
         ) * 1e20
+        
+        st.info("**Tip:** As you increase z, watch how the refraction percentage grows - more distance means more cosmic hydrogen to travel through.")
     
     with col2:
+        st.markdown("#### Results")
         result = decompose_redshift(z_input_precise, n_hi_gal)
         
         m1, m2, m3, m4 = st.columns(4)
@@ -760,18 +781,31 @@ with tab2:
         m3.metric("z_doppler", f"{result['z_doppler']:.4f}")
         m4.metric("β (v/c)", f"{result['beta']:.4f}")
         
+        with st.expander("**What do these numbers mean?**", expanded=False):
+            st.markdown(f"""
+            - **z_observed** = {result['z_obs']:.4f} — The total redshift you entered (how much the light has been stretched)
+            - **z_refrac** = {result['z_refrac']:.4f} — The portion caused by light scattering through hydrogen fog ({result['refrac_pct']:.1f}% of total)
+            - **z_doppler** = {result['z_doppler']:.4f} — The portion caused by the object moving away from us ({result['doppler_pct']:.1f}% of total)
+            - **β = {result['beta']:.4f}** — The object's required velocity as a fraction of light speed ({result['beta']*100:.1f}% of c, or about {result['beta']*299792:.0f} km/s)
+            
+            **Key insight:** TSM2.1 explains this redshift without needing space itself to expand. Instead, it's hydrogen fog + real motion through static space.
+            """)
+        
         c1, c2 = st.columns(2)
         with c1:
             st.plotly_chart(create_decomposition_gauge(result), use_container_width=True)
+            st.caption("The pie chart shows the split: blue = motion through space, red = light scattering.")
         with c2:
             st.plotly_chart(create_component_bar(result), use_container_width=True)
+            st.caption("The bar chart compares the actual z values of each component.")
         
         st.plotly_chart(create_velocity_diagram(result["beta"]), use_container_width=True)
+        st.caption("This bar shows how fast the object is moving relative to light speed. The red dashed line marks the speed of light (β = 1) — nothing can exceed this.")
         
         if result["beta"] >= 0.99:
-            st.warning("Required velocity approaches c - decomposition may be at physical limits")
+            st.warning("Required velocity approaches c — this redshift is at the physical limits of the model.")
         else:
-            st.success(f"Valid decomposition: subluminal velocity ({result['beta']:.3f}c)")
+            st.success(f"Valid decomposition: subluminal velocity ({result['beta']:.3f}c = {result['beta']*100:.1f}% of light speed)")
 
 with tab3:
     st.subheader("Object Lookup")
