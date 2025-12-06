@@ -12,6 +12,7 @@ This project implements an astronomical data processing pipeline for analyzing g
 ├── hi_maps.py            # HI4PI map retrieval and caching
 ├── refraction.py         # TSM2.1 refraction model
 ├── doppler.py            # Relativistic Doppler calculations
+├── lensing.py            # Magnetized plasma ray-tracing (gravitational lensing alternative)
 ├── statistical_analysis.py  # CEERS catalog decomposition analysis
 ├── main.py               # Pipeline orchestration and visualization
 ├── data/                 # Cached FITS files and outputs
@@ -43,6 +44,12 @@ TSM2.1 refraction model:
 Relativistic Doppler calculations:
 - `relativistic_doppler(beta)`: z = sqrt((1+β)/(1-β)) - 1
 - `calculate_doppler_redshift()`: Full Doppler with bulk + local dispersion
+
+### lensing.py
+Magnetized plasma ray-tracing (gravitational lensing alternative):
+- **B_FIELD**: Typical intergalactic magnetic field = 1e-6 Gauss (Geoffrey's eq. 67)
+- `calculate_lensing_shear()`: Born approximation for κ (convergence) and γ (shear) from ∇N_HI gradients
+- Includes optional B-field term for Faraday rotation boost
 
 ### statistical_analysis.py
 CEERS catalog decomposition (1.47M galaxies):
