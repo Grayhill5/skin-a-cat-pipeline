@@ -652,46 +652,27 @@ with tab1:
     TARGET_DESCRIPTIONS = {
         "Bullet Cluster": {
             "short": "Two colliding galaxy clusters, 3.7 billion light-years away",
-            "long": """**The Bullet Cluster (1E 0657-56)** is actually two galaxy clusters caught in the act of 
-            colliding at tremendous speed. It's famous in cosmology because the collision separated the visible 
-            matter (hot gas, glowing in X-rays) from the invisible mass (detected through gravitational lensing). 
-            This is often cited as evidence for dark matter.
-            
-            **Why it matters for TSM2.1:** At z=0.296, it's our "nearby" calibration point. The model achieves a 
-            99% match, decomposing the redshift into 91% Doppler (motion) and 9% refraction (hydrogen scattering). 
-            The required velocity is 0.254c — about 76,000 km/s."""
+            "long": """**The Bullet Cluster (1E 0657-56)** is actually two galaxy clusters caught in the act of colliding at tremendous speed. It's famous in cosmology because the collision separated the visible matter (hot gas, glowing in X-rays) from the invisible mass (detected through gravitational lensing). This is often cited as evidence for dark matter.
+
+**Why it matters for TSM2.1:** At z=0.296, it's our "nearby" calibration point. The model achieves a 99% match, decomposing the redshift into 91% Doppler (motion) and 9% refraction (hydrogen scattering). The required velocity is 0.254c — about 76,000 km/s."""
         },
         "El Gordo": {
             "short": "The largest known galaxy cluster, 7 billion light-years away",
-            "long": """**El Gordo (ACT-CL J0102-4915)** — Spanish for "The Fat One" — is the most massive galaxy 
-            cluster ever discovered at such a distance. It weighs about 3 quadrillion (3×10¹⁵) times our Sun 
-            and contains hundreds of galaxies. Like the Bullet Cluster, it's actually two clusters merging.
-            
-            **Why it matters for TSM2.1:** At z=0.870, El Gordo tests the model at intermediate distances. 
-            TSM2.1 achieves a perfect 100% match. The decomposition shows 85% Doppler and 15% refraction, 
-            requiring a velocity of 0.533c — just over half the speed of light."""
+            "long": """**El Gordo (ACT-CL J0102-4915)** — Spanish for "The Fat One" — is the most massive galaxy cluster ever discovered at such a distance. It weighs about 3 quadrillion (3×10¹⁵) times our Sun and contains hundreds of galaxies. Like the Bullet Cluster, it's actually two clusters merging.
+
+**Why it matters for TSM2.1:** At z=0.870, El Gordo tests the model at intermediate distances. TSM2.1 achieves a perfect 100% match. The decomposition shows 85% Doppler and 15% refraction, requiring a velocity of 0.533c — just over half the speed of light."""
         },
         "GN-z11": {
             "short": "One of the most distant galaxies ever observed",
-            "long": """**GN-z11** was the most distant galaxy known from 2016-2022 (now surpassed by JADES discoveries). 
-            Located in Ursa Major, its light has traveled over 13 billion years to reach us. The galaxy existed 
-            when the universe was only ~400 million years old in standard cosmology.
-            
-            **Why it matters for TSM2.1:** At z=10.6, this is an extreme test case. Standard cosmology says 
-            this galaxy is receding faster than light due to space expansion. TSM2.1 achieves a 99.5% match 
-            with a subluminal velocity of 0.844c and 32% refraction contribution — no superluminal motion needed."""
+            "long": """**GN-z11** was the most distant galaxy known from 2016-2022 (now surpassed by JADES discoveries). Located in Ursa Major, its light has traveled over 13 billion years to reach us. The galaxy existed when the universe was only ~400 million years old in standard cosmology.
+
+**Why it matters for TSM2.1:** At z=10.6, this is an extreme test case. Standard cosmology says this galaxy is receding faster than light due to space expansion. TSM2.1 achieves a 99.5% match with a subluminal velocity of 0.844c and 32% refraction contribution — no superluminal motion needed."""
         },
         "JADES-GS-z14-0": {
             "short": "The most distant confirmed galaxy in the universe",
-            "long": """**JADES-GS-z14-0** currently holds the record as the most distant spectroscopically confirmed 
-            galaxy. Discovered by the James Webb Space Telescope in 2024, its light comes from when the universe 
-            was only ~290 million years old in standard cosmology. The galaxy is surprisingly bright and large 
-            for such an early epoch.
-            
-            **Why it matters for TSM2.1:** At z=14.18, this is the ultimate stress test. Standard cosmology 
-            requires this galaxy to be receding at over 2c (twice light speed). TSM2.1 achieves a 99.9% match 
-            with a subluminal velocity of 0.856c and 40% refraction contribution. This is the "kill-shot" result — 
-            proof that even the most distant known object requires no faster-than-light recession."""
+            "long": """**JADES-GS-z14-0** currently holds the record as the most distant spectroscopically confirmed galaxy. Discovered by the James Webb Space Telescope in 2024, its light comes from when the universe was only ~290 million years old in standard cosmology. The galaxy is surprisingly bright and large for such an early epoch.
+
+**Why it matters for TSM2.1:** At z=14.18, this is the ultimate stress test. Standard cosmology requires this galaxy to be receding at over 2c (twice light speed). TSM2.1 achieves a 99.9% match with a subluminal velocity of 0.856c and 40% refraction contribution. This is the "kill-shot" result — proof that even the most distant known object requires no faster-than-light recession."""
         }
     }
     
