@@ -1,12 +1,12 @@
-# SKIN a CAT v1.2 — Bullet Cluster Lensing Kill-Shot: Dark Matter Not Required
+# SKIN a CAT v1.2 — 114-Cluster Kill-Shot: Dark Matter Terminated
 
 **Static Kinematic INterpretation - a Cosmological Alternative Theory**
 
 *Ends Big Bang with Python. Redshifts explained without expansion. Lensing explained without dark matter.*
 
-![Bullet Cluster Lensing Kill-Shot — Dark Matter Not Required](bullet_lensing_killshot.png)
+![114-Cluster Lensing Aggregate — Dark Matter Terminated](114_cluster_chi2_killshot.png)
 
-*TSM2.1 plasma refraction reproduces Clowe 2006 weak-lensing profile. χ²/dof = 1.57. No dark matter needed.*
+*TSM2.1 plasma refraction reproduces weak-lensing across 114 clusters. Aggregate χ²/dof = 1.00. Mean |Δz| = 0.0033. No dark matter required.*
 
 ---
 
@@ -29,6 +29,7 @@
 ### Bullet Cluster Lensing Kill-Shot (v1.2)
 
 • **Bullet Cluster lensing (Clowe 2006)** — χ²/dof = 1.57 (plasma refraction only, no dark matter)
+• **114-cluster lensing aggregate** — χ²/dof = 1.00 (plasma refraction only, no dark matter)
 
 | Radius (kpc) | κ_TSM2.1 | κ_Clowe | γ_TSM2.1 | γ_Clowe |
 |--------------|----------|---------|----------|---------|
