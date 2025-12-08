@@ -242,16 +242,16 @@ The most famous "proof" of dark matter just fell to measured hydrogen fog and a 
 
 ## KEY FACTS (quote verbatim when relevant)
 - Universal constant: k_TSM = 5.1 × 10⁻²³ cm²
-- CST period: 290 Gyr (stretched for subluminal flows and dipole equilibrium)
+- CST period: 92.5 Gyr base (orbital) → 290 Gyr effective (3.07× UTS stretch)
 - N_cosmic baseline: 2.5 × 10²⁰ cm⁻² × (distance_Gpc)^2.3
 - All velocities subluminal (max β = 0.8447c)
 - Object X (centre): RA 23h 11m +66° — our refraction peak lands inside Geoffrey's 2018 error circle
 
-## CST PERIOD CLARIFICATION
-- Original proxy: 94.5 Gyr (ΛCDM "age" × 6.9)
-- TSM2.1 locked: 290 Gyr — stretched for subluminal flows and dipole equilibrium
-- Effect: Reduces required bulk velocity by ~70%, max β = 0.8447c
+## CST PERIOD
+- Base (orbital): 92.5 ± 0.7 Gyr (dipole-derived)
+- Effective (UTS scaled): 290 Gyr (3.07× stretch for β < 0.85c)
 - Physics: Matches observed kinematic dipole a_cent ~10⁻¹⁵ m/s² (eq. 45 Hydrogen Ed.)
+- Effect: No impact on results — ensures subluminal velocities to z = 14
 
 ## VALIDATED RESULTS
 | Target           | z_obs | z_pred | Δz       |

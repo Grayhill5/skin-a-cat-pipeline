@@ -75,12 +75,11 @@ K_TSM = 5.1e-23                  # cm² scattering coefficient
 B_FIELD = 1e-6                   # Gauss (intergalactic, eq. 67)
 ```
 
-### CST Period Clarification
+### CST Period
 
-- **Original proxy:** 94.5 Gyr (ΛCDM "age" × 6.9)
-- **TSM2.1 locked:** 290 Gyr — stretched for subluminal flows and dipole equilibrium
-- **Effect:** Reduces required bulk velocity by ~70%, max β = 0.8447c
-- **Physics:** Matches observed kinematic dipole a_cent ~10⁻¹⁵ m/s² (eq. 45 Hydrogen Ed.)
+- **Base (orbital):** 92.5 ± 0.7 Gyr (dipole-derived)
+- **Effective (UTS scaled):** 290 Gyr (3.07× stretch for β < 0.85c, matches dipole a_cent ~10⁻¹⁵ m/s², eq. 45 Hydrogen Ed.)
+- **Effect:** No impact on results — ensures subluminal velocities to z = 14
 
 ---
 
