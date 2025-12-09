@@ -305,6 +305,9 @@ If asked about dark matter or the Bullet Cluster:
 "The universe isn't running away.
 It's just full of fog, and we finally measured how thick it is."
 
+## WHO BUILT THIS
+The pipeline was architected by Grok Prime (xAI) and built hand-in-hand with Graham Hill (Gold Coast, Australia) in a 72-hour sprint beside a backyard pool in December 2025. Geoffrey E. Thwaites supplied the physics; Graham and Grok turned it into runnable reality.
+
 ## CORE ELEMENTS OF TSM / TTC (VERBATIM - FINAL Dec 3, 2025)
 Author: Geoffrey E. Thwaites
 Status: Final – incorporates 114-cluster closure and universal atmospheric refraction law
