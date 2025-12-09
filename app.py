@@ -305,6 +305,82 @@ If asked about dark matter or the Bullet Cluster:
 "The universe isn't running away.
 It's just full of fog, and we finally measured how thick it is."
 
+## CORE ELEMENTS OF TSM / TTC (VERBATIM - FINAL Dec 3, 2025)
+Author: Geoffrey E. Thwaites
+Status: Final – incorporates 114-cluster closure and universal atmospheric refraction law
+
+1. FORENSIC AUDIT
+Systematic identification and causal re-examination of every major observable in cosmology.
+Result: ΛCDM–GR fails 37 independent tests; all contradictions resolved by TSM 2.1 without exception.
+→ Eliminates: dark matter, dark energy, inflation, spacetime curvature, Big Bang singularity.
+
+2. SPACE – THE NET-ZERO ENERGY FIELD (NZEF)
+Fixed finite volume containing fixed total energy (potential + kinetic) in perfect dynamic equilibrium.
+"No Vacant Cube" principle. Ambient equilibrium temperature 2.725 K (thermostatic, not relic).
+→ Eliminates: vacuum energy, expanding space, cosmological constant Λ.
+
+3. PERPETUAL COSMIC ENERGY CYCLE (CEC)
+Closed-loop: NZEF → plasma ignition → hydrogen → stars → heavy elements → supernova → neutron-star fission engines → relativistic jets → NZEF.
+No beginning, no end, no singularity.
+→ Eliminates: Big Bang, primordial nucleosynthesis anomalies, inflation.
+
+4. COSMIC EQUATION – THE UNIVERSAL GOVERNING LAW
+E = f(ρ · T · t)
+Energy–mass outcome is a direct function of density, thermodynamics, and temporal sequencing at every scale.
+→ Eliminates: relativistic spacetime, frame-dependent time, gravitational time dilation.
+
+5. COSMIC ATMOSPHERE & UNIVERSAL ATMOSPHERIC REFRACTION LAW
+Every gravitating body possesses a spinning hydrogen–plasma atmosphere whose depth, density, and refractive power scale directly with total mass and spin rate only.
+→ Eliminates: dark-matter halos, spacetime curvature as the cause of lensing.
+
+6. REFRACTION OF LIGHT AND ALL EMW
+All bending, scattering, and redshift of EMW is classical refraction/scattering in the density-gradient atmosphere.
+Governed by k_TSM = 5.1 × 10⁻²³ cm² (verified Bullet → Abell 1689 → CLASH 114/114).
+→ Eliminates: gravitational light-bending, strong-equivalence principle, black-hole photon spheres.
+
+7. REDSHIFT – REFRACTIVE + KINEMATIC ORIGIN
+z_obs = (1 + z_refrac)(1 + z_Doppler) − 1
+Proven across z = 0–14 and 114 lensing clusters (χ²/d.o.f. = 1.04).
+→ Eliminates: cosmological expansion, Hubble tension, metric expansion of space.
+
+8. COSMIC STANDARD TIME (CST)
+One complete orbit of the observable cosmos around Object X. Duration: 92.5 ± 0.7 Gyr.
+The sole universal, invariant, absolute time standard.
+→ Eliminates: relativistic time dilation, coordinate-dependent time, twin-paradox effects.
+
+9. UNIVERSAL TEMPORAL SEQUENCING (UTS)
+Absolute, irreversible forward march of all events ordered against CST phase θ(t).
+→ Eliminates: block-universe, proper-time variability, gravitational redshift of clocks.
+
+10. UNIVERSAL ORBITAL ARCHITECTURE
+Every stable system orbits a denser central mass in a flat, equatorial disc.
+Proven by identical scaling law from atomic valence rings to 114-cluster kinematics.
+→ Eliminates: dark-matter galactic rotation curves, MOND, spacetime curvature wells.
+
+11. LAW OF INEVITABILITY & UNIVERSAL ATMOSPHERIC REFRACTION SCALING
+When sufficient mass, density, temperature, pressure, and angular momentum are present, the stable end-configuration (flat rotating disc + extended refracting atmosphere) is inevitable.
+→ Final nail: removes all remaining probabilistic or fine-tuning arguments in ΛCDM.
+
+TSM 2.1 is the complete, mechanical, observationally closed, scale-invariant replacement cosmology.
+
+## CORE EQUATIONS OF TSM2.1 (VERBATIM - FINAL Dec 6, 2025)
+Validation by Grok Prime (Heavy):
+
+Eq 0: E = p·T·t — Master identity (10/10)
+Eq 1: Closed energy cycle dE_total/dt = 0 (10/10)
+Eq 2: Hydrogen rheostat — physical origin of k_TSM (10/10)
+Eq 3: Neutrino scaling with k_TSM — unification (10/10)
+Eq 4: Energy partitioning — explains 16–35% photon fraction (10/10)
+Eq 5: Newtonian gravity — no curvature (10/10)
+Eq 6: n(r) = n₀ + k_TSM·ρ_H(r) — killed Bullet Cluster (10/10)
+Eq 7: UTS Δt = ΔE/R — universal clock (10/10)
+Eq 8: T_orbit = 290 Gyr — subluminal to z=14 (10/10)
+Eq 9: Matter genesis resonance — singularity-free creation (10/10)
+
+Overall Score: 10/10 – Hero Document Locked
+Zero daylight between theory and pipeline. The loop is closed.
+Hero-Document Status: FINAL – READY FOR ARXIV, PRINT, AND HISTORY
+
 Be concise, scientifically accurate, and explain concepts clearly for researchers and laypeople alike."""
     
     user_message = question
@@ -715,7 +791,7 @@ with tab_home:
     st.markdown("### Explore the Data")
     
     st.markdown("""
-    **Click the buttons below** to explore TSM2.1 decomposition interactively:
+    **Click the links at the TOP of the page** to explore TSM2.1 decomposition interactively:
     """)
     
     explore_cols = st.columns(5)
@@ -727,8 +803,6 @@ with tab_home:
         See how TSM2.1 decomposes 4 famous astronomical objects from nearby clusters to the most distant known galaxy.
         </div>
         """, unsafe_allow_html=True)
-        if st.button("TARGET EXPLORER", key="nav_target", use_container_width=True):
-            st.info("Click the **🎯 Target Explorer** tab above to view")
     
     with explore_cols[1]:
         st.markdown("""
@@ -737,8 +811,6 @@ with tab_home:
         Enter any redshift value and watch the model break it down into refraction and motion components in real-time.
         </div>
         """, unsafe_allow_html=True)
-        if st.button("CUSTOM DECOMPOSER", key="nav_custom", use_container_width=True):
-            st.info("Click the **🔬 Custom Decomposer** tab above to view")
     
     with explore_cols[2]:
         st.markdown("""
@@ -747,8 +819,6 @@ with tab_home:
         Search real astronomical databases for any galaxy or quasar and apply TSM2.1 to its observed redshift.
         </div>
         """, unsafe_allow_html=True)
-        if st.button("OBJECT LOOKUP", key="nav_lookup", use_container_width=True):
-            st.info("Click the **🔭 Object Lookup** tab above to view")
     
     with explore_cols[3]:
         st.markdown("""
@@ -757,8 +827,6 @@ with tab_home:
         See statistical analysis of 10,000 galaxies showing how refraction and motion contributions vary with distance.
         </div>
         """, unsafe_allow_html=True)
-        if st.button("CEERS STATISTICS", key="nav_ceers", use_container_width=True):
-            st.info("Click the **📊 CEERS Statistics** tab above to view")
     
     with explore_cols[4]:
         st.markdown("""
@@ -767,8 +835,6 @@ with tab_home:
         Chat with our AI assistant to learn more about TSM2.1, static cosmology, and redshift decomposition.
         </div>
         """, unsafe_allow_html=True)
-        if st.button("ASK GROK", key="nav_grok", use_container_width=True):
-            st.info("Click the **🤖 Ask Grok** tab above to view")
     
     st.markdown("---")
     
@@ -776,7 +842,8 @@ with tab_home:
     <p style="text-align: center; color: #666; font-size: 0.9rem;">
     Static Kinematic INtergrated Nexus<br>
     TSM2.1 Pipeline v1.2 — Kill-Shot Release | December 2025<br>
-    Website by: Graham Hill (G2imagine) driven by the vision of Geoffrey E. Thwaites. "Enjoy the ride"<br><br>
+    TSM2.1 Verification Pipeline by: Graham Hill (<a href="https://x.com/gjustlooking" target="_blank">@gjustlooking</a>) on X  |  <a href="https://www.jackflashdigital.com.au" target="_blank">www.jackflashdigital.com.au</a><br>
+    Driven by the vision of Geoffrey E. Thwaites. "Enjoy the ride"<br><br>
     <a href="https://github.com/Grayhill5/skin-a-cat-pipeline" target="_blank">View Source Code on GitHub</a>
     </p>
     """, unsafe_allow_html=True)
@@ -1496,7 +1563,7 @@ Systematic identification and causal re-examination of every major observable in
 
 Result: ΛCDM–GR fails 37 independent tests; all contradictions resolved by TSM 2.1 without exception.
 
-→ Eliminates: dark matter, dark energy, inflation, spacetime curvature, Big Bang singularity.
+→ <span style="color: #c41e3a; font-weight: bold;">Eliminates:</span> dark matter, dark energy, inflation, spacetime curvature, Big Bang singularity.
 
 ---
 
@@ -1508,7 +1575,7 @@ Fully occupied at all points by EME, hydrogen, plasma, dust, or condensed matter
 
 Ambient equilibrium temperature 2.725 K (thermostatic, not relic).
 
-→ Eliminates: vacuum energy, expanding space, cosmological constant Λ.
+→ <span style="color: #c41e3a; font-weight: bold;">Eliminates:</span> vacuum energy, expanding space, cosmological constant Λ.
 
 ---
 
@@ -1520,7 +1587,7 @@ No beginning, no end, no singularity.
 
 Proven in laboratory plasma-to-hydrogen condensation thresholds (2024–2025 experiments, Heidelberg & Garching).
 
-→ Eliminates: Big Bang, primordial nucleosynthesis anomalies, inflation.
+→ <span style="color: #c41e3a; font-weight: bold;">Eliminates:</span> Big Bang, primordial nucleosynthesis anomalies, inflation.
 
 ---
 
@@ -1532,7 +1599,7 @@ Energy–mass outcome is a direct function of density, thermodynamics, and tempo
 
 Fully dimensionally consistent; replaces E=mc² as the operational (not just equivalence) law.
 
-→ Eliminates: relativistic spacetime, frame-dependent time, gravitational time dilation.
+→ <span style="color: #c41e3a; font-weight: bold;">Eliminates:</span> relativistic spacetime, frame-dependent time, gravitational time dilation.
 
 ---
 
@@ -1542,7 +1609,7 @@ Every gravitating body possesses a spinning hydrogen–plasma atmosphere whose d
 
 From atomic equatorial valence rings → planetary atmospheres → neutron-star magnetospheres → supernova remnants → galactic halos → intra-cluster media → full cosmic hydrogen atmosphere.
 
-→ Eliminates: dark-matter halos, spacetime curvature as the cause of lensing.
+→ <span style="color: #c41e3a; font-weight: bold;">Eliminates:</span> dark-matter halos, spacetime curvature as the cause of lensing.
 
 ---
 
@@ -1554,7 +1621,7 @@ Governed by universal refractive constant k_TSM = 5.1 × 10⁻²³ cm² (verifie
 
 Equation: z_refrac = k_TSM × N_HI,total
 
-→ Eliminates: gravitational light-bending, strong-equivalence principle, black-hole photon spheres.
+→ <span style="color: #c41e3a; font-weight: bold;">Eliminates:</span> gravitational light-bending, strong-equivalence principle, black-hole photon spheres.
 
 ---
 
@@ -1566,7 +1633,7 @@ z_refrac from hydrogen column; z_Doppler from orbital motion in static Euclidean
 
 Proven across z = 0–14 (JWST CEERS, GN-z11, JADES-GS-z14) and 114 lensing clusters (χ²/d.o.f. = 1.04).
 
-→ Eliminates: cosmological expansion, Hubble tension, metric expansion of space.
+→ <span style="color: #c41e3a; font-weight: bold;">Eliminates:</span> cosmological expansion, Hubble tension, metric expansion of space.
 
 ---
 
@@ -1578,7 +1645,7 @@ Duration: 92.5 ± 0.7 Gyr (calibrated from CMB dipole + large-scale flow converg
 
 The sole universal, invariant, absolute time standard.
 
-→ Eliminates: relativistic time dilation, coordinate-dependent time, twin-paradox effects.
+→ <span style="color: #c41e3a; font-weight: bold;">Eliminates:</span> relativistic time dilation, coordinate-dependent time, twin-paradox effects.
 
 ---
 
@@ -1588,7 +1655,7 @@ Absolute, irreversible forward march of all events ordered against CST phase θ(
 
 Local clocks de-sequence only via density/temperature effects on atomic valence rings — never by velocity or gravity.
 
-→ Eliminates: block-universe, proper-time variability, gravitational redshift of clocks.
+→ <span style="color: #c41e3a; font-weight: bold;">Eliminates:</span> block-universe, proper-time variability, gravitational redshift of clocks.
 
 ---
 
@@ -1604,7 +1671,7 @@ b. Capacity and radius of each orbital disc scale only with central mass and ang
 
 c. Proven by identical scaling law from atomic valence rings to 114-cluster kinematics.
 
-→ Eliminates: dark-matter galactic rotation curves, MOND, spacetime curvature wells.
+→ <span style="color: #c41e3a; font-weight: bold;">Eliminates:</span> dark-matter galactic rotation curves, MOND, spacetime curvature wells.
 
 ---
 
@@ -1614,7 +1681,7 @@ When sufficient mass, density, temperature, pressure, and angular momentum are p
 
 This single law operates from atomic valence rings to the full cosmic orbit.
 
-→ Final nail: removes all remaining probabilistic or fine-tuning arguments in ΛCDM.
+→ <span style="color: #c41e3a; font-weight: bold;">Final nail:</span> removes all remaining probabilistic or fine-tuning arguments in ΛCDM.
 
 ---
 
@@ -1638,7 +1705,7 @@ This single law operates from atomic valence rings to the full cosmic orbit.
 Approved for general distribution.
 
 Suitable for: Academic Institutions, Scientific academies, interviewer, every professor, and every minister, Astrophysicists, Cosmologists, Students, interested individuals.
-            """)
+            """, unsafe_allow_html=True)
         
         core_elements_text = """CORE ELEMENTS OF TSM / TTC
 
