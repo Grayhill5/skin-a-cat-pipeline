@@ -489,6 +489,7 @@ st.markdown("""
 
 st.markdown("""
 <div style="text-align: center; padding: 0;">
+    <div style="font-size: 1.8rem; font-weight: bold; color: #021945; margin-bottom: 0.5rem;">The Mechanics of the Universe</div>
     <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
         <span style="font-size: 2.5rem; color: #c41e3a; font-weight: bold; line-height: 1;">Φ</span>
         <span style="font-size: 1.6rem; font-weight: bold; color: #c41e3a;">THWAITES STANDARD MODEL (TSM 2.1)</span>
@@ -497,13 +498,14 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-tab_home, tab1, tab2, tab3, tab4, tab5 = st.tabs([
+tab_home, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "🏠 Home", 
     "🎯 Target Explorer", 
     "🔬 Custom Decomposer", 
     "🔭 Object Lookup", 
     "📊 CEERS Statistics",
-    "🤖 Ask Grok"
+    "🤖 Ask Grok",
+    "📄 Core Documents"
 ])
 
 with tab_home:
@@ -686,49 +688,67 @@ with tab_home:
     st.markdown("### Explore the Data")
     
     st.markdown("""
-    **Click the tabs above** to explore TSM2.1 decomposition interactively. Here's what each tool does:
+    **Click the buttons below** to explore TSM2.1 decomposition interactively:
     """)
     
-    explore_cols = st.columns(4)
+    explore_cols = st.columns(5)
     
     with explore_cols[0]:
         st.markdown("""
-        **🎯 Target Explorer**
+        **🎯 TARGET EXPLORER**
         
         See how TSM2.1 decomposes 4 famous astronomical objects from nearby clusters to the most distant known galaxy.
         """)
-        st.info("Click the **Target Explorer** tab above")
+        if st.button("GO TO: TARGET EXPLORER", key="nav_target", use_container_width=True):
+            st.session_state.active_tab = "target"
+            st.info("Click the **🎯 Target Explorer** tab above to view")
     
     with explore_cols[1]:
         st.markdown("""
-        **🔬 Custom Decomposer**
+        **🔬 CUSTOM DECOMPOSER**
         
         Enter any redshift value and watch the model break it down into refraction and motion components in real-time.
         """)
-        st.info("Click the **Custom Decomposer** tab above")
+        if st.button("GO TO: CUSTOM DECOMPOSER", key="nav_custom", use_container_width=True):
+            st.session_state.active_tab = "custom"
+            st.info("Click the **🔬 Custom Decomposer** tab above to view")
     
     with explore_cols[2]:
         st.markdown("""
-        **🔭 Object Lookup**
+        **🔭 OBJECT LOOKUP**
         
         Search real astronomical databases for any galaxy or quasar and apply TSM2.1 to its observed redshift.
         """)
-        st.info("Click the **Object Lookup** tab above")
+        if st.button("GO TO: OBJECT LOOKUP", key="nav_lookup", use_container_width=True):
+            st.session_state.active_tab = "lookup"
+            st.info("Click the **🔭 Object Lookup** tab above to view")
     
     with explore_cols[3]:
         st.markdown("""
-        **📊 CEERS Statistics**
+        **📊 CEERS STATISTICS**
         
         See statistical analysis of 10,000 galaxies showing how refraction and motion contributions vary with distance.
         """)
-        st.info("Click the **CEERS Statistics** tab above")
+        if st.button("GO TO: CEERS STATISTICS", key="nav_ceers", use_container_width=True):
+            st.session_state.active_tab = "ceers"
+            st.info("Click the **📊 CEERS Statistics** tab above to view")
+    
+    with explore_cols[4]:
+        st.markdown("""
+        **🤖 ASK GROK**
+        
+        Chat with our AI assistant to learn more about TSM2.1, static cosmology, and redshift decomposition.
+        """)
+        if st.button("GO TO: ASK GROK", key="nav_grok", use_container_width=True):
+            st.session_state.active_tab = "grok"
+            st.info("Click the **🤖 Ask Grok** tab above to view")
     
     st.markdown("---")
     
     st.markdown("""
     <p style="text-align: center; color: #666; font-size: 0.9rem;">
-    SKIN-a-CAT: Static Kinematic INterpretation - a Cosmological Alternative Theory<br>
-    TSM2.1 Pipeline v1.1 — Kill-Shot Release | December 2025<br>
+    Static Kinematic INtergrated Nexus<br>
+    TSM2.1 Pipeline v1.2 — Kill-Shot Release | December 2025<br>
     Website by: Graham Hill (G2imagine) driven by the vision of Geoffrey E. Thwaites. "Enjoy the ride"<br><br>
     <a href="https://github.com/Grayhill5/skin-a-cat-pipeline" target="_blank">View Source Code on GitHub</a>
     </p>
@@ -979,7 +999,7 @@ with tab3:
         object_name = st.text_input(
             "Object Name",
             placeholder="3C 273, Cygnus A, NGC 1275...",
-            help="Enter a galaxy, quasar, or astronomical object with known redshift (z > 0.05 for best results)"
+            label_visibility="visible"
         )
         
         example_objects = st.selectbox(
@@ -1333,8 +1353,8 @@ with tab5:
     st.markdown("""
     <div class="grok-container">
         <div class="grok-header">
-            <h2>Ask Grok About TSM2.1</h2>
-            <p>Your AI guide to understanding redshift decomposition and static cosmology</p>
+            <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem;">Ask Grok About TSM2.1</h1>
+            <p style="font-size: 1.3rem;">Your AI guide to understanding redshift decomposition and static cosmology</p>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -1419,6 +1439,168 @@ with tab5:
     Powered by xAI Grok | Responses are AI-generated and should be verified
     </p>
     """, unsafe_allow_html=True)
+
+with tab6:
+    st.markdown("""
+    <h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">Core Documents</h1>
+    <p style="font-size: 1.1rem; color: #666;">This is what is being verified — the foundational theory behind TSM2.1</p>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("---")
+    
+    doc_col1, doc_col2 = st.columns(2)
+    
+    with doc_col1:
+        st.markdown("### Core Elements")
+        st.markdown("""
+        **TSM2.1 Core Elements Document**
+        
+        The foundational physical principles underlying the Thwaites Standard Model:
+        
+        - **Static Euclidean Space**: The universe exists in flat, non-expanding 3D space
+        - **Universal Time Standard (UTS)**: Time flows uniformly across the cosmos
+        - **Cosmic Standard Time**: 92.5 Gyr base period (290 Gyr effective)
+        - **HI Refraction**: Light scatters in neutral hydrogen, causing wavelength shift
+        - **Bulk Recession**: Galaxies move through space at relativistic velocities
+        - **No Dark Matter**: Lensing explained by plasma refraction gradients
+        - **No Dark Energy**: No accelerating expansion required
+        
+        **Key Constants:**
+        - k_TSM = 5.1 × 10⁻²³ cm² (universal scattering coefficient)
+        - N_cosmic = 2.5 × 10²⁰ × d^2.3 cm⁻² (cosmic HI scaling)
+        - B_field = 10⁻⁶ Gauss (intergalactic magnetic field)
+        """)
+        
+        core_elements_text = """TSM2.1 CORE ELEMENTS
+=====================
+
+1. STATIC EUCLIDEAN SPACE
+   The universe exists in flat, non-expanding 3D Euclidean space.
+   No metric expansion. No curvature from mass-energy.
+
+2. UNIVERSAL TIME STANDARD (UTS)
+   Time flows uniformly across the cosmos.
+   No relativistic time dilation at cosmic scales.
+   CST Period: 92.5 Gyr base → 290 Gyr effective (3.07× stretch)
+
+3. REDSHIFT DECOMPOSITION
+   z_obs = (1 + z_refrac)(1 + z_doppler) - 1
+   
+   Refraction component: z_refrac = k_TSM × (N_HI_galactic + N_cosmic)
+   Doppler component: z_doppler = sqrt((1+β)/(1-β)) - 1
+
+4. UNIVERSAL SCATTERING COEFFICIENT
+   k_TSM = 5.1 × 10⁻²³ cm²
+   Applies uniformly across all observed redshifts (z = 0 to 14.2)
+
+5. COSMIC HI SCALING
+   N_cosmic = 2.5 × 10²⁰ × d_Gpc^2.3 cm⁻²
+   Power-law growth of integrated hydrogen column with distance
+
+6. LENSING WITHOUT DARK MATTER
+   κ(r) ∝ k_TSM × N_HI × (1 + (r/r_c)²)^(-0.5)
+   γ(r) ∝ k_TSM × ∇N_HI × (1 + (r/r_c)²)^(-0.65)
+   B_field = 10⁻⁶ Gauss (Faraday boost)
+
+7. SUBLUMINAL VELOCITIES
+   All decompositions yield β < 0.85c
+   No superluminal recession required
+
+8. OBJECT X PREDICTION
+   Centre: RA 23h 11m, Dec +66°
+   Predicted +20% refraction spike in Zone of Avoidance
+"""
+        
+        st.download_button(
+            label="📥 DOWNLOAD: Core Elements",
+            data=core_elements_text,
+            file_name="TSM21_Core_Elements.txt",
+            mime="text/plain",
+            use_container_width=True
+        )
+    
+    with doc_col2:
+        st.markdown("### Core Equations")
+        st.markdown("""
+        **TSM2.1 Core Equations Document**
+        
+        The mathematical framework of the model:
+        """)
+        
+        st.latex(r"z_{obs} = (1 + z_{refrac})(1 + z_{doppler}) - 1")
+        st.caption("Master redshift decomposition equation")
+        
+        st.latex(r"z_{refrac} = k_{TSM} \times (N_{HI,galactic} + N_{cosmic})")
+        st.caption("Refractive redshift from neutral hydrogen")
+        
+        st.latex(r"z_{doppler} = \sqrt{\frac{1+\beta}{1-\beta}} - 1")
+        st.caption("Relativistic Doppler shift (β = v/c)")
+        
+        st.latex(r"N_{cosmic} = 2.5 \times 10^{20} \times d_{Gpc}^{2.3}")
+        st.caption("Cosmic HI column density scaling")
+        
+        st.latex(r"\kappa(r) \propto k_{TSM} \times N_{HI} \times (1 + (r/r_c)^2)^{-0.5}")
+        st.caption("Lensing convergence from plasma refraction")
+        
+        core_equations_text = """TSM2.1 CORE EQUATIONS
+======================
+
+MASTER DECOMPOSITION:
+z_obs = (1 + z_refrac)(1 + z_doppler) - 1
+
+REFRACTIVE REDSHIFT:
+z_refrac = k_TSM × (N_HI_galactic + N_cosmic)
+
+Where:
+  k_TSM = 5.1 × 10⁻²³ cm² (universal scattering coefficient)
+  N_HI_galactic = HI4PI survey value at target coordinates
+  N_cosmic = 2.5 × 10²⁰ × d_Gpc^2.3 cm⁻²
+
+RELATIVISTIC DOPPLER:
+z_doppler = sqrt((1 + β)/(1 - β)) - 1
+
+Where:
+  β = v/c (velocity as fraction of light speed)
+  v = recession velocity in static space
+
+INVERSE SOLUTION (for validation):
+Given z_obs, solve for β:
+  z_refrac = k_TSM × N_total
+  (1 + z_doppler) = (1 + z_obs)/(1 + z_refrac)
+  β = ((1 + z_doppler)² - 1)/((1 + z_doppler)² + 1)
+
+LENSING EQUATIONS:
+Convergence: κ(r) = k_TSM × N_HI × (1 + (r/r_c)²)^(-0.5)
+Shear: γ(r) = k_TSM × ∇N_HI × (1 + (r/r_c)²)^(-0.65)
+
+Where:
+  r_c = 120 kpc (core radius)
+  B_field = 10⁻⁶ Gauss (Faraday boost)
+
+CHI-SQUARED VALIDATION:
+χ² = Σ[(observed - predicted)² / σ²]
+χ²/dof should be ≈ 1.0 for good fit
+
+VALIDATED RESULTS:
+- Bullet Cluster lensing: χ²/dof = 1.57
+- 114-cluster aggregate: χ²/dof = 1.00
+- CEERS predictive test: R² = 0.994
+"""
+        
+        st.download_button(
+            label="📥 DOWNLOAD: Core Equations",
+            data=core_equations_text,
+            file_name="TSM21_Core_Equations.txt",
+            mime="text/plain",
+            use_container_width=True
+        )
+    
+    st.markdown("---")
+    
+    st.info("""
+    **Note:** These documents summarize the theoretical foundation of TSM2.1 as implemented in this pipeline.
+    For the complete mathematical derivations and peer review discussion, see Geoffrey E. Thwaites' original publications.
+    """)
 
 with st.sidebar:
     st.markdown("**Quick Stats:**")
