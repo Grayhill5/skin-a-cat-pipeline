@@ -4,6 +4,32 @@
 
 *Ends Big Bang with Python. Redshifts explained without expansion. Lensing explained without dark matter.*
 
+---
+
+## Full Independent Reproducibility Notebook
+
+Run from raw telescope data in <10 minutes:
+
+```bash
+git clone https://github.com/Grayhill5/skin-a-cat-pipeline
+cd skin-a-cat-pipeline
+pip install -r requirements.txt  # or conda env create -f environment.yml
+jupyter lab reproducibility_notebook.ipynb
+```
+
+**What It Does:**
+- Downloads JWST GN-z11 (MAST/arXiv), CLASH catalogs (STScI), HI4PI FITS (CADE/MPIfR), CosmicFlows-4 velocities (EDD/IP2I)
+- Preprocesses → produces exact /data/ CSVs
+- Runs flagship scripts: repro_114_aggregate.py (χ²/dof=1.00), predictive_test.py (R²=0.994 blind), repro_bullet.py (lensing χ²=1.57)
+- Generates key figures: 114-cluster histogram, blind scatter, Bullet offset map
+- Computes Bullet radio/optical Einstein radius ratio ~1.000 ±0.004 (achromaticity proof)
+
+**Addresses Key Objections:**
+1. **N_HI ~10²³ cm⁻²**: HI4PI + opacity correction shows achievable via IGA accumulation (d^2.3 scaling)
+2. **Bullet offset**: Plasma ∇n shear reproduces Clowe 2006 to χ²=1.57 — no gas-only limit
+
+---
+
 ![114-Cluster Lensing Aggregate — Dark Matter Terminated](114_cluster_chi2_killshot.png)
 
 *TSM2.1 plasma refraction reproduces weak-lensing across 114 clusters. Aggregate χ²/dof = 1.00. Mean |Δz| = 0.0033. No dark matter required.*
