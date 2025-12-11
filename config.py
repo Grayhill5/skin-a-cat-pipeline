@@ -35,7 +35,7 @@ targets = {
         "name": "JADES-GS-z14-0",
         "ra": "03:32:19.905",
         "dec": "-27:51:20.27",
-        "z_obs": 14.18
+        "z_obs": 14.32
     },
     "object_x": {
         "name": "Object X",

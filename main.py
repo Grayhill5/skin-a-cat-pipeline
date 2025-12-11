@@ -341,7 +341,7 @@ def main():
     print("\n[7] Applying TSM2.1 Relativistic Doppler Model")
     if target_key == "jades_z14":
         velocity_dispersion = 300  # km/s for early proto-galaxy
-        bulk_v = 289300  # km/s β≈0.965 → z_bulk≈6.5 for z_total≈14.18
+        bulk_v = 289300  # km/s β≈0.965 → z_bulk≈6.5 for z_total≈14.32
     elif target_key == "gn_z11":
         velocity_dispersion = 500  # km/s for high-z galaxy
         bulk_v = 286000  # km/s β≈0.954 → z_bulk≈5.55 for z_total≈10.6

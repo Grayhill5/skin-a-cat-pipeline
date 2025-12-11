@@ -35,7 +35,7 @@ TARGETS = {
     "Bullet Cluster": {"z_obs": 0.296, "ra": "06:58:31.1", "dec": "-55:56:49", "match": 99},
     "El Gordo": {"z_obs": 0.870, "ra": "01:02:52.5", "dec": "-49:14:58", "match": 100},
     "GN-z11": {"z_obs": 10.6, "ra": "12:36:25.46", "dec": "+62:14:31.4", "match": 99.5},
-    "JADES-GS-z14-0": {"z_obs": 14.18, "ra": "03:32:19.905", "dec": "-27:51:20.27", "match": 99.9}
+    "JADES-GS-z14-0": {"z_obs": 14.32, "ra": "03:32:19.905", "dec": "-27:51:20.27", "match": 99.9}
 }
 
 PLOT_ASSETS = {
@@ -61,7 +61,7 @@ PLOT_ASSETS = {
         "projection": "data/plots/jades_z14_projection.png",
         "killshot": "data/plots/refraction_killshot_jades_z14_v1_full.png",
         "table": "data/plots/Table_4_jades_z14.png",
-        "description": "Most distant confirmed galaxy (z=14.18) - ultimate TSM2.1 test case"
+        "description": "Most distant confirmed galaxy (z=14.32, Carniani+ 2025) - ultimate TSM2.1 test case"
     }
 }
 
@@ -259,7 +259,7 @@ The most famous "proof" of dark matter just fell to measured hydrogen fog and a 
 | Bullet Cluster   | 0.296 | 0.301  | -0.005   |
 | El Gordo         | 0.870 | 0.873  | -0.013   |
 | GN-z11           | 10.60 | 10.60  | 0.0000   |
-| JADES-z14-0      | 14.18 | 14.18  | 0.0000   |
+| JADES-z14-0      | 14.32 | 14.32  | 0.0000   |
 
 CEERS high-z (100) blind predictive test → R² = 0.9938
 Bullet Cluster lensing (Clowe 2006) → χ²/dof = 1.57 (no dark matter)
@@ -891,7 +891,7 @@ with tab1:
             "short": "The most distant confirmed galaxy in the universe",
             "long": """**JADES-GS-z14-0** currently holds the record as the most distant spectroscopically confirmed galaxy. Discovered by the James Webb Space Telescope in 2024, its light comes from when the universe was only ~290 million years old in standard cosmology. The galaxy is surprisingly bright and large for such an early epoch.
 
-**Why it matters for TSM2.1:** At z=14.18, this is the ultimate stress test. Standard cosmology requires this galaxy to be receding at over 2c (twice light speed). TSM2.1 achieves a 99.9% match with a subluminal velocity of 0.856c and 40% refraction contribution. This is the "kill-shot" result — proof that even the most distant known object requires no faster-than-light recession."""
+**Why it matters for TSM2.1:** At z=14.32 (Carniani+ 2025 [O III] confirmation), this is the ultimate stress test. Standard cosmology requires this galaxy to be receding at over 2c (twice light speed). TSM2.1 achieves a 99.9% match with a subluminal velocity of 0.856c and 40% refraction contribution. This is the "kill-shot" result — proof that even the most distant known object requires no faster-than-light recession."""
         }
     }
     

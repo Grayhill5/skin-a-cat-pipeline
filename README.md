@@ -130,7 +130,7 @@ B_FIELD = 1e-6                   # Gauss (intergalactic, eq. 67)
 | 1 | Bullet Cluster | 15:58:29 | -56:08:45 | 0.296 | Low-z benchmark |
 | 2 | El Gordo | 01:02:52.5 | -49:15:12 | 0.870 | Massive cluster |
 | 3 | GN-z11 | 12:36:25.46 | +62:14:31.4 | 10.60 | High-z galaxy |
-| 4 | JADES-z14-0 | 03:32:19.905 | -27:51:20.27 | 14.18 | Highest-z confirmed |
+| 4 | JADES-z14-0 | 03:32:19.905 | -27:51:20.27 | 14.32 | Highest-z confirmed (Carniani+ 2025) |
 | 5 | CEERS Field | 14:19:00 | +52:52:00 | 6-10 | 49,357 galaxies z>6 |
 | 6 | **Object X** | **23:11:00** | **+66:00:00** | TBD | *Predicted refraction spike +20% due to Zone of Avoidance density peak* |
 

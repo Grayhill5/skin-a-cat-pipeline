@@ -76,7 +76,7 @@ Where:
 | Bullet Cluster | 0.296 | 99% |
 | El Gordo | 0.870 | 100% |
 | GN-z11 | 10.6 | 99.5% |
-| JADES-GS-z14-0 | 14.18 | 99.9% |
+| JADES-GS-z14-0 | 14.32 | 99.9% |
 
 ## CEERS Decomposition Results
 
