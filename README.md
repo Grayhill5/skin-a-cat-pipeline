@@ -55,7 +55,7 @@ jupyter lab reproducibility_notebook.ipynb
 ### Bullet Cluster Lensing Kill-Shot (v1.2)
 
 • **Bullet Cluster lensing (Clowe 2006)** — χ²/dof = 1.57 (plasma refraction only, no dark matter)
-• **114-cluster lensing aggregate** — χ²/dof = 1.00 (plasma refraction only, no dark matter)
+• **114-cluster lensing aggregate (CLASH 25 core + Frontier Fields 6 + SPT/ACT/Planck 83)** — χ²/dof = 1.00 (plasma refraction only, no dark matter)
 
 | Radius (kpc) | κ_TSM2.1 | κ_Clowe | γ_TSM2.1 | γ_Clowe |
 |--------------|----------|---------|----------|---------|
@@ -69,11 +69,13 @@ jupyter lab reproducibility_notebook.ipynb
 
 ### 114-Cluster Aggregate
 
-χ²/dof = 1.04 (full sample). Reproduction script + data in `data/114_cluster_aggregate.csv`.
+**Composition:** CLASH 25 core + Frontier Fields 6 + SPT/ACT/Planck 83 = 114 clusters
+
+χ²/dof = 1.00 aggregate, mean 1.04 per-cluster. Reproduction script + data in `data/114_cluster_aggregate.csv`.
 
 | Metric | Value |
 |--------|-------|
-| **Sample size** | 114 clusters |
+| **Sample size** | 114 clusters (CLASH 25 + FF 6 + SPT/ACT/Planck 83) |
 | **Aggregate χ²/dof** | **1.00** |
 | **Mean per-cluster χ²/dof** | **1.04** |
 | **Mean \|Δz\|** | **0.0033** |
