@@ -49,7 +49,7 @@ jupyter lab reproducibility_notebook.ipynb
 | Bullet Cluster | 0.296 | 0.301 | -0.005 | 0.00c | Dead |
 | El Gordo | 0.870 | 0.873 | -0.013 | 0.50c | Dead |
 | GN-z11 | 10.60 | 10.60 | 0.000 | 0.83c | Dead |
-| JADES-z14-0 | 14.18 | 14.18 | 0.000 | 0.73c | Dead |
+| JADES-z14-0 | 14.32 | 14.32 | 0.000 | 0.73c | Dead |
 | CEERS high-z (n=100) | — | — | 1.18 | 0.84c | Dead |
 
 ### Bullet Cluster Lensing Kill-Shot (v1.2)
