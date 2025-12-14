@@ -256,7 +256,7 @@ The pipeline makes specific, testable predictions:
 
 - **R² = 0.994 decomposition** — demonstrates consistency, not independent prediction
 - **True blind prediction** — awaiting v1.3 implementation with z-independent distances
-- **Absolute amplitude prediction** — currently shape-normalized, absolute mode pending
+- **Absolute amplitude prediction** — v1.3 will implement full prediction from baseline N_HI = 2.5 × 10²⁰ cm⁻² without inner-radius normalization. This will test whether TSM2.1 predicts absolute lensing strength from first principles.
 - **CMB/BBN consistency** — not yet implemented
 - **Independent α = 2.3 verification** — awaiting SKA tomography
 
