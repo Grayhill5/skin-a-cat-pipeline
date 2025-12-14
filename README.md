@@ -1,4 +1,4 @@
-# SKIN a CAT v1.2 — 114-Cluster Kill-Shot: Dark Matter Terminated
+# SKIN a CAT v1.2.1 — 114-Cluster Kill-Shot: Dark Matter Terminated
 
 **Static Kinematic INterpretation - a Cosmological Alternative Theory**
 
@@ -33,6 +33,8 @@ jupyter lab reproducibility_notebook.ipynb
 ![114-Cluster Lensing Aggregate — Dark Matter Terminated](114_cluster_chi2_killshot.png)
 
 *TSM2.1 plasma refraction reproduces weak-lensing across 114 clusters. Aggregate χ²/dof = 1.00. Mean |Δz| = 0.0033. No dark matter required.*
+
+📄 **[Full Methodology & Transparency Documentation](METHODOLOGY_TRANSPARENCY.md)** — Every constant derived. Every limitation disclosed. Come and take it.
 
 ---
 
@@ -82,9 +84,9 @@ jupyter lab reproducibility_notebook.ipynb
 
 Matches Bullet Cluster lensing (1.57) scaling. Run: `python repro_114_aggregate.py`
 
-### Predictive (Non-Circular) Test
+### Decomposition Consistency Test
 
-**Method:** Distance + HI map only. NO z_obs used in prediction.
+**Method:** Decomposes observed z into refraction + Doppler components.
 
 | Metric | Value |
 |--------|-------|
@@ -93,6 +95,8 @@ Matches Bullet Cluster lensing (1.57) scaling. Run: `python repro_114_aggregate.
 | **Mean β** | **0.84c** |
 | **Max β** | **0.8447c** |
 | **Refraction trend** | r = 0.996 (rising with distance) |
+
+**Transparency Note:** This test uses z_obs-derived distance as a UTS scaling proxy, then decomposes z into refraction + Doppler components. R² = 0.994 demonstrates internal model consistency — the two-component formula accurately partitions observed redshift. True blind prediction (z-independent distances) planned for v1.3. The 114-cluster lensing aggregate (χ²/dof = 1.00) remains fully independent.
 
 ---
 
@@ -208,9 +212,14 @@ skin-a-cat-pipeline/
 
 ## Methodology Note
 
-**v1.1 achieves NON-CIRCULAR validation:**
+**v1.2.1 Decomposition Consistency Test:**
 
-The predictive test uses ONLY distance + HI maps to predict redshifts. No z_obs is used in the prediction calculation. This demonstrates that TSM2.1 can predict observed redshifts from first principles with R²=0.994 accuracy.
+The R² = 0.994 test decomposes observed redshifts into refraction + Doppler components using z_obs-derived distance as a UTS scaling proxy. This demonstrates internal consistency — the formula accurately partitions observed z.
+
+**Fully independent validation:**
+The 114-cluster lensing aggregate (χ²/dof = 1.00) compares TSM2.1 κ/γ predictions against published weak-lensing observations with no circular inputs. This is the granite result.
+
+See [METHODOLOGY_TRANSPARENCY.md](METHODOLOGY_TRANSPARENCY.md) for full transparency documentation.
 
 ---
 
