@@ -7,7 +7,7 @@ import os
 
 C_KM_S = 299792.458
 
-CST_PERIOD_GYR = 290.0
+CST_PERIOD_GYR = 284.0  # ± 2 Gyr (92.5 Gyr base × 3.07 UTS stretch, eq. 45)
 
 N_COSMIC_BASELINE_HIGHZ = 2.5e20
 COSMIC_EXPONENT = 2.3

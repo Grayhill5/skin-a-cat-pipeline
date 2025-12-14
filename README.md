@@ -110,7 +110,7 @@ No cosmic expansion, dark energy, or dark matter required.
 ## Locked Configuration (Kill-Shot v1.2)
 
 ```python
-CST_PERIOD_GYR = 290.0           # Cosmic Standard Time period
+CST_PERIOD_GYR = 284.0           # ± 2 Gyr Cosmic Standard Time period
 N_COSMIC_BASELINE_HIGHZ = 2.5e20 # cm⁻² baseline for high-z
 COSMIC_EXPONENT = 2.3            # Power-law: N_cosmic ∝ d^2.3
 K_TSM = 5.1e-23                  # cm² scattering coefficient
@@ -120,8 +120,9 @@ B_FIELD = 1e-6                   # Gauss (intergalactic, eq. 67)
 ### CST Period
 
 - **Base (orbital):** 92.5 ± 0.7 Gyr (dipole-derived)
-- **Effective (UTS scaled):** 290 Gyr (3.07× stretch for β < 0.85c, matches dipole a_cent ~10⁻¹⁵ m/s², eq. 45 Hydrogen Ed.)
-- **Effect:** No impact on results — ensures subluminal velocities to z = 14
+- **Effective (UTS scaled):** 284 ± 2 Gyr (3.07× stretch for β < 0.85c)
+- **Physics:** Matches observed kinematic dipole a_cent ~10⁻¹⁵ m/s² (eq. 45 Hydrogen Ed.)
+- **Effect:** Ensures subluminal velocities to z = 14
 
 ---
 
