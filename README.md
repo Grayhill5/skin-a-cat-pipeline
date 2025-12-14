@@ -223,6 +223,16 @@ See [METHODOLOGY_TRANSPARENCY.md](METHODOLOGY_TRANSPARENCY.md) for full transpar
 
 ---
 
+## Future Tests (v1.3)
+
+- **True blind prediction:** z-independent distances via Cepheids, TRGB, megamasers
+- **Absolute amplitude mode:** κ_peak from first principles (no inner-radius normalization)
+- **CMB power spectrum mock:** Free-free + CEC model
+- **BBN abundances mock**
+- [Multi-Messenger Prediction](docs/multi_messenger_prediction.md) — Zero propagation delay between GW and EM signals
+
+---
+
 ## Dependencies
 
 - Python 3.11+
