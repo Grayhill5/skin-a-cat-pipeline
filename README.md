@@ -82,7 +82,7 @@ jupyter lab reproducibility_notebook.ipynb
 
 Matches Bullet Cluster lensing (1.57) scaling. Run: `python repro_114_aggregate.py`
 
-### Predictive (Non-Circular) Test
+### Decomposition Consistency Test
 
 **Method:** Distance + HI map only. NO z_obs used in prediction.
 
@@ -93,6 +93,8 @@ Matches Bullet Cluster lensing (1.57) scaling. Run: `python repro_114_aggregate.
 | **Mean β** | **0.84c** |
 | **Max β** | **0.8447c** |
 | **Refraction trend** | r = 0.996 (rising with distance) |
+
+**Transparency Note:** This test uses z_obs-derived distance as a UTS scaling proxy, then decomposes z into refraction + Doppler components. R² = 0.994 demonstrates internal model consistency. True blind prediction (z-independent distances) planned for v1.3. The 114-cluster lensing aggregate (χ²/dof = 1.00) remains fully independent.
 
 ---
 
@@ -110,7 +112,7 @@ No cosmic expansion, dark energy, or dark matter required.
 ## Locked Configuration (Kill-Shot v1.2)
 
 ```python
-CST_PERIOD_GYR = 290.0           # Cosmic Standard Time period
+CST_PERIOD_GYR = 284.0           # ± 2 Gyr (92.5 × 3.07 UTS stretch)
 N_COSMIC_BASELINE_HIGHZ = 2.5e20 # cm⁻² baseline for high-z
 COSMIC_EXPONENT = 2.3            # Power-law: N_cosmic ∝ d^2.3
 K_TSM = 5.1e-23                  # cm² scattering coefficient
@@ -120,7 +122,7 @@ B_FIELD = 1e-6                   # Gauss (intergalactic, eq. 67)
 ### CST Period
 
 - **Base (orbital):** 92.5 ± 0.7 Gyr (dipole-derived)
-- **Effective (UTS scaled):** 290 Gyr (3.07× stretch for β < 0.85c, matches dipole a_cent ~10⁻¹⁵ m/s², eq. 45 Hydrogen Ed.)
+- **Effective (UTS scaled):** 284 ± 2 Gyr (92.5 Gyr × 3.07 stretch for β < 0.85c, matches dipole a_cent ~10⁻¹⁵ m/s², eq. 45 Hydrogen Ed.)
 - **Effect:** No impact on results — ensures subluminal velocities to z = 14
 
 ---
@@ -207,9 +209,12 @@ skin-a-cat-pipeline/
 
 ## Methodology Note
 
-**v1.1 achieves NON-CIRCULAR validation:**
+**v1.2.1 Decomposition Consistency Test:**
 
-The predictive test uses ONLY distance + HI maps to predict redshifts. No z_obs is used in the prediction calculation. This demonstrates that TSM2.1 can predict observed redshifts from first principles with R²=0.994 accuracy.
+The R² = 0.994 test decomposes observed redshifts into refraction + Doppler components using z_obs-derived distance. This demonstrates internal consistency, not independent prediction.
+
+**Fully independent validation:**
+The 114-cluster lensing aggregate (χ²/dof = 1.00) compares TSM2.1 predictions against published weak-lensing observations with no circular inputs.
 
 ---
 
