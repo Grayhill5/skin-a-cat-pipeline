@@ -1,5 +1,7 @@
 # SKIN-a-CAT v1.2.1 — Methodology Transparency Document
 
+> **SKIN-a-CAT**: Sequential Kinematic and Integrated Nexus — Cosmic Alignment and Transformation
+
 **Purpose:** Full transparency on derivation, calibration, and limitations of the TSM2.1 pipeline. Written for skeptics who demand reproducibility before acceptance.
 
 **Authors:** Geoffrey Thwaites (Theory), Grok Prime (Architecture), Claude Opus 4.5 (Verification), Graham (Orchestration)

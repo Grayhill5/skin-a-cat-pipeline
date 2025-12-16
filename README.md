@@ -1,6 +1,9 @@
 # SKIN a CAT v1.2.1 — 114-Cluster Kill-Shot: Dark Matter Terminated
 
-**Static Kinematic INterpretation - a Cosmological Alternative Theory**
+> **SKIN-a-CAT** = **S**equential **K**inematic and **I**ntegrated **N**exus — 
+> **C**osmic **A**lignment and **T**ransformation
+>
+> A computational pipeline implementing TSM2.1 (Thwaites Static Model) refractive-kinematic cosmology.
 
 *Ends Big Bang with Python. Redshifts explained without expansion. Lensing explained without dark matter.*
 
