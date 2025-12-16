@@ -608,28 +608,35 @@ st.markdown("""
     [data-theme="dark"] .explore-card { background: rgba(100, 140, 200, 0.2); border-color: rgba(120, 160, 220, 0.4); }
 </style>
 <div style="text-align: center; padding: 0;">
-    <div class="hero-title">The Mechanics of the Universe</div>
+    <div class="hero-title">Mechanics of the Cosmos</div>
     <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
         <span style="font-size: 2.5rem; color: #c41e3a; font-weight: bold; line-height: 1;">Φ</span>
         <span style="font-size: 1.6rem; font-weight: bold; color: #c41e3a;">THWAITES STANDARD MODEL (TSM 2.1)</span>
     </div>
     <div style="font-size: 1rem; color: #888; margin-top: 0.3rem;">Redshift Decomposition Dashboard</div>
+    <div style="margin-top: 1rem; font-size: 0.95rem; color: #aaa;">
+        <strong>The purpose of this website:</strong><br>
+        1. Prove that the universe is orbiting around Object X<br>
+        2. That lensing is caused by atmospheric refraction
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
-tab_home, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+tab_home, tab1, tab3, tab2, tab4, tab6, tab5 = st.tabs([
     "🏠 Home", 
     "🎯 Target Explorer", 
-    "🔬 Custom Decomposer", 
     "🔭 Object Lookup", 
+    "🔬 Custom Decomposer", 
     "📊 CEERS Statistics",
-    "🤖 Ask Grok",
-    "📄 Core Documents"
+    "📄 Core Documents",
+    "🤖 Ask Grok"
 ])
 
 with tab_home:
     st.markdown("""
-    ## What if the Universe Isn't Expanding?
+    <h2 style="font-size: 1.4rem;">What if the Universe Isn't Expanding, but if it was in an orbit around Object X</h2>
+    """, unsafe_allow_html=True)
+    st.markdown("""
     
     For nearly a century, astronomers have explained **redshift** (the stretching of light from distant galaxies) 
     as evidence that space itself is expanding—the foundation of Big Bang cosmology.
@@ -856,9 +863,9 @@ with tab_home:
     
     st.markdown("""
     <p style="text-align: center; color: #666; font-size: 0.9rem;">
-    Static Kinematic INtergrated Nexus<br>
+    Sequential Kinematic and Integrated Nexus - Cosmic Alignment and Transformation<br>
     TSM2.1 Pipeline v1.2 — Kill-Shot Release | December 2025<br>
-    TSM2.1 Verification Pipeline by: Graham Hill (<a href="https://x.com/gjustlooking" target="_blank">@gjustlooking</a>) on X  |  <a href="https://www.jackflashdigital.com.au" target="_blank">www.jackflashdigital.com.au</a><br>
+    TSM2.1 Verification Pipeline by: Graham Hill (<a href="https://x.com/gjustlooking" target="_blank">@gjustlooking</a>) on X<br>
     Driven by the vision of Geoffrey E. Thwaites. "Enjoy the ride"<br><br>
     <a href="https://github.com/Grayhill5/skin-a-cat-pipeline" target="_blank">View Source Code on GitHub</a>
     </p>
