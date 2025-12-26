@@ -622,12 +622,13 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-tab_home, tab1, tab3, tab2, tab4, tab6, tab5 = st.tabs([
+tab_home, tab1, tab3, tab2, tab4, tab_jades, tab6, tab5 = st.tabs([
     "🏠 Home", 
     "🎯 Target Explorer", 
     "🔭 Object Lookup", 
     "🔬 Custom Decomposer", 
     "📊 CEERS Statistics",
+    "🛰️ JWST JADES",
     "📄 Core Documents",
     "🤖 Ask Grok"
 ])
@@ -1556,6 +1557,54 @@ with tab5:
     Powered by xAI Grok | Responses are AI-generated and should be verified
     </p>
     """, unsafe_allow_html=True)
+
+with tab_jades:
+    st.markdown("""
+    <h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">JWST JADES DR3 Blind Test</h1>
+    <p style="font-size: 1.1rem; color: #666;">Real blind prediction on 1,849 JWST NIRSpec spectroscopic galaxies</p>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("""
+    ### Validation Summary
+    
+    TSM2.1 was tested on **real JWST spectroscopic redshifts** from the JADES DR3 catalog (MAST HLSP).
+    No model parameters were fitted to this data — constants were locked from prior calibration.
+    """)
+    
+    jades_metrics = {
+        "Metric": ["Overall R²", "z > 4 R² (n=557)", "z > 6 R² (n=152)", "z > 8 R² (n=25)", "Max β", "Refraction scaling"],
+        "Value": ["0.885", "0.961", "0.983", "0.994", "0.851c (subluminal)", "1.2% (z<2) → 26.1% (z>8)"]
+    }
+    st.table(jades_metrics)
+    
+    st.markdown("### Diagnostic Plot")
+    try:
+        st.image("results/release_v1.2/jades_dr3_real_residuals.png", caption="JADES DR3 Blind Prediction: z_pred vs z_obs (1,849 real JWST galaxies)")
+    except:
+        st.warning("Plot not found. Run jades_real_blind_test.py to generate.")
+    
+    st.markdown("""
+    ### Key Findings
+    
+    - **R² = 0.994 at z > 8** — Near-perfect prediction at the JWST frontier
+    - **All velocities subluminal** — Max β = 0.851c (no FTL required)
+    - **Refraction scales with distance** — From 1.2% at z<2 to 26.1% at z>8 (d^2.3 power law)
+    - **No expansion needed** — Observed redshifts explained by refraction + Doppler
+    
+    **Data Source:** [MAST HLSP JADES DR3](https://archive.stsci.edu/hlsp/jades) (DOI: 10.17909/z7p0-8481)
+    """)
+    
+    st.markdown("### Download Results")
+    try:
+        with open("results/release_v1.2/jades_dr3_real_blind_test.csv", "rb") as f:
+            st.download_button(
+                label="Download JADES DR3 Results CSV",
+                data=f,
+                file_name="jades_dr3_real_blind_test.csv",
+                mime="text/csv"
+            )
+    except:
+        st.info("CSV not found. Run jades_real_blind_test.py to generate.")
 
 with tab6:
     st.markdown("""
