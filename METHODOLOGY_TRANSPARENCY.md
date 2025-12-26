@@ -20,8 +20,9 @@ The SKIN-a-CAT pipeline demonstrates that observed cosmological redshifts (z = 0
 The pipeline achieves:
 - **χ²/dof = 1.00** across 114 galaxy clusters (lensing) — fully independent validation
 - **R² = 0.994** decomposition consistency (internal model validation)
+- **R² = 0.994 at z > 8** on 1,849 REAL JWST JADES DR3 galaxies (v1.2 blind test)
 - **< 5% error** on JADES-GS-z14-0 (z = 14.32)
-- **Subluminal velocities** at all redshifts (β_max = 0.8447c)
+- **Subluminal velocities** at all redshifts (β_max = 0.851c)
 
 **What this does NOT claim:**
 - That ΛCDM is "wrong" — only that an alternative decomposition exists
@@ -249,10 +250,11 @@ The pipeline makes specific, testable predictions:
 
 - **χ²/dof = 1.00** aggregate across 114 clusters (independent lensing comparison)
 - **Bullet Cluster χ² = 1.57** (TSM2.1 vs Clowe 2006 observations)
+- **JADES DR3 R² = 0.994 at z > 8** on 1,849 real JWST NIRSpec galaxies (blind test, v1.2)
 - **k_TSM = 5.1 × 10⁻²³ cm²** derived from Thomson × f_ν (no fitting)
 - **CST = 284 ± 2 Gyr** derived from dipole kinematics (no fitting)
 - **All code public**, all source data public
-- **Subluminal velocities** (β_max = 0.8447c) at all redshifts
+- **Subluminal velocities** (β_max = 0.851c) at all redshifts
 
 ### Provisional (Pending v1.3 / External Verification)
 
@@ -290,6 +292,7 @@ jupyter lab reproducibility_notebook.ipynb
 | v1.1 | Dec 2025 | Added 114-cluster aggregate |
 | v1.2 | Dec 2025 | Bullet Cluster lensing kill-shot |
 | v1.2.1 | Dec 2025 | Canonical CST 284 ± 2 Gyr lock + full transparency docs |
+| v1.2.2 | 26 Dec 2025 | **JADES DR3 real blind test**: R² = 0.994 at z > 8 on 1,849 JWST galaxies |
 
 ---
 
