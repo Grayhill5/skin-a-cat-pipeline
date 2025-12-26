@@ -222,22 +222,28 @@ Features:
 
 ```
 skin-a-cat-pipeline/
-├── README.md                 # This file
-├── app.py                    # Streamlit dashboard
-├── config.py                 # Locked kill-shot configuration
-├── refraction.py             # TSM2.1 refraction model
-├── doppler.py                # Relativistic Doppler
-├── coordinates.py            # UTS coordinate transforms
-├── main.py                   # CLI pipeline
-├── statistical_analysis.py   # CEERS analysis
-├── predictive_test.py        # Non-circular validation
+├── README.md                     # This file
+├── VERIFY.md                     # Step-by-step verification guide
+├── METHODOLOGY_TRANSPARENCY.md  # Full methodology documentation
+├── app.py                        # Streamlit dashboard
+├── config.py                     # Locked kill-shot configuration
+├── refraction.py                 # TSM2.1 refraction model
+├── doppler.py                    # Relativistic Doppler
+├── coordinates.py                # UTS coordinate transforms
+├── main.py                       # CLI pipeline
+├── statistical_analysis.py       # CEERS analysis
+├── predictive_test.py            # Non-circular validation
+├── jades_real_blind_test.py      # JADES DR3 real blind test
+├── reproducibility_notebook.ipynb # Full reproducibility notebook
 ├── data/
 │   ├── ceers_sam_catalog.fits
 │   └── plots/
 │       ├── predictive_test_scatter.png
 │       ├── highz_refraction_comparison.png
 │       └── ceers_*.png
-└── results/release_v1.0/     # Archived outputs
+└── results/
+    ├── release_v1.0/             # v1.0 archived outputs
+    └── release_v1.2/             # JADES DR3 blind test results
 ```
 
 ---
