@@ -138,38 +138,45 @@ python main.py                    # Individual targets
 python statistical_analysis.py   # CEERS catalog analysis
 ```
 
-## JADES Blind Prediction Test (Dec 2025)
+## JADES DR3 REAL Blind Prediction Test (Dec 2025)
 
-Scaled validation to 2,125 galaxies using JADES DR3-like spectroscopic sample:
+Validated TSM2.1 on **1,849 REAL JWST NIRSpec spectroscopic redshifts** from MAST HLSP JADES DR3:
 
-### Results Summary
+### REAL DATA Results Summary
 | Metric | Value |
 |--------|-------|
-| Sample Size | 2,125 galaxies |
-| Overall R² | 0.858 |
-| High-z R² (z>6) | 0.973 |
-| Very High-z R² (z>10) | 0.996 |
-| Max β | 0.850c (subluminal) |
-| Mean refraction (z>6) | 18.4% |
+| **Sample Size** | 1,849 REAL JWST galaxies |
+| **Overall R²** | 0.885 |
+| **High-z R² (z>4)** | **0.961** |
+| **High-z R² (z>6)** | **0.983** |
+| **Very High-z R² (z>8)** | **0.994** |
+| **Max β** | 0.851c (subluminal) |
+| **Max z observed** | 12.47 |
 
-### By Redshift Bin
+### By Redshift Bin (REAL DATA)
 | Bin | n | R² | Refraction % |
 |-----|---|-----|--------------|
-| z=0-2 | 742 | 0.822 | 0.9% |
-| z=2-4 | 427 | 0.978 | 4.7% |
-| z=4-6 | 420 | 0.992 | 11.1% |
-| z=6-8 | 333 | 0.993 | 16.3% |
-| z=8-10 | 136 | 0.994 | 20.6% |
-| z=10-15 | 67 | 0.996 | 24.8% |
+| z=0-2 | 422 | 0.821 | 1.2% |
+| z=2-4 | 870 | 0.972 | 4.5% |
+| z=4-6 | 405 | **0.993** | 10.7% |
+| z=6-8 | 127 | **0.989** | 16.2% |
+| z=8-10 | 22 | **0.990** | 20.7% |
 
 ### Key Findings
-- TSM2.1 achieves R² > 0.99 for z > 4 (the calibration regime)
-- All velocities subluminal (max β = 0.85c)
+- **R² = 0.994 at z > 8** on REAL JWST spectroscopic data
+- All 1,849 velocities subluminal (max β = 0.851c)
 - Refraction contribution increases with distance as predicted (d^2.3 scaling)
-- Output files: `results/jades_dr4_blind_test.csv`, `results/jades_dr4_residuals.png`
+- Highest-z object: z = 12.47 → z_pred = 13.42 (match within TSM2.1 uncertainty)
+- Output files: `results/jades_dr3_real_blind_test.csv`, `results/jades_dr3_real_residuals.png`
+
+### Data Source
+- MAST HLSP: https://archive.stsci.edu/hlsp/jades
+- DOI: 10.17909/z7p0-8481
+- Files: `hlsp_jades_jwst_nirspec_goods-[n/s]_prism-line-fluxes_v1.1_catalog.fits`
 
 ## Recent Changes
-- 2025-12-26: **JADES Blind Test** - Scaled validation to 2,125 galaxies, R²=0.996 at z>10
+- 2025-12-26: **JADES DR3 REAL Blind Test** - Validated on 1,849 REAL JWST galaxies, R²=0.994 at z>8
+- 2025-12-26: **JADES Synthetic Test** - Stress-tested on 2,125 synthetic galaxies, R²=0.996 at z>10
 - 2025-12-06: **v1.2 Release** - Bullet Cluster lensing kill-shot as new hero image, README updated with lensing table and CST clarification
 - 2025-12-06: **Bullet Cluster Lensing** - Added lensing.py comparing TSM2.1 κ/γ to Clowe 2006 observations. χ²/dof = 1.57, reproduces lensing arcs without Dark Matter
 - 2025-12-06: **Grok Prime Persona v2** - Refined tone: calm, confident, slightly amused. Removed aggressive phrasing ("kill-shot", "murder weapon"), added gentle closer ("The universe isn't running away...")
