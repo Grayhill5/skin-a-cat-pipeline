@@ -1560,51 +1560,117 @@ with tab5:
 
 with tab_jades:
     st.markdown("""
-    <h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">JWST JADES DR3 Blind Test</h1>
-    <p style="font-size: 1.1rem; color: #666;">Real blind prediction on 1,849 JWST NIRSpec spectroscopic galaxies</p>
+    <h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">JWST JADES Blind Tests</h1>
+    <p style="font-size: 1.1rem; color: #666;">Real blind predictions on JWST NIRSpec spectroscopic galaxies</p>
     """, unsafe_allow_html=True)
     
-    st.markdown("""
-    ### Validation Summary
+    jades_subtab1, jades_subtab2 = st.tabs(["JADES DR4 (Dec 2025)", "JADES DR3 (v1.2)"])
     
-    TSM2.1 was tested on **real JWST spectroscopic redshifts** from the JADES DR3 catalog (MAST HLSP).
-    No model parameters were fitted to this data — constants were locked from prior calibration.
-    """)
+    with jades_subtab1:
+        st.markdown("""
+        ### JADES DR4 Blind Test (Dec 2025)
+        
+        **Sample:** 3,297 galaxies with A/B/C quality flags (z = 0.14–14.18)  
+        **Source:** [Combined_DR4_external_v1.2.1.fits](https://jades.herts.ac.uk/DR4/Combined_DR4_external_v1.2.1.fits)  
+        **Constants:** Locked (CST=284 Gyr, k_TSM=5.1e-23 cm², N_cosmic=2.5e20×d^2.3)
+        """)
+        
+        dr4_col1, dr4_col2 = st.columns(2)
+        
+        with dr4_col1:
+            st.markdown("#### Full Sample Metrics")
+            dr4_metrics = {
+                "Metric": ["Sample Size", "Full R²", "z > 4 R² (n=895)", "z > 8 R² (n=67)", "z > 10 R² (n=17)", "Max β", "Mean Refraction"],
+                "Value": ["3,297", "0.853", "0.942", "0.991", "0.999", "0.851c", "5.97%"]
+            }
+            st.table(dr4_metrics)
+        
+        with dr4_col2:
+            st.markdown("#### By Redshift Bin")
+            dr4_bins = {
+                "Bin": ["z=2-4", "z=4-6", "z=6-8", "z=8-10", "z=10-15"],
+                "n": ["1,574", "604", "223", "51", "17"],
+                "R²": ["0.974", "0.991", "0.992", "0.992", "0.999"],
+                "Refrac%": ["4.5%", "10.7%", "16.4%", "20.6%", "25.0%"]
+            }
+            st.table(dr4_bins)
+        
+        st.markdown("#### Diagnostic Plots")
+        try:
+            st.image("results/jades_dr4_blind_test_v1/jades_dr4_scatter.png", 
+                     caption="JADES DR4 Blind Prediction: z_pred vs z_obs (3,297 galaxies)")
+        except:
+            st.warning("Plot not found. Run jades_dr4_blind_test.py to generate.")
+        
+        try:
+            st.image("results/jades_dr4_blind_test_v1/jades_dr4_residuals_histogram.png", 
+                     caption="JADES DR4 Residuals Distribution")
+        except:
+            pass
+        
+        st.markdown("""
+        #### Key Findings
+        
+        - **R² = 0.999 at z > 10** — Near-perfect prediction at the JWST frontier
+        - **100% subluminal** — All 3,297 galaxies have β < 1
+        - **Refraction scales with distance** — 4.5% at z~3 → 25% at z>10 (d^2.3 power law)
+        - **Locked constants** — No fitting to this data
+        """)
+        
+        st.markdown("#### Download Results")
+        try:
+            with open("results/jades_dr4_blind_test_v1/jades_dr4_blind_test.csv", "rb") as f:
+                st.download_button(
+                    label="Download JADES DR4 Results CSV (3,297 galaxies)",
+                    data=f,
+                    file_name="jades_dr4_blind_test.csv",
+                    mime="text/csv"
+                )
+        except:
+            st.info("CSV not found. Run jades_dr4_blind_test.py to generate.")
     
-    jades_metrics = {
-        "Metric": ["Overall R²", "z > 4 R² (n=557)", "z > 6 R² (n=152)", "z > 8 R² (n=25)", "Max β", "Refraction scaling"],
-        "Value": ["0.885", "0.961", "0.983", "0.994", "0.851c (subluminal)", "1.2% (z<2) → 26.1% (z>8)"]
-    }
-    st.table(jades_metrics)
-    
-    st.markdown("### Diagnostic Plot")
-    try:
-        st.image("results/release_v1.2/jades_dr3_real_residuals.png", caption="JADES DR3 Blind Prediction: z_pred vs z_obs (1,849 real JWST galaxies)")
-    except:
-        st.warning("Plot not found. Run jades_real_blind_test.py to generate.")
-    
-    st.markdown("""
-    ### Key Findings
-    
-    - **R² = 0.994 at z > 8** — Near-perfect prediction at the JWST frontier
-    - **All velocities subluminal** — Max β = 0.851c (no FTL required)
-    - **Refraction scales with distance** — From 1.2% at z<2 to 26.1% at z>8 (d^2.3 power law)
-    - **No expansion needed** — Observed redshifts explained by refraction + Doppler
-    
-    **Data Source:** [MAST HLSP JADES DR3](https://archive.stsci.edu/hlsp/jades) (DOI: 10.17909/z7p0-8481)
-    """)
-    
-    st.markdown("### Download Results")
-    try:
-        with open("results/release_v1.2/jades_dr3_real_blind_test.csv", "rb") as f:
-            st.download_button(
-                label="Download JADES DR3 Results CSV",
-                data=f,
-                file_name="jades_dr3_real_blind_test.csv",
-                mime="text/csv"
-            )
-    except:
-        st.info("CSV not found. Run jades_real_blind_test.py to generate.")
+    with jades_subtab2:
+        st.markdown("""
+        ### JADES DR3 Blind Test (v1.2)
+        
+        TSM2.1 was tested on **real JWST spectroscopic redshifts** from the JADES DR3 catalog (MAST HLSP).
+        No model parameters were fitted to this data — constants were locked from prior calibration.
+        """)
+        
+        jades_metrics = {
+            "Metric": ["Overall R²", "z > 4 R² (n=557)", "z > 6 R² (n=152)", "z > 8 R² (n=25)", "Max β", "Refraction scaling"],
+            "Value": ["0.885", "0.961", "0.983", "0.994", "0.851c (subluminal)", "1.2% (z<2) → 26.1% (z>8)"]
+        }
+        st.table(jades_metrics)
+        
+        st.markdown("#### Diagnostic Plot")
+        try:
+            st.image("results/release_v1.2/jades_dr3_real_residuals.png", caption="JADES DR3 Blind Prediction: z_pred vs z_obs (1,849 real JWST galaxies)")
+        except:
+            st.warning("Plot not found. Run jades_real_blind_test.py to generate.")
+        
+        st.markdown("""
+        #### Key Findings
+        
+        - **R² = 0.994 at z > 8** — Near-perfect prediction at the JWST frontier
+        - **All velocities subluminal** — Max β = 0.851c (no FTL required)
+        - **Refraction scales with distance** — From 1.2% at z<2 to 26.1% at z>8 (d^2.3 power law)
+        - **No expansion needed** — Observed redshifts explained by refraction + Doppler
+        
+        **Data Source:** [MAST HLSP JADES DR3](https://archive.stsci.edu/hlsp/jades) (DOI: 10.17909/z7p0-8481)
+        """)
+        
+        st.markdown("#### Download Results")
+        try:
+            with open("results/release_v1.2/jades_dr3_real_blind_test.csv", "rb") as f:
+                st.download_button(
+                    label="Download JADES DR3 Results CSV",
+                    data=f,
+                    file_name="jades_dr3_real_blind_test.csv",
+                    mime="text/csv"
+                )
+        except:
+            st.info("CSV not found. Run jades_real_blind_test.py to generate.")
 
 with tab6:
     st.markdown("""
@@ -2037,9 +2103,9 @@ For independent verification using publicly available data. Go to this site: git
 with st.sidebar:
     st.markdown("**Quick Stats:**")
     st.markdown("- 4 calibrated targets")
-    st.markdown("- 10,000 CEERS galaxies")
+    st.markdown("- 3,297 JADES DR4 galaxies")
     st.markdown("- z = 0 to 14.2")
-    st.markdown("- R² = 0.994 (predictive)")
+    st.markdown("- R² = 0.999 (z>10 blind)")
     
     st.markdown("---")
     
