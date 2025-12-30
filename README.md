@@ -9,6 +9,11 @@
 
 ---
 
+**Start Here: [Which Theory Makes More Sense?](docs/which_theory_makes_more_sense.md)**  
+ΛCDM vs TSM2.1 — physical coherence comparison. The code and numbers below prove it.
+
+---
+
 ## Full Independent Reproducibility Notebook
 
 Run from raw telescope data in <10 minutes:
