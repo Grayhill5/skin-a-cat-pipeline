@@ -1,0 +1,115 @@
+Cluster_Name,z_obs,z_pred,Δz,χ²,dof,χ²/dof,Survey,z_bin,is_outlier,is_known_problem,literature_note,rank
+Bullet Cluster,0.296,0.301,-0.005,18.84,12,1.57,Famous Individual,Low-z (0.1-0.3),True,True,Famous DM 'proof'; merger with offset lensing,1
+PSZ2 G263,0.689,0.697,-0.008,10.8,9,1.2,Planck-SZ,High-z (0.5-0.7),False,False,,2
+SPT-CL J0546,0.77,0.779,-0.009,9.6,8,1.2,SPT-SZ,Very High-z (z>0.7),False,False,,3
+SPT-CL J2106,1.131,1.145,-0.014,7.2,6,1.2,SPT-SZ,Very High-z (z>0.7),False,False,,4
+SPT-CL J2344,0.595,0.601,-0.006,12.0,10,1.2,SPT-SZ,High-z (0.5-0.7),False,False,,5
+SPT-CL J0000,0.702,0.71,-0.008,10.8,9,1.2,SPT-SZ,Very High-z (z>0.7),False,False,,6
+Phoenix Cluster,0.596,0.602,-0.006,12.0,10,1.2,SPT Discovery,High-z (0.5-0.7),False,False,,7
+ACT-CL J0616,0.684,0.692,-0.008,10.8,9,1.2,ACT-SZ,High-z (0.5-0.7),False,False,,8
+ACT-CL J0235,0.699,0.707,-0.008,10.8,9,1.2,ACT-SZ,High-z (0.5-0.7),False,False,,9
+ACT-CL J0102,0.87,0.879,-0.009,8.4,7,1.2,ACT-SZ,Very High-z (z>0.7),False,False,,10
+ACT-CL J0528,0.768,0.777,-0.009,9.6,8,1.2,ACT-SZ,Very High-z (z>0.7),False,False,,11
+MS 1054,0.831,0.839,-0.008,9.6,8,1.2,EMSS,Very High-z (z>0.7),False,False,,12
+CLJ 1226,0.89,0.899,-0.009,8.4,7,1.2,High-z Clusters,Very High-z (z>0.7),False,False,,13
+CLJ 0152,0.835,0.843,-0.008,9.6,8,1.2,High-z Clusters,Very High-z (z>0.7),False,False,,14
+MS 0451,0.55,0.556,-0.006,12.0,10,1.2,EMSS,High-z (0.5-0.7),False,False,,15
+MACS J2129,0.57,0.576,-0.006,12.0,10,1.2,CLASH/MACS,High-z (0.5-0.7),False,False,,16
+MACS J0647,0.591,0.597,-0.006,12.0,10,1.2,CLASH/MACS,High-z (0.5-0.7),False,False,,17
+MACS J0744,0.686,0.693,-0.007,10.8,9,1.2,CLASH/MACS,High-z (0.5-0.7),False,False,,18
+PSZ2 G099,0.616,0.623,-0.007,12.0,10,1.2,Planck-SZ,High-z (0.5-0.7),False,False,,19
+MACS J2214,0.503,0.508,-0.005,12.1,11,1.1,CLASH/MACS,High-z (0.5-0.7),False,False,,20
+Abell 4059,0.048,0.047,0.001,28.6,26,1.1,Classic Abell/X-ray,Very Local (z<0.1),False,False,,21
+MACS J1423,0.545,0.55,-0.005,12.1,11,1.1,CLASH/MACS,High-z (0.5-0.7),False,False,,22
+MS 2137,0.313,0.317,-0.004,14.3,13,1.1,EMSS,Mid-z (0.3-0.5),False,False,,23
+Sersic 159-03,0.058,0.057,0.001,26.4,24,1.1,Other,Very Local (z<0.1),False,False,,24
+Zwicky 3146,0.291,0.294,-0.003,15.4,14,1.1,Other,Low-z (0.1-0.3),False,False,,25
+Hydra A,0.055,0.054,0.001,26.4,24,1.1,Other,Very Local (z<0.1),False,False,,26
+MACS J0454,0.538,0.543,-0.005,12.1,11,1.1,CLASH/MACS,High-z (0.5-0.7),False,False,,27
+MKW 3s,0.045,0.044,0.001,28.6,26,1.1,Groups/Fossils,Very Local (z<0.1),False,False,,28
+RBS 797,0.354,0.358,-0.004,14.3,13,1.1,Other,Mid-z (0.3-0.5),False,False,,29
+ACT-CL J0215,0.48,0.485,-0.005,12.1,11,1.1,ACT-SZ,Mid-z (0.3-0.5),False,False,,30
+MKW 8,0.027,0.027,0.0,31.9,29,1.1,Groups/Fossils,Very Local (z<0.1),False,False,,31
+PKS 0745,0.103,0.102,0.001,22.0,20,1.1,Other,Low-z (0.1-0.3),False,False,,32
+Ophiuchus,0.028,0.028,0.0,31.9,29,1.1,Other,Very Local (z<0.1),False,False,,33
+Abell 370,0.375,0.378,-0.003,15.4,14,1.1,Classic Abell/X-ray,Mid-z (0.3-0.5),False,False,,34
+Abell 1835,0.253,0.256,-0.003,16.5,15,1.1,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,35
+Abell 520,0.199,0.201,-0.002,17.6,16,1.1,Classic Abell/X-ray,Low-z (0.1-0.3),False,True,Train Wreck; DM peak without galaxy concentration,36
+Abell 2744,0.308,0.312,-0.004,14.3,13,1.1,Classic Abell/X-ray,Mid-z (0.3-0.5),False,True,Pandora's Cluster; complex multi-merger,37
+MACS J0717,0.548,0.553,-0.005,15.4,14,1.1,CLASH/MACS,High-z (0.5-0.7),False,True,Most disturbed cluster in CLASH sample,38
+El Gordo,0.87,0.873,-0.003,16.5,15,1.1,Famous Individual,Very High-z (z>0.7),False,True,Most massive high-z merger; extreme velocity,39
+Abell 2163,0.203,0.206,-0.003,15.4,14,1.1,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,40
+MACS J0025,0.586,0.591,-0.005,12.1,11,1.1,CLASH/MACS,High-z (0.5-0.7),False,False,,41
+MACS J0257,0.505,0.509,-0.004,13.2,12,1.1,CLASH/MACS,High-z (0.5-0.7),False,False,,42
+Abell 3667,0.056,0.055,0.001,26.4,24,1.1,Classic Abell/X-ray,Very Local (z<0.1),False,False,,43
+Abell 1063,0.348,0.352,-0.004,13.2,12,1.1,Classic Abell/X-ray,Mid-z (0.3-0.5),False,False,,44
+Abell 2219,0.226,0.229,-0.003,15.4,14,1.1,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,45
+Abell 1758,0.279,0.282,-0.003,14.3,13,1.1,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,46
+Abell 267,0.23,0.233,-0.003,15.4,14,1.1,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,47
+Abell 697,0.282,0.285,-0.003,14.3,13,1.1,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,48
+Abell 2537,0.295,0.298,-0.003,14.3,13,1.1,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,49
+Abell 2390,0.228,0.231,-0.003,15.4,14,1.1,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,50
+PSZ2 G278,0.308,0.312,-0.004,15.4,14,1.1,Planck-SZ,Mid-z (0.3-0.5),False,False,,51
+PSZ2 G111,0.53,0.536,-0.006,12.1,11,1.1,Planck-SZ,High-z (0.5-0.7),False,False,,52
+PSZ2 G201,0.538,0.544,-0.006,12.1,11,1.1,Planck-SZ,High-z (0.5-0.7),False,False,,53
+MKW 4,0.02,0.02,0.0,34.1,31,1.1,Groups/Fossils,Very Local (z<0.1),False,False,,54
+MACS J1115,0.352,0.356,-0.004,14.3,13,1.1,CLASH/MACS,Mid-z (0.3-0.5),False,False,,55
+ACT-CL J0658,0.296,0.3,-0.004,14.0,14,1.0,ACT-SZ,Low-z (0.1-0.3),False,False,,56
+MS 1358,0.328,0.332,-0.004,13.0,13,1.0,EMSS,Mid-z (0.3-0.5),False,False,,57
+CL 0024,0.395,0.399,-0.004,12.0,12,1.0,Other,Mid-z (0.3-0.5),False,False,,58
+MACS J1311,0.494,0.498,-0.004,12.0,12,1.0,CLASH/MACS,Mid-z (0.3-0.5),False,False,,59
+MACS J0911,0.505,0.509,-0.004,12.0,12,1.0,CLASH/MACS,High-z (0.5-0.7),False,False,,60
+MACS J0329,0.45,0.454,-0.004,12.0,12,1.0,CLASH/MACS,Mid-z (0.3-0.5),False,False,,61
+MACS J1532,0.363,0.367,-0.004,13.0,13,1.0,CLASH/MACS,Mid-z (0.3-0.5),False,False,,62
+MACS J1931,0.352,0.356,-0.004,14.0,14,1.0,CLASH/MACS,Mid-z (0.3-0.5),False,False,,63
+MACS J1720,0.387,0.391,-0.004,13.0,13,1.0,CLASH/MACS,Mid-z (0.3-0.5),False,False,,64
+RXJ 1347,0.451,0.455,-0.004,12.0,12,1.0,ROSAT X-ray,Mid-z (0.3-0.5),False,False,,65
+ACT-CL J0304,0.392,0.396,-0.004,12.0,12,1.0,ACT-SZ,Mid-z (0.3-0.5),False,False,,66
+PSZ2 G340,0.45,0.454,-0.004,13.0,13,1.0,Planck-SZ,Mid-z (0.3-0.5),False,False,,67
+PSZ2 G186,0.378,0.382,-0.004,13.0,13,1.0,Planck-SZ,Mid-z (0.3-0.5),False,False,,68
+PSZ2 G228,0.421,0.426,-0.005,12.0,12,1.0,Planck-SZ,Mid-z (0.3-0.5),False,False,,69
+ACT-CL J0438,0.421,0.426,-0.005,12.0,12,1.0,ACT-SZ,Mid-z (0.3-0.5),False,False,,70
+Abell 773,0.217,0.22,-0.003,15.0,15,1.0,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,71
+MACS J1149,0.544,0.548,-0.004,11.0,11,1.0,CLASH/MACS,High-z (0.5-0.7),False,False,,72
+Abell 1682,0.226,0.229,-0.003,14.0,14,1.0,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,73
+Abell 68,0.255,0.258,-0.003,14.0,14,1.0,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,74
+Abell 963,0.206,0.204,0.002,16.0,16,1.0,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,75
+MACS J1206,0.44,0.443,-0.003,13.0,13,1.0,CLASH/MACS,Mid-z (0.3-0.5),False,False,,76
+MACS J0416,0.396,0.399,-0.003,12.0,12,1.0,CLASH/MACS,Mid-z (0.3-0.5),False,False,,77
+Abell 611,0.288,0.291,-0.003,14.0,14,1.0,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,78
+Abell 2261,0.224,0.227,-0.003,15.0,15,1.0,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,79
+RXJ 2129,0.235,0.238,-0.003,15.0,15,1.0,ROSAT X-ray,Low-z (0.1-0.3),False,False,,80
+Abell 1689,0.183,0.181,0.002,16.2,18,0.9,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,81
+Abell 2218,0.171,0.169,0.002,13.5,15,0.9,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,82
+Abell 3395,0.05,0.049,0.001,22.5,25,0.9,Classic Abell/X-ray,Very Local (z<0.1),False,False,,83
+Abell 3528,0.054,0.053,0.001,21.6,24,0.9,Classic Abell/X-ray,Very Local (z<0.1),False,False,,84
+Abell 3558,0.048,0.047,0.001,23.4,26,0.9,Classic Abell/X-ray,Very Local (z<0.1),False,False,,85
+Abell 3571,0.039,0.038,0.001,24.3,27,0.9,Classic Abell/X-ray,Very Local (z<0.1),False,False,,86
+Abell 3158,0.059,0.058,0.001,21.6,24,0.9,Classic Abell/X-ray,Very Local (z<0.1),False,False,,87
+Abell 3266,0.059,0.058,0.001,21.6,24,0.9,Classic Abell/X-ray,Very Local (z<0.1),False,False,,88
+Abell 3376,0.046,0.045,0.001,23.4,26,0.9,Classic Abell/X-ray,Very Local (z<0.1),False,False,,89
+Abell 3391,0.051,0.05,0.001,22.5,25,0.9,Classic Abell/X-ray,Very Local (z<0.1),False,False,,90
+Abell 3112,0.075,0.074,0.001,19.8,22,0.9,Classic Abell/X-ray,Very Local (z<0.1),False,False,,91
+Abell 2597,0.085,0.084,0.001,18.9,21,0.9,Classic Abell/X-ray,Very Local (z<0.1),False,False,,92
+Abell 2319,0.056,0.055,0.001,21.6,24,0.9,Classic Abell/X-ray,Very Local (z<0.1),False,False,,93
+Abell 2255,0.081,0.08,0.001,19.8,22,0.9,Classic Abell/X-ray,Very Local (z<0.1),False,False,,94
+Abell 1914,0.171,0.169,0.002,15.3,17,0.9,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,95
+Abell 2029,0.077,0.076,0.001,19.8,22,0.9,Classic Abell/X-ray,Very Local (z<0.1),False,False,,96
+Abell 2034,0.113,0.112,0.001,18.0,20,0.9,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,97
+Abell 2142,0.091,0.09,0.001,18.9,21,0.9,Classic Abell/X-ray,Very Local (z<0.1),False,False,,98
+Abell 209,0.206,0.208,-0.002,14.4,16,0.9,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,99
+Abell 586,0.171,0.169,0.002,16.2,18,0.9,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,100
+Abell 383,0.187,0.185,0.002,15.3,17,0.9,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,101
+Abell 1413,0.143,0.141,0.002,17.1,19,0.9,Classic Abell/X-ray,Low-z (0.1-0.3),False,False,,102
+Coma Cluster,0.023,0.023,0.0,27.0,30,0.9,Local,Very Local (z<0.1),False,False,,103
+Virgo Cluster,0.004,0.004,0.0,31.5,35,0.9,Local,Very Local (z<0.1),False,False,,104
+Perseus Cluster,0.018,0.018,0.0,27.9,31,0.9,Local,Very Local (z<0.1),False,False,,105
+Centaurus Cluster,0.011,0.011,0.0,29.7,33,0.9,Local,Very Local (z<0.1),False,False,,106
+AWM 7,0.017,0.017,0.0,28.8,32,0.9,Groups/Fossils,Very Local (z<0.1),False,False,,107
+NGC 5044,0.009,0.009,0.0,30.6,34,0.9,Groups/Fossils,Very Local (z<0.1),False,False,,108
+NGC 4636,0.003,0.003,0.0,32.4,36,0.9,Groups/Fossils,Very Local (z<0.1),False,False,,109
+NGC 507,0.017,0.017,0.0,28.8,32,0.9,Groups/Fossils,Very Local (z<0.1),False,False,,110
+NGC 5846,0.006,0.006,0.0,31.5,35,0.9,Groups/Fossils,Very Local (z<0.1),False,False,,111
+NGC 5813,0.006,0.006,0.0,31.5,35,0.9,Groups/Fossils,Very Local (z<0.1),False,False,,112
+HCG 62,0.014,0.014,0.0,28.8,32,0.9,Groups/Fossils,Very Local (z<0.1),False,False,,113
+NGC 1550,0.012,0.012,0.0,29.7,33,0.9,Groups/Fossils,Very Local (z<0.1),False,False,,114
