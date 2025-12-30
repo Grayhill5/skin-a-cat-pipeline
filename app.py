@@ -622,13 +622,14 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-tab_home, tab1, tab3, tab2, tab4, tab_jades, tab6, tab5 = st.tabs([
+tab_home, tab1, tab3, tab2, tab4, tab_jades, tab_114, tab6, tab5 = st.tabs([
     "🏠 Home", 
     "🎯 Target Explorer", 
     "🔭 Object Lookup", 
     "🔬 Custom Decomposer", 
     "📊 CEERS Statistics",
     "🛰️ JWST JADES",
+    "🔍 114-Cluster",
     "📄 Core Documents",
     "🤖 Ask Grok"
 ])
@@ -1671,6 +1672,77 @@ with tab_jades:
                 )
         except:
             st.info("CSV not found. Run jades_real_blind_test.py to generate.")
+
+with tab_114:
+    st.markdown("""
+    <h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">114-Cluster Adversarial Stress-Test</h1>
+    <p style="font-size: 1.1rem; color: #666;">Ranked analysis identifying outliers and systematic failures</p>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("""
+    ### Summary
+    
+    All 114 galaxy clusters were ranked by χ²/dof to identify potential model failures.
+    Only **1 outlier** (0.9%) exceeds the χ²/dof > 1.5 threshold.
+    """)
+    
+    adv_col1, adv_col2 = st.columns(2)
+    
+    with adv_col1:
+        st.markdown("#### Aggregate Metrics")
+        adv_metrics = {
+            "Metric": ["Total Clusters", "Outliers (>1.5)", "Aggregate χ²/dof", "Mean χ²/dof", "χ²/dof Range"],
+            "Value": ["114", "1 (0.9%)", "1.005", "1.038", "[0.90, 1.57]"]
+        }
+        st.table(adv_metrics)
+    
+    with adv_col2:
+        st.markdown("#### The Only Outlier")
+        outlier_info = {
+            "Property": ["Cluster", "χ²/dof", "Redshift", "Status"],
+            "Value": ["Bullet Cluster", "1.570", "z = 0.296", "Known 'DM proof' merger"]
+        }
+        st.table(outlier_info)
+    
+    st.markdown("#### χ²/dof Distribution")
+    try:
+        st.image("results/114_chi2_histogram.png", 
+                 caption="4-panel diagnostic: histogram, z-trend, survey breakdown, z_pred vs z_obs")
+    except:
+        st.warning("Plot not found. Run 114_adversarial_analysis.py to generate.")
+    
+    st.markdown("""
+    #### Key Findings
+    
+    - **Only 1 outlier:** Bullet Cluster (known extreme merger, the famous "dark matter proof" case)
+    - **High-z SZ clusters:** Show χ²/dof ~ 1.2 (expected measurement uncertainty at z > 0.5)
+    - **No systematic failures:** Survey subsets and redshift bins show consistent performance
+    - **Healthy scatter:** χ²/dof range [0.9, 1.6] confirms good calibration, not overfitting
+    
+    **Transparency:** RA/Dec coordinates not in dataset (HI4PI query not possible).  
+    **Priority manual targets:** Bullet Cluster, El Gordo, A520
+    """)
+    
+    st.markdown("#### Ranked Cluster Table (Top 15)")
+    try:
+        import pandas as pd
+        df_adv = pd.read_csv("results/114_adversarial_analysis.csv")
+        display_cols = ["rank", "Cluster_Name", "z_obs", "χ²/dof", "Survey", "is_outlier"]
+        st.dataframe(df_adv[display_cols].head(15), use_container_width=True)
+    except Exception as e:
+        st.warning(f"Could not load ranked table: {e}")
+    
+    st.markdown("#### Download Results")
+    try:
+        with open("results/114_adversarial_analysis.csv", "rb") as f:
+            st.download_button(
+                label="Download 114-Cluster Adversarial Analysis CSV",
+                data=f,
+                file_name="114_adversarial_analysis.csv",
+                mime="text/csv"
+            )
+    except:
+        st.info("CSV not found. Run 114_adversarial_analysis.py to generate.")
 
 with tab6:
     st.markdown("""
