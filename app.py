@@ -1166,7 +1166,7 @@ with tab3:
         
         example_objects = st.selectbox(
             "Or select an example:",
-            ["", "3C 273", "PKS 2155-304", "TON 618", "Cygnus A", "BL Lacertae", "OJ 287", "Bullet Cluster", "El Gordo", "Pictor A", "Centaurus A", "Messier 87"],
+            ["", "3C 273", "PKS 2155-304", "TON 618", "Cygnus A", "BL Lacertae", "OJ 287", "Bullet Cluster", "El Gordo", "Messier 87"],
             index=0
         )
         
