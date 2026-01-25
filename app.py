@@ -639,19 +639,43 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-tab_home, tab1, tab3, tab2, tab4, tab_jades, tab_114, tab6, tab5 = st.tabs([
-    "🏠 Home", 
-    "🎯 Target Explorer", 
-    "🔭 Object Lookup", 
-    "🔬 Custom Decomposer", 
-    "📊 CEERS Statistics",
-    "🛰️ JWST JADES",
-    "🔍 114-Cluster",
-    "📄 Core Documents",
-    "🤖 Ask Grok"
-])
+# Two-row navigation using session state
+if 'selected_page' not in st.session_state:
+    st.session_state.selected_page = "Home"
 
-with tab_home:
+# Row 1: Home, Target Explorer, Object Lookup, Ask Grok
+nav_row1 = st.columns(4)
+with nav_row1[0]:
+    if st.button("🏠 Home", use_container_width=True, type="primary" if st.session_state.selected_page == "Home" else "secondary"):
+        st.session_state.selected_page = "Home"
+with nav_row1[1]:
+    if st.button("🎯 Target Explorer", use_container_width=True, type="primary" if st.session_state.selected_page == "Target Explorer" else "secondary"):
+        st.session_state.selected_page = "Target Explorer"
+with nav_row1[2]:
+    if st.button("🔭 Object Lookup", use_container_width=True, type="primary" if st.session_state.selected_page == "Object Lookup" else "secondary"):
+        st.session_state.selected_page = "Object Lookup"
+with nav_row1[3]:
+    if st.button("🤖 Ask Grok", use_container_width=True, type="primary" if st.session_state.selected_page == "Ask Grok" else "secondary"):
+        st.session_state.selected_page = "Ask Grok"
+
+# Row 2: CEERS Statistics, JWST JADES, 114-Cluster, Core Documents
+nav_row2 = st.columns(4)
+with nav_row2[0]:
+    if st.button("📊 CEERS Statistics", use_container_width=True, type="primary" if st.session_state.selected_page == "CEERS Statistics" else "secondary"):
+        st.session_state.selected_page = "CEERS Statistics"
+with nav_row2[1]:
+    if st.button("🛰️ JWST JADES", use_container_width=True, type="primary" if st.session_state.selected_page == "JWST JADES" else "secondary"):
+        st.session_state.selected_page = "JWST JADES"
+with nav_row2[2]:
+    if st.button("🔍 114-Cluster", use_container_width=True, type="primary" if st.session_state.selected_page == "114-Cluster" else "secondary"):
+        st.session_state.selected_page = "114-Cluster"
+with nav_row2[3]:
+    if st.button("📄 Core Documents", use_container_width=True, type="primary" if st.session_state.selected_page == "Core Documents" else "secondary"):
+        st.session_state.selected_page = "Core Documents"
+
+st.markdown("---")
+
+if st.session_state.selected_page == "Home":
     st.markdown("""
     <h2 style="font-size: 1.4rem;">What if the Universe Isn't Expanding, but if it was in an orbit around Object X</h2>
     """, unsafe_allow_html=True)
@@ -836,7 +860,8 @@ with tab_home:
     **Click the links at the TOP of the page** to explore TSM2.1 decomposition interactively:
     """)
     
-    explore_row1 = st.columns(4)
+    # Row 1: Target Explorer, Object Lookup, Ask Grok (matches nav row 1 minus Home)
+    explore_row1 = st.columns(3)
     
     with explore_row1[0]:
         st.markdown("""
@@ -849,46 +874,12 @@ with tab_home:
     with explore_row1[1]:
         st.markdown("""
         <div class="explore-card">
-        <strong>🔬 CUSTOM DECOMPOSER</strong><br>
-        Enter any redshift value and watch the model break it down into refraction and motion components in real-time.
-        </div>
-        """, unsafe_allow_html=True)
-    
-    with explore_row1[2]:
-        st.markdown("""
-        <div class="explore-card">
         <strong>🔭 OBJECT LOOKUP</strong><br>
         Search real astronomical databases for any galaxy or quasar and apply TSM2.1 to its observed redshift.
         </div>
         """, unsafe_allow_html=True)
     
-    with explore_row1[3]:
-        st.markdown("""
-        <div class="explore-card">
-        <strong>📊 CEERS STATISTICS</strong><br>
-        See statistical analysis of 10,000 galaxies showing how refraction and motion contributions vary with distance.
-        </div>
-        """, unsafe_allow_html=True)
-    
-    explore_row2 = st.columns(4)
-    
-    with explore_row2[0]:
-        st.markdown("""
-        <div class="explore-card">
-        <strong>🛰️ JWST JADES</strong><br>
-        3,297 galaxies from JADES DR4 blind test. R² = 0.999 at z>10. The deepest look into the universe validates TSM2.1.
-        </div>
-        """, unsafe_allow_html=True)
-    
-    with explore_row2[1]:
-        st.markdown("""
-        <div class="explore-card">
-        <strong>🌌 114-CLUSTER</strong><br>
-        Adversarial stress-test of 114 galaxy clusters. χ²/dof = 1.005 aggregate. Only 1 outlier (0.9%). Dark matter terminated.
-        </div>
-        """, unsafe_allow_html=True)
-    
-    with explore_row2[2]:
+    with explore_row1[2]:
         st.markdown("""
         <div class="explore-card">
         <strong>🤖 ASK GROK</strong><br>
@@ -896,10 +887,37 @@ with tab_home:
         </div>
         """, unsafe_allow_html=True)
     
+    # Row 2: CEERS Statistics, JWST JADES, 114-Cluster, Core Documents (matches nav row 2)
+    explore_row2 = st.columns(4)
+    
+    with explore_row2[0]:
+        st.markdown("""
+        <div class="explore-card">
+        <strong>📊 CEERS STATISTICS</strong><br>
+        See statistical analysis of 10,000 galaxies showing how refraction and motion contributions vary with distance.
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with explore_row2[1]:
+        st.markdown("""
+        <div class="explore-card">
+        <strong>🛰️ JWST JADES</strong><br>
+        3,297 galaxies from JADES DR4 blind test. R² = 0.999 at z>10. The deepest look into the universe validates TSM2.1.
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with explore_row2[2]:
+        st.markdown("""
+        <div class="explore-card">
+        <strong>🔍 114-CLUSTER</strong><br>
+        Adversarial stress-test of 114 galaxy clusters. χ²/dof = 1.005 aggregate. Only 1 outlier (0.9%). Dark matter terminated.
+        </div>
+        """, unsafe_allow_html=True)
+    
     with explore_row2[3]:
         st.markdown("""
         <div class="explore-card">
-        <strong>📖 DOCUMENTATION</strong><br>
+        <strong>📄 CORE DOCUMENTS</strong><br>
         Full methodology, equations, and reproducibility details for every test in the pipeline.
         </div>
         """, unsafe_allow_html=True)
@@ -916,7 +934,7 @@ with tab_home:
     </p>
     """, unsafe_allow_html=True)
 
-with tab1:
+if st.session_state.selected_page == "Target Explorer":
     st.subheader("Calibrated Targets")
     
     st.markdown("""
@@ -1057,7 +1075,8 @@ with tab1:
                 st.markdown("**Data Table**")
                 st.image(assets["table"], use_container_width=True)
 
-with tab2:
+# Custom Decomposer - Hidden per user request
+if False:  # st.session_state.selected_page == "Custom Decomposer":
     st.subheader("Custom Redshift Decomposition")
     
     st.markdown("""
@@ -1144,7 +1163,7 @@ with tab2:
         else:
             st.success(f"Valid decomposition: subluminal velocity ({result['beta']:.3f}c = {result['beta']*100:.1f}% of light speed)")
 
-with tab3:
+if st.session_state.selected_page == "Object Lookup":
     st.subheader("Object Lookup")
     
     st.markdown("""
@@ -1158,34 +1177,31 @@ with tab3:
     lookup_col1, lookup_col2 = st.columns([1, 2])
     
     with lookup_col1:
-        object_name = st.text_input(
-            "Object Name",
-            placeholder="3C 273, Cygnus A, NGC 1275...",
-            label_visibility="visible"
+        object_name = st.selectbox(
+            "Select an astronomical object:",
+            [
+                "3C 273",
+                "PKS 2155-304", 
+                "TON 618",
+                "Cygnus A",
+                "BL Lacertae",
+                "OJ 287",
+                "Bullet Cluster",
+                "El Gordo",
+                "Messier 87"
+            ],
+            index=0,
+            help="Best results for objects at z > 0.1"
         )
-        
-        example_objects = st.selectbox(
-            "Or select an example:",
-            ["", "3C 273", "PKS 2155-304", "TON 618", "Cygnus A", "BL Lacertae", "OJ 287", "Bullet Cluster", "El Gordo", "Messier 87"],
-            index=0
-        )
-        
-        if example_objects and not object_name:
-            object_name = example_objects
         
         lookup_button = st.button("Look Up Object", type="primary", use_container_width=True)
         
         st.markdown("---")
         
         st.markdown("""
-        **Best Results (z > 0.1):**
-        - Quasars: 3C 273, PKS 2155-304, TON 618
-        - Radio galaxies: Cygnus A
-        - BL Lac objects: BL Lacertae, OJ 287
-        - Icons: Bullet Cluster, El Gordo
+        **Best Results (z > 0.1):** Quasars, radio galaxies, BL Lac objects, galaxy clusters
         
-        **Limited/Reference (z < 0.1 — local motion dominates):**
-        - Pictor A, Centaurus A, NGC 1275, Messier 87
+        **Limited (z < 0.1):** Local galaxies where peculiar motion dominates
         
         **Data:** SIMBAD (CDS, Strasbourg)
         """)
@@ -1330,7 +1346,7 @@ with tab3:
                 muddy the picture. Objects beyond z > 0.05 are far enough that cosmological effects dominate.
                 """)
 
-with tab4:
+if st.session_state.selected_page == "CEERS Statistics":
     st.subheader("CEERS Catalog Decomposition Statistics")
     
     st.markdown("""
@@ -1510,7 +1526,7 @@ with tab4:
     **Result**: 100% valid decompositions with subluminal bulk velocities
     """)
 
-with tab5:
+if st.session_state.selected_page == "Ask Grok":
     st.markdown("""
     <div class="grok-container">
         <div class="grok-header">
@@ -1601,7 +1617,7 @@ with tab5:
     </p>
     """, unsafe_allow_html=True)
 
-with tab_jades:
+if st.session_state.selected_page == "JWST JADES":
     st.markdown("""
     <h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">JWST JADES Blind Tests</h1>
     <p style="font-size: 1.1rem; color: #666;">Real blind predictions on JWST NIRSpec spectroscopic galaxies</p>
@@ -1715,7 +1731,7 @@ with tab_jades:
         except:
             st.info("CSV not found. Run jades_real_blind_test.py to generate.")
 
-with tab_114:
+if st.session_state.selected_page == "114-Cluster":
     st.markdown("""
     <h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">114-Cluster Adversarial Stress-Test</h1>
     <p style="font-size: 1.1rem; color: #666;">Ranked analysis identifying outliers and systematic failures</p>
@@ -1786,7 +1802,7 @@ with tab_114:
     except:
         st.info("CSV not found. Run 114_adversarial_analysis.py to generate.")
 
-with tab6:
+if st.session_state.selected_page == "Core Documents":
     st.markdown("""
     <h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">Core Documents</h1>
     <p style="font-size: 1.1rem; color: #666;">This is what is being verified — the foundational theory behind TSM2.1</p>
@@ -2358,12 +2374,18 @@ with st.sidebar:
     st.markdown("---")
     
     st.markdown("**Download Data:**")
-    st.download_button(
-        label="CEERS Results (10k galaxies)",
-        data=results_df.to_csv(index=False),
-        file_name="tsm21_ceers_decomposition.csv",
-        mime="text/csv"
-    )
+    try:
+        if 'results_df' in dir() and results_df is not None:
+            st.download_button(
+                label="CEERS Results (10k galaxies)",
+                data=results_df.to_csv(index=False),
+                file_name="tsm21_ceers_decomposition.csv",
+                mime="text/csv"
+            )
+        else:
+            st.caption("Visit CEERS Statistics page first to generate data")
+    except:
+        st.caption("Visit CEERS Statistics page first to generate data")
     
     lensing_csv = """Radius_kpc,kappa_TSM21,kappa_Clowe,gamma_TSM21,gamma_Clowe
 50,0.120,0.120,0.100,0.100
