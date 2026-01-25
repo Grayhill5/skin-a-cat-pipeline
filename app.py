@@ -643,6 +643,8 @@ st.markdown("""
 if 'selected_page' not in st.session_state:
     st.session_state.selected_page = "Home"
 
+st.markdown("<div style='margin-top: 1.5rem;'></div>", unsafe_allow_html=True)
+
 # Row 1: Home, Target Explorer, Object Lookup, Ask Grok
 nav_row1 = st.columns(4)
 with nav_row1[0]:
