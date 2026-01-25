@@ -1178,7 +1178,7 @@ if st.session_state.selected_page == "Object Lookup":
     
     with lookup_col1:
         preset_objects = [
-            "-- Enter custom name --",
+            "Enter custom SIMBAD query",
             "3C 273",
             "PKS 2155-304", 
             "TON 618",
@@ -1197,7 +1197,7 @@ if st.session_state.selected_page == "Object Lookup":
             help="Select from list or choose 'Enter custom name' to type your own"
         )
         
-        if selected_option == "-- Enter custom name --":
+        if selected_option == "Enter custom SIMBAD query":
             object_name = st.text_input(
                 "Enter object name:",
                 placeholder="e.g., NGC 1275, M31, Abell 2218",
