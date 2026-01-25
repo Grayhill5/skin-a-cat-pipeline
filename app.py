@@ -1177,22 +1177,34 @@ if st.session_state.selected_page == "Object Lookup":
     lookup_col1, lookup_col2 = st.columns([1, 2])
     
     with lookup_col1:
-        object_name = st.selectbox(
+        preset_objects = [
+            "-- Enter custom name --",
+            "3C 273",
+            "PKS 2155-304", 
+            "TON 618",
+            "Cygnus A",
+            "BL Lacertae",
+            "OJ 287",
+            "Bullet Cluster",
+            "El Gordo",
+            "Messier 87"
+        ]
+        
+        selected_option = st.selectbox(
             "Select an astronomical object:",
-            [
-                "3C 273",
-                "PKS 2155-304", 
-                "TON 618",
-                "Cygnus A",
-                "BL Lacertae",
-                "OJ 287",
-                "Bullet Cluster",
-                "El Gordo",
-                "Messier 87"
-            ],
+            preset_objects,
             index=0,
-            help="Best results for objects at z > 0.1"
+            help="Select from list or choose 'Enter custom name' to type your own"
         )
+        
+        if selected_option == "-- Enter custom name --":
+            object_name = st.text_input(
+                "Enter object name:",
+                placeholder="e.g., NGC 1275, M31, Abell 2218",
+                help="Type any SIMBAD-recognized object name"
+            )
+        else:
+            object_name = selected_option
         
         lookup_button = st.button("Look Up Object", type="primary", use_container_width=True)
         
