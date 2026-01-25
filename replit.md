@@ -175,6 +175,7 @@ Validated TSM2.1 on **1,849 REAL JWST NIRSpec spectroscopic redshifts** from MAS
 - Files: `hlsp_jades_jwst_nirspec_goods-[n/s]_prism-line-fluxes_v1.1_catalog.fits`
 
 ## Recent Changes
+- 2026-01-25: **Reproducibility Notebook Fix** - Fixed Step 1 data downloads: GN-z11 uses program 4426 (not broken target_name), added HI4PI/CLASH/CF4 fallbacks with reference citations
 - 2025-12-26: **JADES DR3 REAL Blind Test** - Validated on 1,849 REAL JWST galaxies, R²=0.994 at z>8
 - 2025-12-26: **JADES Synthetic Test** - Stress-tested on 2,125 synthetic galaxies, R²=0.996 at z>10
 - 2025-12-06: **v1.2 Release** - Bullet Cluster lensing kill-shot as new hero image, README updated with lensing table and CST clarification
