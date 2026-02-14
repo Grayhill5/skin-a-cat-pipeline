@@ -611,7 +611,7 @@ st.markdown("""
         color: #888;
         font-style: italic;
         font-size: 0.95rem;
-        margin-top: -0.5rem;
+        margin-top: 1rem;
         margin-bottom: 1rem;
         padding: 0 1rem;
     }
