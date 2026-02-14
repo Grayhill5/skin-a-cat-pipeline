@@ -949,10 +949,12 @@ if st.session_state.selected_page == "Target Explorer":
     st.subheader("Target Explorer")
 
     st.markdown("""
-    Examine how the pipeline decomposes the observed redshift of well-known astronomical
+    <div class="explainer-box">
+    <strong>What this tool does:</strong> Examine how the pipeline decomposes the observed redshift of well-known astronomical
     objects — from nearby clusters to the most distant confirmed galaxy. Select an object
     below to see its full decomposition into refraction and motion components.
-    """)
+    </div>
+    """, unsafe_allow_html=True)
 
     TARGET_DESCRIPTIONS = {
         "Bullet Cluster": {
@@ -996,7 +998,8 @@ if st.session_state.selected_page == "Target Explorer":
         st.markdown(f"*{target_info.get('short', '')}*")
         st.markdown(target_info.get("long", "No description available."))
 
-        st.markdown("---")
+        st.markdown("")
+
         st.markdown(f"**Coordinates:**")
         st.markdown(f"RA: `{target['ra']}`")
         st.markdown(f"Dec: `{target['dec']}`")
@@ -1014,7 +1017,7 @@ if st.session_state.selected_page == "Target Explorer":
         m4.metric("Match", f"{result['match_pct']:.1f}%")
 
         st.markdown(f"""
-        <div class="plain-english" style="text-align: left;">
+        <div class="explainer-box" style="margin-top: 1rem;">
         <strong>Reading these results:</strong>
         The observed redshift ({result['z_obs']:.4f}) is what telescopes measure.
         The model predicts {result['z_model']:.4f} — a {result['match_pct']:.1f}% match.
