@@ -622,6 +622,27 @@ st.markdown("""
         color: #888;
         margin-bottom: 0.3rem;
     }
+    .grok-chat-area {
+        background: rgba(100, 80, 160, 0.08);
+        border: 1px solid rgba(100, 80, 160, 0.2);
+        border-radius: 12px;
+        padding: 1.2rem 1.5rem;
+        margin: 0.5rem 0;
+    }
+    .grok-message-you {
+        background: rgba(88, 166, 255, 0.1);
+        border-left: 3px solid #3498db;
+        padding: 0.8rem 1rem;
+        border-radius: 0 8px 8px 0;
+        margin: 0.5rem 0;
+    }
+    .grok-message-grok {
+        background: rgba(100, 80, 160, 0.1);
+        border-left: 3px solid #7b2cbf;
+        padding: 0.8rem 1rem;
+        border-radius: 0 8px 8px 0;
+        margin: 0.5rem 0;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -1529,21 +1550,47 @@ if st.session_state.selected_page == "CEERS Statistics":
     """)
 
 if st.session_state.selected_page == "Ask Grok":
-    st.markdown("""
-    <div class="grok-container">
-        <div class="grok-header">
-            <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem;">Ask Grok About TSM2.1</h1>
-            <p style="font-size: 1.3rem;">Your AI guide to understanding redshift decomposition and static cosmology</p>
+
+    grok_header_col1, grok_header_col2 = st.columns([1, 2])
+
+    with grok_header_col1:
+        if os.path.exists("grok_avatar.png"):
+            st.image("grok_avatar.png", use_container_width=True)
+        elif os.path.exists("data/grok_avatar.png"):
+            st.image("data/grok_avatar.png", use_container_width=True)
+
+    with grok_header_col2:
+        st.markdown("""
+        <div class="grok-container">
+            <div class="grok-header">
+                <h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 0.3rem;">Ask Grok</h1>
+                <p style="font-size: 1.1rem; margin-bottom: 0;">AI assistant for TSM2.1 — trained on the full
+                methodology, results, and datasets behind this pipeline.</p>
+            </div>
         </div>
-    </div>
-    """, unsafe_allow_html=True)
-    
+        """, unsafe_allow_html=True)
+
+    st.markdown("")
+
     if "grok_history" not in st.session_state:
         st.session_state.grok_history = []
-    
+
     if "pending_question" not in st.session_state:
         st.session_state.pending_question = None
-    
+
+    user_typed = st.text_input(
+        "Ask anything about TSM2.1, cosmology, or the results:",
+        key="grok_text_input",
+        placeholder="Type your question here..."
+    )
+
+    if user_typed:
+        st.session_state.pending_question = user_typed
+
+    st.markdown("")
+
+    st.markdown("**Or try a quick question:**")
+
     sample_questions = [
         "Why does refraction increase at high redshift?",
         "How is TSM2.1 different from Big Bang cosmology?",
@@ -1552,67 +1599,80 @@ if st.session_state.selected_page == "Ask Grok":
         "What is neutral hydrogen and why does it matter?",
         "Could TSM2.1 be wrong? What would disprove it?"
     ]
-    
-    st.markdown("#### Quick Questions:")
+
     sample_cols = st.columns(3)
     for i, q in enumerate(sample_questions[:3]):
         with sample_cols[i]:
             if st.button(q, key=f"sample_{i}", use_container_width=True):
                 st.session_state.pending_question = q
-    
+
     sample_cols2 = st.columns(3)
     for i, q in enumerate(sample_questions[3:]):
         with sample_cols2[i]:
             if st.button(q, key=f"sample_{i+3}", use_container_width=True):
                 st.session_state.pending_question = q
-    
+
     st.markdown("---")
-    
+
     if st.session_state.grok_history:
-        st.markdown("#### Conversation")
         for entry in st.session_state.grok_history[-5:]:
-            with st.container():
-                st.markdown("**You:**")
-                st.text(entry['question'])
-            with st.container():
-                st.markdown("**Grok:**")
-                st.write(entry['answer'])
-        
+            st.markdown(f"""
+            <div class="grok-message-you">
+            <strong>You:</strong> {entry['question']}
+            </div>
+            """, unsafe_allow_html=True)
+            st.markdown(f"""
+            <div class="grok-message-grok">
+            <strong>Grok:</strong>
+            </div>
+            """, unsafe_allow_html=True)
+            st.write(entry['answer'])
+
         if st.button("Clear conversation", key="clear_history"):
             st.session_state.grok_history = []
             st.rerun()
-    
+    else:
+        st.markdown("""
+        <div class="grok-chat-area" style="text-align: center; padding: 2rem;">
+        <p style="color: #888; font-size: 1.1rem; margin: 0;">
+        Ask a question above to start a conversation.<br>
+        <span style="font-size: 0.9rem;">Grok has been trained on the full TSM2.1 methodology,
+        all validated results, and the core equations.</span>
+        </p>
+        </div>
+        """, unsafe_allow_html=True)
+
     if st.session_state.pending_question:
         question_to_ask = st.session_state.pending_question
         st.session_state.pending_question = None
-        
+
         if not os.environ.get("Thwaites_TSM_2_1"):
             st.error("Grok is not available. API key not configured.")
         else:
             with st.spinner("Grok is thinking..."):
                 answer = ask_grok_about_tsm(question_to_ask)
-            
+
             st.session_state.grok_history.append({
                 "question": question_to_ask,
                 "answer": answer
             })
             st.rerun()
-    
-    grok_question = st.chat_input("Ask anything about TSM2.1, cosmology, or the results...")
-    
+
+    grok_question = st.chat_input("Ask anything about TSM2.1...")
+
     if grok_question:
         if not os.environ.get("Thwaites_TSM_2_1"):
             st.error("Grok is not available. API key not configured.")
         else:
             with st.spinner("Grok is thinking..."):
                 answer = ask_grok_about_tsm(grok_question)
-            
+
             st.session_state.grok_history.append({
                 "question": grok_question,
                 "answer": answer
             })
             st.rerun()
-    
+
     st.markdown("""
     <p style="text-align: center; color: #666; font-size: 0.8rem; margin-top: 2rem;">
     Powered by xAI Grok | Responses are AI-generated and should be verified
@@ -2350,32 +2410,35 @@ For independent verification using publicly available data. Go to this site: git
     """)
 
 with st.sidebar:
-    st.markdown("**Quick Stats:**")
-    st.markdown("- 4 calibrated targets")
-    st.markdown("- 3,297 JADES DR4 galaxies")
-    st.markdown("- z = 0 to 14.2")
-    st.markdown("- R² = 0.999 (z>10 blind)")
-    
-    st.markdown("---")
-    
-    st.markdown("**v1.2 Kill-Shot:**")
-    st.success("Bullet Cluster lensing: χ²/dof = 1.57")
-    st.success("114-cluster aggregate: χ²/dof = 1.00")
-    st.caption("Dark Matter terminated across the observable universe")
-    
-    st.markdown("---")
-    
-    st.markdown("**The Equation:**")
+    st.markdown("### The Equation")
     st.latex(r"z_{obs} = (1+z_r)(1+z_d) - 1")
-    
+    st.markdown("""
+    <p style="font-size: 0.85rem; color: #888; margin-top: -0.5rem;">
+    Observed redshift = refraction component × Doppler component
+    </p>
+    """, unsafe_allow_html=True)
+
     st.markdown("---")
-    
-    st.markdown("**Key Insight:**")
-    st.info("All decompositions yield subluminal bulk velocities (β < 1). No expansion required.")
-    
+
+    st.markdown("### Pipeline Results")
+    st.markdown("""
+    | Test | Result |
+    |------|--------|
+    | CEERS 10k galaxies | R² = 0.994 |
+    | JADES DR4 (z>10) | R² = 0.999 |
+    | 114-cluster aggregate | χ²/dof = 1.005 |
+    | Bullet Cluster lensing | χ²/dof = 1.57 |
+    """)
+
+    st.markdown("""
+    <div class="plain-english" style="text-align: left; font-size: 0.85rem;">
+    All decompositions yield subluminal velocities (β&lt;1). No expansion required.
+    </div>
+    """, unsafe_allow_html=True)
+
     st.markdown("---")
-    
-    st.markdown("**Download Data:**")
+
+    st.markdown("### Download Data")
     try:
         if 'results_df' in dir() and results_df is not None:
             st.download_button(
@@ -2385,20 +2448,29 @@ with st.sidebar:
                 mime="text/csv"
             )
         else:
-            st.caption("Visit CEERS Statistics page first to generate data")
+            st.caption("Visit CEERS Statistics page to generate data")
     except:
-        st.caption("Visit CEERS Statistics page first to generate data")
-    
+        st.caption("Visit CEERS Statistics page to generate data")
+
     lensing_csv = """Radius_kpc,kappa_TSM21,kappa_Clowe,gamma_TSM21,gamma_Clowe
 50,0.120,0.120,0.100,0.100
 100,0.100,0.090,0.079,0.100
 200,0.067,0.070,0.047,0.080
 300,0.048,0.050,0.031,0.060
 500,0.030,0.020,0.017,0.030"""
-    
+
     st.download_button(
         label="Bullet Lensing Results",
         data=lensing_csv,
         file_name="tsm21_bullet_lensing.csv",
         mime="text/csv"
     )
+
+    st.markdown("---")
+
+    st.markdown("""
+    <p style="font-size: 0.8rem; color: #666;">
+    <a href="https://github.com/Grayhill5/skin-a-cat-pipeline" target="_blank">GitHub</a> ·
+    <a href="https://x.com/gjustlooking" target="_blank">@gjustlooking</a>
+    </p>
+    """, unsafe_allow_html=True)
