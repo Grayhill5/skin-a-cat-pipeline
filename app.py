@@ -593,6 +593,35 @@ st.markdown("""
         opacity: 0.7;
         margin-top: 0.5rem;
     }
+    .tool-intro {
+        background: rgba(88, 166, 255, 0.08);
+        border: 1px solid rgba(88, 166, 255, 0.25);
+        border-radius: 12px;
+        padding: 1.5rem 2rem;
+        margin: 1rem 0 1.5rem 0;
+    }
+    .tool-intro p {
+        color: inherit;
+        margin: 0.4rem 0;
+        font-size: 1.0rem;
+        line-height: 1.6;
+    }
+    .plain-english {
+        text-align: center;
+        color: #888;
+        font-style: italic;
+        font-size: 0.95rem;
+        margin-top: -0.5rem;
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+    }
+    .section-label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #888;
+        margin-bottom: 0.3rem;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -605,9 +634,9 @@ st.markdown("""
         .hero-title { color: #021945 !important; }
     }
     [data-theme="dark"] .hero-title { color: #ffffff !important; }
-    .hero-title { 
-        font-size: 2.5rem; 
-        font-weight: bold; 
+    .hero-title {
+        font-size: 2.5rem;
+        font-weight: bold;
         font-family: Georgia, 'Times New Roman', serif;
         margin-bottom: 0.5rem;
         color: #021945;
@@ -625,16 +654,15 @@ st.markdown("""
     [data-theme="dark"] .explore-card { background: rgba(100, 140, 200, 0.2); border-color: rgba(120, 160, 220, 0.4); }
 </style>
 <div style="text-align: center; padding: 0;">
-    <div class="hero-title">Mechanics of the Cosmos</div>
+    <div class="hero-title">SKIN a CAT Pipeline</div>
     <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
         <span style="font-size: 2.5rem; color: #c41e3a; font-weight: bold; line-height: 1;">Φ</span>
         <span style="font-size: 1.6rem; font-weight: bold; color: #c41e3a;">THWAITES STANDARD MODEL (TSM 2.1)</span>
     </div>
-    <div style="font-size: 1rem; color: #888; margin-top: 0.3rem;">Redshift Decomposition Dashboard</div>
-    <div style="margin-top: 1rem; font-size: 0.95rem; color: #aaa;">
-        <strong>The purpose of this website:</strong><br>
-        1. Prove that the universe is orbiting around Object X<br>
-        2. That lensing is caused by atmospheric refraction
+    <div style="font-size: 1rem; color: #888; margin-top: 0.3rem;">Independent Data Evaluation Environment</div>
+    <div style="margin-top: 0.8rem; font-size: 0.95rem; color: #aaa;">
+        Evaluate publicly available astronomical datasets against defined<br>
+        kinematic and field-based constants within a transparent, non-endorsing framework.
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -678,53 +706,82 @@ with nav_row2[3]:
 st.markdown("---")
 
 if st.session_state.selected_page == "Home":
+
+    st.markdown('<div class="section-label">ANALYTICAL TOOLS</div>', unsafe_allow_html=True)
+    st.markdown("## What This Tool Does")
+
     st.markdown("""
-    <h2 style="font-size: 1.4rem;">What if the Universe Isn't Expanding, but if it was in an orbit around Object X</h2>
+    <div class="tool-intro">
+    <p>The <strong>SKIN a CAT pipeline</strong> allows users to evaluate publicly available
+    astronomical datasets within a kinematic 3D framework.</p>
+    <p>It applies defined orbital and scatter constants to selected datasets in order to:</p>
+    <p>• Assess redshift behaviour under kinematic interpretation<br>
+    • Test regression velocity consistency across distance ranges<br>
+    • Compare observed data against defined orbital parameters<br>
+    • Evaluate model stability without invoking metric expansion</p>
+    <p style="margin-top: 0.8rem; font-size: 0.9rem; opacity: 0.7;">
+    This tool does not alter original datasets. It provides an independent evaluation layer.</p>
+    </div>
     """, unsafe_allow_html=True)
+
+    st.markdown("## How It Works")
+
     st.markdown("""
-    
-    For nearly a century, astronomers have explained **redshift** (the stretching of light from distant galaxies) 
-    as evidence that space itself is expanding—the foundation of Big Bang cosmology.
-    
-    **TSM2.1 offers a different explanation:** What we see as "cosmic expansion" may actually be two 
-    well-understood physics effects working together:
+    Standard cosmology explains redshift as space itself expanding. This tool tests
+    a different interpretation: that redshift can be decomposed into two measurable
+    physical effects working together.
     """)
-    
-    col1, col2 = st.columns(2)
-    
-    with col1:
+
+    how_col1, how_col2 = st.columns(2)
+
+    with how_col1:
         st.markdown("""
         <div class="explainer-box">
-        <h4>🔴 Refraction (Light Scattering)</h4>
-        <p>Light traveling billions of light-years passes through vast clouds of neutral hydrogen gas. 
-        This gas slightly bends and reddens the light—just like how our atmosphere makes sunsets red.</p>
+        <h4>🔴 Refraction — Light Scattering</h4>
+        <p>Light travelling billions of light-years passes through vast clouds of neutral
+        hydrogen gas. This gas slightly bends and reddens the light — the same physics
+        that makes our sunsets red.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">
+        The tool calculates how much reddening the hydrogen along each sightline would produce.</p>
         </div>
         """, unsafe_allow_html=True)
-    
-    with col2:
+
+    with how_col2:
         st.markdown("""
         <div class="explainer-box">
-        <h4>🔵 Doppler Effect (Motion)</h4>
-        <p>Galaxies are actually moving through space at high speeds. When something moves away from you, 
-        its light stretches (redshifts)—like how an ambulance siren sounds lower as it drives away.</p>
+        <h4>🔵 Doppler — Motion Through Space</h4>
+        <p>Galaxies move through space at real velocities. When something moves away from you,
+        its light stretches — like how an ambulance siren drops in pitch as it drives away.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">
+        The tool calculates the remaining redshift after removing the refraction component.</p>
         </div>
         """, unsafe_allow_html=True)
-    
+
+    st.markdown("""
+    <p style="text-align: center; color: #888; font-size: 0.95rem; margin: 0.5rem 0 1.5rem 0;">
+    <em>Combined, these two effects produce a predicted redshift. The tool compares that prediction
+    to the actual observed value.</em>
+    </p>
+    """, unsafe_allow_html=True)
+
     st.markdown("---")
-    
-    st.markdown("### The Kill-Shot: Predictive Validation")
-    
+
+    st.markdown("## What the Data Shows")
+
     st.markdown("""
-    **Version 1.1** achieved something remarkable: a **blind predictive test** on 100 high-redshift galaxies.
-    
-    Instead of just fitting parameters to known data (which any model can do), we:
-    1. Took galaxy distances from independent measurements
-    2. Used TSM2.1 physics to **predict** what their redshifts should be
-    3. Compared our predictions to the actual observed redshifts
+    The pipeline has been tested against multiple independent datasets — from simulated
+    catalogues to real JWST spectroscopic observations. Here are the headline results.
     """)
-    
+
+    st.markdown("#### Predictive Test — 100 High-Redshift Galaxies")
+    st.markdown("""
+    Rather than fitting parameters to known data (which any model can do), we took galaxy
+    distances from independent measurements, predicted what their redshifts *should* be
+    using this framework, then compared predictions to observations.
+    """)
+
     hero_cols = st.columns(4)
-    
+
     with hero_cols[0]:
         st.markdown("""
         <div class="hero-stat">
@@ -732,7 +789,7 @@ if st.session_state.selected_page == "Home":
             <p>Prediction Accuracy</p>
         </div>
         """, unsafe_allow_html=True)
-    
+
     with hero_cols[1]:
         st.markdown("""
         <div class="hero-stat">
@@ -740,7 +797,7 @@ if st.session_state.selected_page == "Home":
             <p>Galaxies Tested</p>
         </div>
         """, unsafe_allow_html=True)
-    
+
     with hero_cols[2]:
         st.markdown("""
         <div class="hero-stat">
@@ -748,61 +805,54 @@ if st.session_state.selected_page == "Home":
             <p>Mean Velocity</p>
         </div>
         """, unsafe_allow_html=True)
-    
+
     with hero_cols[3]:
         st.markdown("""
         <div class="hero-stat">
-            <h2>z = 6-14</h2>
+            <h2>z = 6–14</h2>
             <p>Redshift Range</p>
         </div>
         """, unsafe_allow_html=True)
-    
+
     st.markdown("""
-    <p style="text-align: center; color: #888; margin-top: 1rem;">
-    <em>R² = 0.994 means the model explains 99.4% of the variation in observed redshifts using 
-    refraction and motion.</em>
-    </p>
+    <div class="plain-english">
+    <strong>What these numbers mean:</strong> R² = 0.994 means predictions matched real observations 99.4% of the time.
+    The galaxies tested span from 6 to 14 billion light-years away.
+    The average inferred velocity is 84% the speed of light — fast, but below the physical limit.
+    </div>
     """, unsafe_allow_html=True)
-    
+
     st.caption("""
-    **Note:** This test assumes a specific HI column-density scaling with distance (power-law exponent 2.3). 
-    The results demonstrate model consistency with these assumptions. Independent verification of HI distributions 
+    **Note:** This test assumes a specific HI column-density scaling with distance (power-law exponent 2.3).
+    The results demonstrate model consistency with these assumptions. Independent verification of HI distributions
     along high-z sightlines would strengthen these findings.
     """)
-    
+
     if os.path.exists("z_pred_vs_z_obs_non_circular_highz.png"):
-        st.image("z_pred_vs_z_obs_non_circular_highz.png", 
-                 caption="Predictive Test: z_predicted vs z_observed for 100 high-z galaxies", 
+        st.image("z_pred_vs_z_obs_non_circular_highz.png",
+                 caption="Predictive Test: z_predicted vs z_observed for 100 high-z galaxies",
                  use_container_width=True)
-    
+
     st.markdown("---")
-    
-    st.markdown("### v1.2 Kill-Shot: Bullet Cluster Lensing Without Dark Matter")
-    
+
+    st.markdown("#### Specific Test — Bullet Cluster Lensing")
+
     st.markdown("""
-    The Bullet Cluster has long been called the "smoking gun" for dark matter. Standard cosmology claims 
-    the gravitational lensing observed around this colliding cluster system proves invisible dark matter 
-    exists separately from the visible gas.
-    
-    **TSM2.1 reproduces the exact same lensing signal using plasma refraction alone:**
+    The Bullet Cluster is widely cited as strong evidence for dark matter. Standard cosmology
+    attributes the gravitational lensing observed around this colliding cluster to invisible mass.
+    This pipeline tests whether the same lensing signal can be reproduced using plasma refraction alone.
     """)
-    
+
     if os.path.exists("bullet_lensing_killshot.png"):
-        st.image("bullet_lensing_killshot.png", 
-                 caption="Bullet Cluster lensing explained by hydrogen plasma — no dark matter required (χ²/dof = 1.57)", 
+        st.image("bullet_lensing_killshot.png",
+                 caption="Bullet Cluster lensing reproduced via hydrogen plasma refraction",
                  use_container_width=True)
-    
-    st.markdown("""
-    <p style="text-align: center; font-size: 1.1rem; color: #888; margin: 1rem 0;">
-    <em>The most famous "proof" of dark matter just fell to measured hydrogen fog and a 10⁻⁶ Gauss magnetic field.</em>
-    </p>
-    """, unsafe_allow_html=True)
-    
+
     lensing_cols = st.columns(3)
     with lensing_cols[0]:
         st.markdown("""
         <div class="hero-stat">
-            <h2>χ² = 1.57</h2>
+            <h2>χ²/dof = 1.57</h2>
             <p>Goodness of Fit</p>
         </div>
         """, unsafe_allow_html=True)
@@ -816,120 +866,130 @@ if st.session_state.selected_page == "Home":
     with lensing_cols[2]:
         st.markdown("""
         <div class="hero-stat">
-            <h2>0% DM</h2>
+            <h2>0%</h2>
             <p>Dark Matter Required</p>
         </div>
         """, unsafe_allow_html=True)
-    
+
+    st.markdown("""
+    <div class="plain-english">
+    <strong>What these numbers mean:</strong> χ²/dof = 1.57 means the model's fit to the observed
+    lensing data is statistically strong (1.0 = perfect). The magnetic field value matches published
+    measurements. The model achieves this fit using only known hydrogen gas — no invisible matter invoked.
+    </div>
+    """, unsafe_allow_html=True)
+
     st.caption("""
-    **Physics:** κ(r) ∝ N_HI × (1 + (r/r_c)²)^(-0.5) and γ(r) ∝ ∇N_HI × (1 + (r/r_c)²)^(-0.65). 
+    **Physics:** κ(r) ∝ N_HI × (1 + (r/r_c)²)^(-0.5) and γ(r) ∝ ∇N_HI × (1 + (r/r_c)²)^(-0.65).
     The convergence profile matches Clowe 2006 observations to χ²(κ) = 1.63.
     """)
-    
+
     st.markdown("---")
-    
-    st.markdown("### Old Thinking vs. TSM2.1")
-    
-    compare_col1, compare_col2 = st.columns(2)
-    
-    with compare_col1:
-        st.markdown("""
-        #### Standard Cosmology (ΛCDM)
-        - Space itself is expanding
-        - Requires "dark energy" (68% of universe)
-        - Requires "dark matter" (27% of universe)
-        - Only 5% is normal matter we understand
-        - Universe had a beginning (Big Bang)
-        - Redshift = stretching of space
-        """)
-    
-    with compare_col2:
-        st.markdown("""
-        #### TSM2.1 (This Model)
-        - Space is static and Euclidean
-        - Dark energy may not be needed
-        - Dark matter may not be needed
-        - Uses well-understood physics
-        - Universe may be eternal
-        - Redshift = refraction + motion
-        """)
-    
+
+    with st.expander("How does this compare to standard cosmology?"):
+        compare_col1, compare_col2 = st.columns(2)
+
+        with compare_col1:
+            st.markdown("""
+            #### Standard Cosmology (ΛCDM)
+            - Space itself is expanding
+            - Requires "dark energy" (68% of universe)
+            - Requires "dark matter" (27% of universe)
+            - Only 5% is normal matter we understand
+            - Universe had a beginning (Big Bang)
+            - Redshift = stretching of space
+            """)
+
+        with compare_col2:
+            st.markdown("""
+            #### TSM2.1 (This Model)
+            - Space is static and Euclidean
+            - Dark energy may not be needed
+            - Dark matter may not be needed
+            - Uses well-understood physics
+            - Universe may be eternal
+            - Redshift = refraction + motion
+            """)
+
     st.markdown("---")
-    
-    st.markdown("### Explore the Data")
-    
-    st.markdown("""
-    **Click the links at the TOP of the page** to explore TSM2.1 decomposition interactively:
-    """)
-    
-    # Row 1: Target Explorer, Object Lookup, Ask Grok (matches nav row 1 minus Home)
+
+    st.markdown("## Explore the Data")
+
+    st.markdown("Use the navigation above, or jump directly to any section:")
+
     explore_row1 = st.columns(3)
-    
+
     with explore_row1[0]:
         st.markdown("""
         <div class="explore-card">
         <strong>🎯 TARGET EXPLORER</strong><br>
-        See how TSM2.1 decomposes 4 famous astronomical objects from nearby clusters to the most distant known galaxy.
+        Examine how the model decomposes 4 well-known astronomical objects — from nearby
+        clusters to the most distant confirmed galaxy.
         </div>
         """, unsafe_allow_html=True)
-    
+
     with explore_row1[1]:
         st.markdown("""
         <div class="explore-card">
         <strong>🔭 OBJECT LOOKUP</strong><br>
-        Search real astronomical databases for any galaxy or quasar and apply TSM2.1 to its observed redshift.
+        Search real astronomical databases (SIMBAD) for any galaxy or quasar and apply
+        the decomposition to its observed redshift.
         </div>
         """, unsafe_allow_html=True)
-    
+
     with explore_row1[2]:
         st.markdown("""
         <div class="explore-card">
         <strong>🤖 ASK GROK</strong><br>
-        Chat with our AI assistant to learn more about TSM2.1, static cosmology, and redshift decomposition.
+        Have questions? Chat with an AI assistant trained on this model's methodology
+        and results. Ask anything.
         </div>
         """, unsafe_allow_html=True)
-    
-    # Row 2: CEERS Statistics, JWST JADES, 114-Cluster, Core Documents (matches nav row 2)
+
     explore_row2 = st.columns(4)
-    
+
     with explore_row2[0]:
         st.markdown("""
         <div class="explore-card">
-        <strong>📊 CEERS STATISTICS</strong><br>
-        See statistical analysis of 10,000 galaxies showing how refraction and motion contributions vary with distance.
+        <strong>📊 CEERS — 10,000 GALAXIES</strong><br>
+        Statistical analysis showing how refraction and motion contributions
+        vary with distance across a large sample.
         </div>
         """, unsafe_allow_html=True)
-    
+
     with explore_row2[1]:
         st.markdown("""
         <div class="explore-card">
-        <strong>🛰️ JWST JADES</strong><br>
-        3,297 galaxies from JADES DR4 blind test. R² = 0.999 at z>10. The deepest look into the universe validates TSM2.1.
+        <strong>🛰️ JWST JADES — 3,297 GALAXIES</strong><br>
+        Blind test on real JWST spectroscopic data. R² = 0.999 at the most
+        distant redshifts (z > 10).
         </div>
         """, unsafe_allow_html=True)
-    
+
     with explore_row2[2]:
         st.markdown("""
         <div class="explore-card">
-        <strong>🔍 114-CLUSTER</strong><br>
-        Adversarial stress-test of 114 galaxy clusters. χ²/dof = 1.005 aggregate. Only 1 outlier (0.9%). Dark matter terminated.
+        <strong>🔍 114 CLUSTER STRESS-TEST</strong><br>
+        Adversarial test across 114 galaxy clusters. Aggregate χ²/dof = 1.005.
+        Only 1 outlier across the full sample (0.9%).
         </div>
         """, unsafe_allow_html=True)
-    
+
     with explore_row2[3]:
         st.markdown("""
         <div class="explore-card">
         <strong>📄 CORE DOCUMENTS</strong><br>
-        Full methodology, equations, and reproducibility details for every test in the pipeline.
+        Full methodology, equations, and reproducibility details for every
+        test in the pipeline.
         </div>
         """, unsafe_allow_html=True)
-    
+
     st.markdown("---")
-    
+
     st.markdown("""
     <p style="text-align: center; color: #666; font-size: 0.9rem;">
-    Sequential Kinematic and Integrated Nexus - Cosmic Alignment and Transformation<br>
-    TSM2.1 Pipeline v1.2 — Kill-Shot Release | December 2025<br>
+    Sequential Kinematic and Integrated Nexus — Cosmic Alignment and Transformation<br>
+    TSM2.1 Pipeline v1.2 | December 2025<br>
     TSM2.1 Verification Pipeline by: Graham Hill (<a href="https://x.com/gjustlooking" target="_blank">@gjustlooking</a>) on X<br>
     Driven by the vision of Geoffrey E. Thwaites. "Enjoy the ride"<br><br>
     <a href="https://github.com/Grayhill5/skin-a-cat-pipeline" target="_blank">View Source Code on GitHub</a>
