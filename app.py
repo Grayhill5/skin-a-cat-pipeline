@@ -766,6 +766,34 @@ if st.session_state.selected_page == "Home":
 
     st.markdown("---")
 
+    st.markdown("### Two Interpretations of the Same Data")
+
+    compare_col1, compare_col2 = st.columns(2)
+
+    with compare_col1:
+        st.markdown("""
+        #### Standard Cosmology (ΛCDM)
+        - Space itself is expanding
+        - Requires "dark energy" (68% of universe)
+        - Requires "dark matter" (27% of universe)
+        - Only 5% is normal matter we understand
+        - Universe had a beginning (Big Bang)
+        - Redshift = stretching of space
+        """)
+
+    with compare_col2:
+        st.markdown("""
+        #### TSM2.1 (This Model)
+        - Space is static and Euclidean
+        - Dark energy may not be needed
+        - Dark matter may not be needed
+        - Uses well-understood physics
+        - Universe may be eternal
+        - Redshift = refraction + motion
+        """)
+
+    st.markdown("---")
+
     st.markdown("## What the Data Shows")
 
     st.markdown("""
@@ -883,106 +911,6 @@ if st.session_state.selected_page == "Home":
     **Physics:** κ(r) ∝ N_HI × (1 + (r/r_c)²)^(-0.5) and γ(r) ∝ ∇N_HI × (1 + (r/r_c)²)^(-0.65).
     The convergence profile matches Clowe 2006 observations to χ²(κ) = 1.63.
     """)
-
-    st.markdown("---")
-
-    with st.expander("How does this compare to standard cosmology?"):
-        compare_col1, compare_col2 = st.columns(2)
-
-        with compare_col1:
-            st.markdown("""
-            #### Standard Cosmology (ΛCDM)
-            - Space itself is expanding
-            - Requires "dark energy" (68% of universe)
-            - Requires "dark matter" (27% of universe)
-            - Only 5% is normal matter we understand
-            - Universe had a beginning (Big Bang)
-            - Redshift = stretching of space
-            """)
-
-        with compare_col2:
-            st.markdown("""
-            #### TSM2.1 (This Model)
-            - Space is static and Euclidean
-            - Dark energy may not be needed
-            - Dark matter may not be needed
-            - Uses well-understood physics
-            - Universe may be eternal
-            - Redshift = refraction + motion
-            """)
-
-    st.markdown("---")
-
-    st.markdown("## Explore the Data")
-
-    st.markdown("Use the navigation above, or jump directly to any section:")
-
-    explore_row1 = st.columns(3)
-
-    with explore_row1[0]:
-        st.markdown("""
-        <div class="explore-card">
-        <strong>🎯 TARGET EXPLORER</strong><br>
-        Examine how the model decomposes 4 well-known astronomical objects — from nearby
-        clusters to the most distant confirmed galaxy.
-        </div>
-        """, unsafe_allow_html=True)
-
-    with explore_row1[1]:
-        st.markdown("""
-        <div class="explore-card">
-        <strong>🔭 OBJECT LOOKUP</strong><br>
-        Search real astronomical databases (SIMBAD) for any galaxy or quasar and apply
-        the decomposition to its observed redshift.
-        </div>
-        """, unsafe_allow_html=True)
-
-    with explore_row1[2]:
-        st.markdown("""
-        <div class="explore-card">
-        <strong>🤖 ASK GROK</strong><br>
-        Have questions? Chat with an AI assistant trained on this model's methodology
-        and results. Ask anything.
-        </div>
-        """, unsafe_allow_html=True)
-
-    explore_row2 = st.columns(4)
-
-    with explore_row2[0]:
-        st.markdown("""
-        <div class="explore-card">
-        <strong>📊 CEERS — 10,000 GALAXIES</strong><br>
-        Statistical analysis showing how refraction and motion contributions
-        vary with distance across a large sample.
-        </div>
-        """, unsafe_allow_html=True)
-
-    with explore_row2[1]:
-        st.markdown("""
-        <div class="explore-card">
-        <strong>🛰️ JWST JADES — 3,297 GALAXIES</strong><br>
-        Blind test on real JWST spectroscopic data. R² = 0.999 at the most
-        distant redshifts (z > 10).
-        </div>
-        """, unsafe_allow_html=True)
-
-    with explore_row2[2]:
-        st.markdown("""
-        <div class="explore-card">
-        <strong>🔍 114 CLUSTER STRESS-TEST</strong><br>
-        Adversarial test across 114 galaxy clusters. Aggregate χ²/dof = 1.005.
-        Only 1 outlier across the full sample (0.9%).
-        </div>
-        """, unsafe_allow_html=True)
-
-    with explore_row2[3]:
-        st.markdown("""
-        <div class="explore-card">
-        <strong>📄 CORE DOCUMENTS</strong><br>
-        Full methodology, equations, and reproducibility details for every
-        test in the pipeline.
-        </div>
-        """, unsafe_allow_html=True)
 
     st.markdown("---")
 
