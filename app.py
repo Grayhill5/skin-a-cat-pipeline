@@ -1551,24 +1551,15 @@ if st.session_state.selected_page == "CEERS Statistics":
 
 if st.session_state.selected_page == "Ask Grok":
 
-    grok_header_col1, grok_header_col2 = st.columns([1, 2])
-
-    with grok_header_col1:
-        if os.path.exists("grok_avatar.png"):
-            st.image("grok_avatar.png", use_container_width=True)
-        elif os.path.exists("data/grok_avatar.png"):
-            st.image("data/grok_avatar.png", use_container_width=True)
-
-    with grok_header_col2:
-        st.markdown("""
-        <div class="grok-container">
-            <div class="grok-header">
-                <h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 0.3rem;">Ask Grok</h1>
-                <p style="font-size: 1.1rem; margin-bottom: 0;">AI assistant for TSM2.1 — trained on the full
-                methodology, results, and datasets behind this pipeline.</p>
-            </div>
+    st.markdown("""
+    <div class="grok-container">
+        <div class="grok-header">
+            <h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 0.3rem;">Ask Grok</h1>
+            <p style="font-size: 1.1rem; margin-bottom: 0;">AI assistant for TSM2.1 — trained on the full
+            methodology, results, and datasets behind this pipeline.</p>
         </div>
-        """, unsafe_allow_html=True)
+    </div>
+    """, unsafe_allow_html=True)
 
     st.markdown("")
 
@@ -1578,18 +1569,7 @@ if st.session_state.selected_page == "Ask Grok":
     if "pending_question" not in st.session_state:
         st.session_state.pending_question = None
 
-    user_typed = st.text_input(
-        "Ask anything about TSM2.1, cosmology, or the results:",
-        key="grok_text_input",
-        placeholder="Type your question here..."
-    )
-
-    if user_typed:
-        st.session_state.pending_question = user_typed
-
-    st.markdown("")
-
-    st.markdown("**Or try a quick question:**")
+    st.markdown("**Try a quick question:**")
 
     sample_questions = [
         "Why does refraction increase at high redshift?",
