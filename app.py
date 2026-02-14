@@ -1038,7 +1038,7 @@ if st.session_state.selected_page == "Target Explorer":
         st.plotly_chart(create_velocity_diagram(result["beta"]), use_container_width=True)
         st.caption(f"This object's velocity ({result['beta']:.3f}c) relative to the speed of light. The red dashed line marks the physical limit.")
 
-        with st.expander("View All Technical Parameters"):
+        with st.expander("View All Technical Parameters", expanded=True):
             st.markdown(f"""
             **Full Decomposition for {target_name}:**
 
@@ -1148,7 +1148,7 @@ if False:  # st.session_state.selected_page == "Custom Decomposer":
         m3.metric("z_doppler", f"{result['z_doppler']:.4f}")
         m4.metric("β (v/c)", f"{result['beta']:.4f}")
         
-        with st.expander("**What do these numbers mean?**", expanded=False):
+        with st.expander("**What do these numbers mean?**", expanded=True):
             st.markdown(f"""
             - **z_observed** = {result['z_obs']:.4f} — The total redshift you entered (how much the light has been stretched)
             - **z_refrac** = {result['z_refrac']:.4f} — The portion caused by light scattering through hydrogen fog ({result['refrac_pct']:.1f}% of total)
@@ -1295,7 +1295,7 @@ if st.session_state.selected_page == "Object Lookup":
                         st.success(f"Valid TSM2.1 decomposition: subluminal bulk velocity ({result['beta']:.4f}c)")
                     
                     if z_obs >= 0.05:
-                        with st.expander("Understanding these results"):
+                        with st.expander("Understanding these results", expanded=True):
                             st.markdown(f"""
                             **What TSM2.1 found for {simbad_result['name']}:**
                             
@@ -1342,7 +1342,7 @@ if st.session_state.selected_page == "Object Lookup":
             | Messier 87 | Giant Elliptical | 0.004 | Too nearby |
             """)
             
-            with st.expander("Learn about these objects"):
+            with st.expander("Learn about these objects", expanded=True):
                 st.markdown("""
                 **3C 273** — The first quasar ever identified (1963). Located 2.4 billion light-years away in Virgo, 
                 it's bright enough to see with an amateur telescope despite its distance. Its z=0.158 makes it 
@@ -1424,7 +1424,7 @@ if st.session_state.selected_page == "CEERS Statistics":
                        annotation_text="β=0.9")
         fig1.update_layout(height=350, showlegend=False)
         st.plotly_chart(fig1, use_container_width=True)
-        with st.expander("What does this graph show?"):
+        with st.expander("What does this graph show?", expanded=True):
             st.markdown("""
             **Reading the graph:** The horizontal axis shows distance (redshift z), the vertical axis shows velocity as a fraction of light speed (β).
             
@@ -1450,7 +1450,7 @@ if st.session_state.selected_page == "CEERS Statistics":
             height=350
         )
         st.plotly_chart(fig2, use_container_width=True)
-        with st.expander("What does this graph show?"):
+        with st.expander("What does this graph show?", expanded=True):
             st.markdown("""
             **Reading the graph:** Blue area = percentage of redshift caused by motion (Doppler effect). Red area = percentage caused by light scattering through hydrogen (refraction).
             
@@ -1475,7 +1475,7 @@ if st.session_state.selected_page == "CEERS Statistics":
         ))
         fig3.update_layout(height=350)
         st.plotly_chart(fig3, use_container_width=True)
-        with st.expander("What does this graph show?"):
+        with st.expander("What does this graph show?", expanded=True):
             st.markdown("""
             **Reading the graph:** Each dot is a galaxy. Horizontal axis = observed redshift from telescopes. Vertical axis = redshift predicted by TSM2.1. The gold dashed line represents perfect agreement.
             
@@ -1498,7 +1498,7 @@ if st.session_state.selected_page == "CEERS Statistics":
             height=350
         )
         st.plotly_chart(fig4, use_container_width=True)
-        with st.expander("What does this graph show?"):
+        with st.expander("What does this graph show?", expanded=True):
             st.markdown("""
             **Reading the graph:** The vertical axis (logarithmic scale) shows the total column density of neutral hydrogen (N_HI) — essentially, how many hydrogen atoms the light passed through on its journey to Earth.
             
@@ -1522,7 +1522,7 @@ if st.session_state.selected_page == "CEERS Statistics":
     
     st.dataframe(pd.DataFrame(bin_table_data), use_container_width=True, hide_index=True)
     
-    with st.expander("How to read this table"):
+    with st.expander("How to read this table", expanded=True):
         st.markdown("""
         **Each row represents a distance bin** — galaxies grouped by how far away they are (measured by redshift z).
         
@@ -1664,7 +1664,14 @@ if st.session_state.selected_page == "JWST JADES":
     <h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">JWST JADES Blind Tests</h1>
     <p style="font-size: 1.1rem; color: #666;">Real blind predictions on JWST NIRSpec spectroscopic galaxies</p>
     """, unsafe_allow_html=True)
-    
+
+    st.markdown('''
+    These are blind predictions — the pipeline's constants were locked before testing against
+    this data. Each galaxy's observed redshift is compared to the model's prediction using
+    only its position and the hydrogen density along the sightline. No parameters were adjusted
+    to fit the results.
+    ''')
+
     jades_subtab1, jades_subtab2 = st.tabs(["JADES DR4 (Dec 2025)", "JADES DR3 (v1.2)"])
     
     with jades_subtab1:
@@ -1778,7 +1785,14 @@ if st.session_state.selected_page == "114-Cluster":
     <h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">114-Cluster Adversarial Stress-Test</h1>
     <p style="font-size: 1.1rem; color: #666;">Ranked analysis identifying outliers and systematic failures</p>
     """, unsafe_allow_html=True)
-    
+
+    st.markdown('''
+    This page ranks all 114 galaxy clusters by goodness-of-fit to identify where the model
+    struggles. An adversarial stress-test deliberately looks for failures — clusters where
+    the predicted redshift diverges from observation. If the model only works on easy cases,
+    this is where it would show.
+    ''')
+
     st.markdown("""
     ### Summary
     
@@ -1854,7 +1868,7 @@ if st.session_state.selected_page == "Core Documents":
     
     st.markdown("### Which Theory Makes More Sense — And Why")
     
-    with st.expander("View Full Document", expanded=False):
+    with st.expander("View Full Document", expanded=True):
         st.markdown("""
 **Short answer:** TSM2.1 / TTC Cosmic Energy Cycle makes more sense **physically and logically**. ΛCDM makes more sense **institutionally and historically**.
 
