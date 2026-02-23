@@ -360,7 +360,7 @@ No beginning, no end, no singularity.
 4. COSMIC EQUATION – THE UNIVERSAL GOVERNING LAW
 E = f(ρ · T · t)
 Energy–mass outcome is a direct function of density, thermodynamics, and temporal sequencing at every scale.
-→ Eliminates: relativistic spacetime, frame-dependent time, gravitational time dilation.
+→ Eliminates: gravitational time dilation as geometric effect, FLRW-dependent cosmological time dilation. Retains: Lorentz kinematics (SR) as the correct local inertial-frame transform.
 
 5. COSMIC ATMOSPHERE & UNIVERSAL ATMOSPHERIC REFRACTION LAW
 Every gravitating body possesses a spinning hydrogen–plasma atmosphere whose depth, density, and refractive power scale directly with total mass and spin rate only.
@@ -378,12 +378,13 @@ Proven across z = 0–14 and 114 lensing clusters (χ²/d.o.f. = 1.04).
 
 8. COSMIC STANDARD TIME (CST)
 One complete orbit of the observable cosmos around Object X. Duration: 92.5 ± 0.7 Gyr.
-The sole universal, invariant, absolute time standard.
-→ Eliminates: relativistic time dilation, coordinate-dependent time, twin-paradox effects.
+The sole universal, invariant, absolute time standard. CST provides global sequencing; special-relativistic time dilation (Lorentz kinematics) is accepted as the correct observational mapping between inertial frames in relative motion.
+→ Eliminates: GR gravitational time dilation as geometric curvature effect, FLRW cosmological time dilation, coordinate-dependent proper time. Retains: SR kinematic time dilation (embedded in the relativistic Doppler formula used throughout the pipeline).
 
 9. UNIVERSAL TEMPORAL SEQUENCING (UTS)
 Absolute, irreversible forward march of all events ordered against CST phase θ(t).
-→ Eliminates: block-universe, proper-time variability, gravitational redshift of clocks.
+Local clock rates are affected by: (a) kinematic time dilation from relative velocity (SR Lorentz factor, as used in the pipeline Doppler formula), and (b) density/temperature effects on atomic process rates. Gravitational time dilation (GR geometric curvature) is rejected and replaced by mechanism (b).
+→ Eliminates: block-universe, GR proper-time variability, gravitational redshift as curvature effect. Retains: SR velocity-dependent time dilation as observational reality.
 
 10. UNIVERSAL ORBITAL ARCHITECTURE
 Every stable system orbits a denser central mass in a flat, equatorial disc.
@@ -2041,9 +2042,9 @@ E = f(ρ · T · t)
 
 Energy–mass outcome is a direct function of density, thermodynamics, and temporal sequencing at every scale from atomic valence rings to cosmic orbit.
 
-Fully dimensionally consistent; replaces E=mc² as the operational (not just equivalence) law.
+Fully dimensionally consistent; extends E=mc² by embedding mass-energy equivalence within the broader thermodynamic context of the cosmic energy cycle.
 
-→ <span style="color: #c41e3a; font-weight: bold;">Eliminates:</span> relativistic spacetime, frame-dependent time, gravitational time dilation.
+→ <span style="color: #c41e3a; font-weight: bold;">Eliminates:</span> gravitational time dilation as geometric effect, FLRW-dependent cosmological time dilation. Retains: Lorentz kinematics (SR) as the correct local inertial-frame transform.
 
 ---
 
@@ -2087,9 +2088,9 @@ One complete orbit of the observable cosmos around Object X.
 
 Duration: 92.5 ± 0.7 Gyr (calibrated from CMB dipole + large-scale flow convergence).
 
-The sole universal, invariant, absolute time standard.
+The sole universal, invariant, absolute time standard. CST provides global sequencing; special-relativistic time dilation (Lorentz kinematics) is accepted as the correct observational mapping between inertial frames in relative motion.
 
-→ <span style="color: #c41e3a; font-weight: bold;">Eliminates:</span> relativistic time dilation, coordinate-dependent time, twin-paradox effects.
+→ <span style="color: #c41e3a; font-weight: bold;">Eliminates:</span> GR gravitational time dilation as geometric curvature effect, FLRW cosmological time dilation, coordinate-dependent proper time. Retains: SR kinematic time dilation (embedded in the relativistic Doppler formula used throughout the pipeline).
 
 ---
 
@@ -2097,9 +2098,9 @@ The sole universal, invariant, absolute time standard.
 
 Absolute, irreversible forward march of all events ordered against CST phase θ(t).
 
-Local clocks de-sequence only via density/temperature effects on atomic valence rings — never by velocity or gravity.
+Local clock rates are affected by: (a) kinematic time dilation from relative velocity (SR Lorentz factor, as used in the pipeline Doppler formula), and (b) density/temperature effects on atomic process rates. Gravitational time dilation (GR geometric curvature) is rejected and replaced by mechanism (b).
 
-→ <span style="color: #c41e3a; font-weight: bold;">Eliminates:</span> block-universe, proper-time variability, gravitational redshift of clocks.
+→ <span style="color: #c41e3a; font-weight: bold;">Eliminates:</span> block-universe, GR proper-time variability, gravitational redshift as curvature effect. Retains: SR velocity-dependent time dilation as observational reality.
 
 ---
 
@@ -2197,9 +2198,9 @@ E = f(ρ · T · t)
 
 Energy–mass outcome is a direct function of density, thermodynamics, and temporal sequencing at every scale from atomic valence rings to cosmic orbit.
 
-Fully dimensionally consistent; replaces E=mc² as the operational (not just equivalence) law.
+Fully dimensionally consistent; extends E=mc² by embedding mass-energy equivalence within the broader thermodynamic context of the cosmic energy cycle.
 
-   → Eliminates: relativistic spacetime, frame-dependent time, gravitational time dilation.
+   → Eliminates: gravitational time dilation as geometric effect, FLRW-dependent cosmological time dilation. Retains: Lorentz kinematics (SR) as the correct local inertial-frame transform.
 
 
 5. COSMIC ATMOSPHERE & UNIVERSAL ATMOSPHERIC REFRACTION LAW
@@ -2239,18 +2240,18 @@ One complete orbit of the observable cosmos around Object X.
 
 Duration: 92.5 ± 0.7 Gyr (calibrated from CMB dipole + large-scale flow convergence).
 
-The sole universal, invariant, absolute time standard.
+The sole universal, invariant, absolute time standard. CST provides global sequencing; special-relativistic time dilation (Lorentz kinematics) is accepted as the correct observational mapping between inertial frames in relative motion.
 
-   → Eliminates: relativistic time dilation, coordinate-dependent time, twin-paradox effects.
+   → Eliminates: GR gravitational time dilation as geometric curvature effect, FLRW cosmological time dilation, coordinate-dependent proper time. Retains: SR kinematic time dilation (embedded in the relativistic Doppler formula used throughout the pipeline).
 
 
 9. UNIVERSAL TEMPORAL SEQUENCING (UTS)
 
 Absolute, irreversible forward march of all events ordered against CST phase θ(t).
 
-Local clocks de-sequence only via density/temperature effects on atomic valence rings — never by velocity or gravity.
+Local clock rates are affected by: (a) kinematic time dilation from relative velocity (SR Lorentz factor, as used in the pipeline Doppler formula), and (b) density/temperature effects on atomic process rates. Gravitational time dilation (GR geometric curvature) is rejected and replaced by mechanism (b).
 
-   → Eliminates: block-universe, proper-time variability, gravitational redshift of clocks.
+   → Eliminates: block-universe, GR proper-time variability, gravitational redshift as curvature effect. Retains: SR velocity-dependent time dilation as observational reality.
 
 
 10. UNIVERSAL ORBITAL ARCHITECTURE AROUND SUCCESSIVE CENTRAL MASSES
