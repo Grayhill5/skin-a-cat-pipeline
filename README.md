@@ -337,11 +337,29 @@ See [METHODOLOGY_TRANSPARENCY.md](METHODOLOGY_TRANSPARENCY.md) for full transpar
 ## Dependencies
 
 - Python 3.11+
-- astropy, astroquery, healpy
+- astropy, astroquery
+- healpy (optional — used for HEALPix HI map operations; the pipeline degrades gracefully without it)
 - numpy, pandas, scipy
 - matplotlib, plotly
 - streamlit
 - openai (for xAI Grok integration)
+
+### Windows Users
+
+healpy does not provide pre-built pip wheels for Windows. Use conda instead:
+
+```bash
+conda install -c conda-forge healpy
+```
+
+Alternatively, use the provided `environment-windows.yml`:
+
+```bash
+conda env create -f environment-windows.yml
+conda activate skin-a-cat
+```
+
+If you skip healpy entirely, the pipeline will still run — HEALPix-specific map features will be disabled with a warning.
 
 ---
 

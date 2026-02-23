@@ -700,30 +700,38 @@ nav_row1 = st.columns(4)
 with nav_row1[0]:
     if st.button("🏠 Home", use_container_width=True, type="primary" if st.session_state.selected_page == "Home" else "secondary"):
         st.session_state.selected_page = "Home"
+        st.rerun()
 with nav_row1[1]:
     if st.button("🎯 Target Explorer", use_container_width=True, type="primary" if st.session_state.selected_page == "Target Explorer" else "secondary"):
         st.session_state.selected_page = "Target Explorer"
+        st.rerun()
 with nav_row1[2]:
     if st.button("🔭 Object Lookup", use_container_width=True, type="primary" if st.session_state.selected_page == "Object Lookup" else "secondary"):
         st.session_state.selected_page = "Object Lookup"
+        st.rerun()
 with nav_row1[3]:
     if st.button("🤖 Ask Grok", use_container_width=True, type="primary" if st.session_state.selected_page == "Ask Grok" else "secondary"):
         st.session_state.selected_page = "Ask Grok"
+        st.rerun()
 
 # Row 2: CEERS Statistics, JWST JADES, 114-Cluster, Core Documents
 nav_row2 = st.columns(4)
 with nav_row2[0]:
     if st.button("📊 CEERS Statistics", use_container_width=True, type="primary" if st.session_state.selected_page == "CEERS Statistics" else "secondary"):
         st.session_state.selected_page = "CEERS Statistics"
+        st.rerun()
 with nav_row2[1]:
     if st.button("🛰️ JWST JADES", use_container_width=True, type="primary" if st.session_state.selected_page == "JWST JADES" else "secondary"):
         st.session_state.selected_page = "JWST JADES"
+        st.rerun()
 with nav_row2[2]:
     if st.button("🔍 114-Cluster", use_container_width=True, type="primary" if st.session_state.selected_page == "114-Cluster" else "secondary"):
         st.session_state.selected_page = "114-Cluster"
+        st.rerun()
 with nav_row2[3]:
     if st.button("📄 Core Documents", use_container_width=True, type="primary" if st.session_state.selected_page == "Core Documents" else "secondary"):
         st.session_state.selected_page = "Core Documents"
+        st.rerun()
 
 st.markdown("---")
 
@@ -1012,16 +1020,16 @@ if st.session_state.selected_page == "Target Explorer":
         st.markdown("#### Decomposition Results")
 
         m1, m2, m3, m4 = st.columns(4)
-        m1.metric("z_observed", f"{result['z_obs']:.4f}")
-        m2.metric("z_model", f"{result['z_model']:.4f}")
+        m1.metric("z_observed", f"{result['z_obs']:.3f}")
+        m2.metric("z_model", f"{result['z_model']:.3f}")
         m3.metric("Velocity", f"{result['beta']:.3f}c")
         m4.metric("Match", f"{result['match_pct']:.1f}%")
 
         st.markdown(f"""
         <div class="explainer-box" style="margin-top: 1rem;">
         <strong>Reading these results:</strong>
-        The observed redshift ({result['z_obs']:.4f}) is what telescopes measure.
-        The model predicts {result['z_model']:.4f} — a {result['match_pct']:.1f}% match.
+        The observed redshift ({result['z_obs']:.3f}) is what telescopes measure.
+        The model predicts {result['z_model']:.3f} — a {result['match_pct']:.1f}% match.
         The inferred velocity is {result['beta']:.3f}c ({result['velocity_km_s']:,.0f} km/s),
         with {result['doppler_pct']:.0f}% of the redshift from motion
         and {result['refrac_pct']:.0f}% from hydrogen scattering.
@@ -1147,16 +1155,16 @@ if False:  # st.session_state.selected_page == "Custom Decomposer":
         result = decompose_redshift(z_input_precise, n_hi_gal)
         
         m1, m2, m3, m4 = st.columns(4)
-        m1.metric("z_observed", f"{result['z_obs']:.4f}")
-        m2.metric("z_refrac", f"{result['z_refrac']:.4f}")
-        m3.metric("z_doppler", f"{result['z_doppler']:.4f}")
+        m1.metric("z_observed", f"{result['z_obs']:.3f}")
+        m2.metric("z_refrac", f"{result['z_refrac']:.3f}")
+        m3.metric("z_doppler", f"{result['z_doppler']:.3f}")
         m4.metric("β (v/c)", f"{result['beta']:.4f}")
         
         with st.expander("**What do these numbers mean?**", expanded=True):
             st.markdown(f"""
-            - **z_observed** = {result['z_obs']:.4f} — The total redshift you entered (how much the light has been stretched)
-            - **z_refrac** = {result['z_refrac']:.4f} — The portion caused by light scattering through hydrogen fog ({result['refrac_pct']:.1f}% of total)
-            - **z_doppler** = {result['z_doppler']:.4f} — The portion caused by the object moving away from us ({result['doppler_pct']:.1f}% of total)
+            - **z_observed** = {result['z_obs']:.3f} — The total redshift you entered (how much the light has been stretched)
+            - **z_refrac** = {result['z_refrac']:.3f} — The portion caused by light scattering through hydrogen fog ({result['refrac_pct']:.1f}% of total)
+            - **z_doppler** = {result['z_doppler']:.3f} — The portion caused by the object moving away from us ({result['doppler_pct']:.1f}% of total)
             - **β = {result['beta']:.4f}** — The object's required velocity as a fraction of light speed ({result['beta']*100:.1f}% of c, or about {result['beta']*299792:.0f} km/s)
             
             **Key insight:** TSM2.1 explains this redshift without needing space itself to expand. Instead, it's hydrogen fog + real motion through static space.
@@ -1273,8 +1281,8 @@ if st.session_state.selected_page == "Object Lookup":
                     result = decompose_redshift(z_obs)
                     
                     m1, m2, m3, m4 = st.columns(4)
-                    m1.metric("z_observed", f"{result['z_obs']:.6f}")
-                    m2.metric("z_model", f"{result['z_model']:.6f}")
+                    m1.metric("z_observed", f"{result['z_obs']:.3f}")
+                    m2.metric("z_model", f"{result['z_model']:.3f}")
                     m3.metric("Velocity", f"{result['beta']:.4f}c")
                     
                     if z_obs < 0.05:
