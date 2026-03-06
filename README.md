@@ -359,7 +359,7 @@ conda env create -f environment-windows.yml
 conda activate skin-a-cat
 ```
 
-If you skip healpy entirely, the pipeline will still run — HEALPix-specific map features will be disabled with a warning.
+If you skip healpy entirely, the pipeline will still run — HEALPix-specific map features will be disabled with a warning. Without healpy, the pipeline uses published reference N_HI values from Ben Bekhti+ 2016 and HI4PI survey papers. Results are identical for the 114-cluster aggregate and calibration targets.
 
 ---
 
