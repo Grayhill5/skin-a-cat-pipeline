@@ -187,6 +187,11 @@ for i in range(n_sample):
 
 df = pd.DataFrame(results)
 
+import os as _os
+_os.makedirs('results', exist_ok=True)
+df.to_csv('results/predictive_test_results.csv', index=False)
+print("Saved results/predictive_test_results.csv")
+
 slope, intercept, r_value, p_value, std_err = stats.linregress(df['z_obs'], df['z_pred'])
 r_squared = r_value ** 2
 mean_delta_z = df['delta_z'].abs().mean()
